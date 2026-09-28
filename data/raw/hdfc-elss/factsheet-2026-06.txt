@@ -1,0 +1,311 @@
+SOURCE DOCUMENT
+title        : HDFC Mutual Fund Factsheet - June 2026
+scheme       : HDFC ELSS Tax Saver
+source_type  : factsheet
+publisher    : HDFC Asset Management Company Limited
+source_url   : https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+as_of        : 2026-06-30
+pages        : 61, 62 (PDF index)
+retrieved    : 2026-09-28
+================================================================================
+
+For Product label and Riskometers, refer page no: 123-138
+61 | June 2026
+HDFC ELSS Tax Saver
+An open ended equity linked savings scheme with a statutory lock in of 3 years and tax benefit (This is a
+simple and performing scheme which is eligible for distribution by new cadre of distributors)
+CATEGORY OF SCHEME
+EQUITY LINKED SAVINGS SCHEME
+INVESTMENT OBJECTIVE: To generate capital appreciation / income from a portfolio, comprising predominantly of equity & equity related instruments. There is no
+assurance that the investment objective of the Scheme will be achieved.
+FUND MANAGER ¥
+Name Since Total Exp
+Amar
+Kalkundrikar
+December
+08, 2025 Over 24 years
+DATE OF ALLOTMENT/INCEPTION DATE
+March 31,1996
+NAV
+(As On JUNE 30, 2026)
+NAV PER
+UNIT(₹)
+Regular Plan - Growth Option 1,349.860
+Regular Plan - IDCW Option 65.513
+Direct Plan - Growth Option 1,466.127
+Direct Plan - IDCW Option 91.642
+ASSETS UNDER MANAGEMENT
+As on June 30, 2026
+Average for Month of June,
+2026
+₹15,685.17Cr.
+₹15,535.51Cr.
+QUANTITATIVE DATA
+Portfolio Turnover
+Equity Turnover
+Total Turnover
+18.59%
+18.70%
+Total Turnover = Equity + Debt + Derivative
+Risk Ratio
+Standard Deviation
+Beta
+Sharpe Ratio*
+13.559%
+0.828
+0.679
+Computed for the 3-yr period ended June 30,
+2026 Based on month-end NAV.* Risk free rate:
+5.52% (Source: FIMMDA MIBOR) For schemes
+which have not completed 3 years, data is
+computed since inception.
+EXPENSE RATIO
+(As On June 30, 2026)
+Base expense Ratio Including statutory levies on
+expenses part of BER, excluding brokerage, transaction
+cost and execution related statutory levies^
+Regular: 1.75% Direct: 1.18%
+#BENCHMARK INDEX
+NIFTY 500 Index (TRI)
+##ADDL. BENCHMARK INDEX
+Nifty 50 Index (TRI)
+LOCK-IN PERIOD
+3 years from the date of allotment of the
+respective Units
+EXIT LOAD$$
+Nil
+....Contd on next page
+PORTFOLIO
+Company/Instrument Industry+
+/Rating
+% to
+NAV
+EQUITY & EQUITY RELATED
+• ICICI Bank Ltd. Banks 9.64
+• HDFC Bank Ltd.£ Banks 8.44
+• Axis Bank Ltd. Banks 7.60
+• Maruti Suzuki India Limited Automobiles 4.95
+• State Bank of India Banks 4.58
+• Bharti Airtel Ltd. Telecom -
+Services 4.47
+• Kotak Mahindra Bank
+Limited Banks 4.38
+• SBI Life Insurance Company
+Ltd. Insurance 3.36
+• Reliance Industries Ltd. Petroleum
+Products 2.74
+• HCL Technologies Ltd. IT - Software 2.44
+Hyundai Motor India Limited Automobiles 2.43
+Power Grid Corporation of
+India Ltd. Power 2.01
+Eternal Limited Retailing 1.90
+Bajaj Auto Limited Automobiles 1.82
+Tata Steel Ltd. Ferrous Metals 1.80
+Britannia Industries Ltd. Food Products 1.72
+Infosys Limited IT - Software 1.70
+Larsen and Toubro Ltd. Construction 1.67
+JSW Steel Ltd. Ferrous Metals 1.56
+Apollo Hospitals Enterprise
+Ltd.
+Healthcare
+Services 1.52
+InterGlobe Aviation Ltd. Transport
+Services 1.37
+Bosch Limited Auto
+Components 1.27
+Dr. Lal Path Labs Ltd Healthcare
+Services 1.20
+Cipla Ltd. Pharmaceuticals
+& Biotechnology 1.15
+Karur Vysya Bank Ltd. Banks 1.13
+Star Health and Allied
+Insurance Company Ltd Insurance 1.13
+Alkem Laboratories Ltd. Pharmaceuticals
+& Biotechnology 1.10
+ICICI Lombard General
+Insurance Co Insurance 1.10
+Metropolis Healthcare Ltd. Healthcare
+Services 1.10
+Lupin Ltd. Pharmaceuticals
+& Biotechnology 1.08
+Jubilant Foodworks Limited Leisure Services 1.05
+United Spirits Limited Beverages 0.98
+MphasiS Limited. IT - Software 0.96
+ESCORTS KUBOTA LIMITED Agricultural,
+Commercial &
+Construction
+Vehicles 0.94
+PB Fintech Limited Financial
+Technology
+(Fintech) 0.93
+Tech Mahindra Ltd. IT - Software 0.90
+Godrej Consumer Products
+Ltd.
+Personal
+Products 0.84
+Eicher Motors Ltd. Automobiles 0.81
+Company/Instrument Industry+
+/Rating
+% to
+NAV
+Havells India Ltd. Consumer Durables 0.79
+Hindustan Unilever
+Ltd. Diversified Fmcg 0.74
+ICICI PRUDENTIAL
+ASSET MANAGEMENT
+COMPANY LIMITED Capital Markets 0.70
+Mahindra & Mahindra
+Ltd. Automobiles 0.68
+Birla Corporation Ltd. Cement & Cement
+Products 0.63
+Crompton Greaves
+Consumer Elec. Ltd. Consumer Durables 0.61
+Hindustan Aeronautics
+Limited Aerospace & Defense 0.50
+Chalet Hotels Ltd. Leisure Services 0.47
+The Ramco Cements
+Ltd.
+Cement & Cement
+Products 0.47
+Westlife Foodworld
+Limited Leisure Services 0.47
+Cohance Lifesciences
+Limited
+Pharmaceuticals &
+Biotechnology 0.41
+Teamlease Services
+Ltd.
+Commercial Services
+& Supplies 0.41
+Cyient Ltd. IT - Services 0.38
+Delhivery Limited Transport Services 0.30
+Popular Vehicles and
+Services Limited Automobiles 0.29
+Anthem Biosciences
+Limited
+Pharmaceuticals &
+Biotechnology 0.24
+Medi Assist Healthcare
+Services Limited Insurance 0.22
+Bajaj Electricals Ltd. Consumer Durables 0.18
+Tata Motors Limited Agricultural,
+Commercial &
+Construction Vehicles 0.16
+JK Lakshmi Cement Ltd Cement & Cement
+Products 0.15
+Sub Total 98.57
+DEBT & DEBT RELATED
+Government Securities (Central/State)
+7.38 GOI 2027 Sovereign 0.32
+Sub Total 0.32
+Cash,Cash Equivalents and Net Current Assets 1.11
+Grand Total 100.00
+• Top Ten Holdings, £ Sponsor
+ace alue / llotment N per Unit: ₹ , + Industry
+Classification as recommended by AMFI, Data is as of
+June 30, 2026 unless otherwise specified.
+¥ Dedicated Fund Manager for Overseas Investments:
+Mr. Dhruv Muchhal (since June 22, 2023)
+(Total Experience: Over 10 years).
+Please refer Minimum Application Amount, Plans &
+Options, on Page no. 104 to 106.
+$$ or further details, please refer to para ‘Exit Load’ on
+page no. 107.
+^ For Total Expense Ratio including brokerage,
+transaction cost and statutory levies please refer our
+website.
+
+62 | June 2026
+HDFC ELSS Tax Saver
+An open ended equity linked savings scheme with a statutory lock in of 3 years and tax benefit (This is a
+simple and performing scheme which is eligible for distribution by new cadre of distributors)
+....Contd from previous page
+CATEGORY OF SCHEME
+EQUITY LINKED SAVINGS SCHEME
+Industry llocation of E uity Holding
+of Net ssets
+an s
+utomobiles
+IT Software
+Insurance
+Telecom Ser ices
+harmaceuticals iotechnology
+Healthcare Ser ices
+errous etals
+etroleum roducts
+ower
+Leisure Ser ices
+etailing
+ood roducts
+Transport Ser ices
+onstruction
+onsumer urables
+uto omponents
+ement ement roducts
+gricultural, ommercial onstruction ehicles
+e erages
+inancial Technology intech
+ersonal roducts
+i ersi ied mcg
+apital ar ets
+erospace efense
+ommercial Ser ices Supplies
+IT Ser ices
+SIP PERFORMANCE ^ - Regular Plan - Growth Option
+Since
+Inception SIP
+15 year
+SIP
+10 year
+SIP
+5 year
+SIP
+3 year
+SIP
+1 year
+SIP
+Total mount In ested ₹ in Lacs 36.30 18.00 12.00 6.00 3.60 1.20
+ar et alue as on June , ₹ in Lacs $$ 1,728.40 54.70 24.94 8.22 3.93 1.16
+Returns (%) $$ 20.24 13.62 14.01 12.57 5.75 -5.97
+Benchmark Returns (%)# 14.80 13.79 13.70 10.76 6.60 1.52
+Additional Benchmark Returns (%)# # 13.35 12.14 11.72 7.57 3.35 -5.63
+ssuming ₹ , in ested systematically on the first usiness ay of e ery month o er a period of time G returns are
+computed after accounting for the cash flow by using XIRR method (investment internal rate of return) for Regular Plan -
+Growth Option. The above investment simulation is for illustrative purposes only and should not be construed as a promise on
+minimum returns and safeguard of capital.
+PERFORMANCE ^ - Regular Plan - Growth Option
+Date Period
+Scheme
+Returns
+(%) $$
+Benchmark
+Returns
+(%)#
+Additional
+Benchmark
+Returns (%)
+##
+Value of ₹ 10,000 invested
+Scheme (₹)
+$$
+Benchmark
+(₹)#
+Additional
+Benchmark
+(₹)##
+Jun 30, 25 Last 1 Year -5.30 -1.71 -5.42 9,470 9,829 9,458
+Jun 30, 23 Last 3 Years 14.69 12.92 8.80 15,092 14,403 12,882
+Jun 30, 21 Last 5 Years 15.88 12.40 9.98 20,905 17,945 16,097
+Jun 30, 16 Last 10 Years 13.35 13.89 12.50 35,040 36,738 32,501
+Mar 31, 96 Since Inception 21.24 13.91 12.43 3,405,133 516,270 346,798
+Returns greater than 1 year period are compounded annualized (CAGR) $$ All Distributions declared prior to the splitting of
+the Scheme into IDCW & Growth Options are assumed to be reinvested in the units of the Scheme at the then prevailing NAV
+(ex-distribution NAV). For performance of other schemes managed by Amar Kalkundrikar, please refer page 107. Different
+plans viz. Regular Plan and Direct Plan have a different expense structure. The expenses of the Direct Plan under the Scheme
+will be lower to the extent of the distribution expenses / commission charged in the Regular Plan. For Performance of Direct
+Plan, refer page 112 to 119. As TRI data is not available since inception of the scheme, additional benchmark performance is
+calculated using composite CAGR of NIFTY 50 PRI values from Mar 29, 96 (Data for March 31, 96 is not available) to Jun 29, 99
+and TRI values since Jun 30, 99. As NIFTY 500 TRI data is not available for March 31, 96, benchmark performance is calculated
+from March 29, 96.
+^Past performance may or may not be sustained in future and is not a guarantee of any future returns. Load is not
+taken into consideration for computation of performance.

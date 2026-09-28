@@ -1,0 +1,22 @@
+# Credentials. Never commit these.
+.env
+
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Virtualenv
+.venv/
+venv/
+
+# Vector store and logs are build artifacts, not source.
+chroma_db/
+data/processed/vector_index/
+data/logs/
+
+# Audit dumps are regenerable from data/raw via scripts/.
+data/processed/chunks.txt
+data/processed/embeddings.txt
+data/processed/ingest_report.json

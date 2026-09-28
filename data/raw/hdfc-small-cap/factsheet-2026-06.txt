@@ -1,0 +1,314 @@
+SOURCE DOCUMENT
+title        : HDFC Mutual Fund Factsheet - June 2026
+scheme       : HDFC Small Cap Fund
+source_type  : factsheet
+publisher    : HDFC Asset Management Company Limited
+source_url   : https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+as_of        : 2026-06-30
+pages        : 15, 16 (PDF index)
+retrieved    : 2026-09-28
+================================================================================
+
+For Product label and Riskometers, refer page no: 123-138
+15 | June 2026
+HDFC Small Cap Fund
+An open ended equity scheme predominantly investing in small cap stocks
+CATEGORY OF SCHEME
+SMALL CAP FUND
+INVESTMENT OBJECTIVE: To provide long-term capital appreciation /income by investing predominantly in Small -Cap companies. There is no assurance that the investment
+objective of the Scheme will be achieved.
+FUND MANAGER ¥
+Name Since Total Exp
+Chirag Setalvad June 28,
+2014 Over 29 years
+DATE OF ALLOTMENT/INCEPTION DATE
+April 03, 2008
+NAV
+(As On JUNE 30, 2026)
+NAV PER
+UNIT(₹)
+Regular Plan - Growth Option 136.844
+Regular Plan - IDCW Option 39.711
+Direct Plan - Growth Option 156.834
+Direct Plan - IDCW Option 63.491
+ASSETS UNDER MANAGEMENT €
+As on June 30, 2026
+Average for Month of June,
+2026
+₹40,416.80Cr.
+₹39,852.13Cr.
+QUANTITATIVE DATA
+Portfolio Turnover
+Equity Turnover
+Total Turnover
+8.15%
+8.15%
+Total Turnover = Equity + Debt + Derivative
+Risk Ratio
+Standard Deviation
+Beta
+Sharpe Ratio*
+17.858%
+0.764
+0.489
+Computed for the 3-yr period ended June 30,
+2026 Based on month-end NAV.* Risk free rate:
+5.52% (Source: FIMMDA MIBOR) For schemes
+which have not completed 3 years, data is
+computed since inception.
+EXPENSE RATIO
+(As On June 30, 2026)
+Base expense Ratio Including statutory levies on
+expenses part of BER, excluding brokerage, transaction
+cost and execution related statutory levies^
+Regular: 1.55% Direct: 0.76%
+#BENCHMARK INDEX
+BSE 250 Smallcap Index (TRI)
+##ADDL. BENCHMARK INDEX
+Nifty 50 Index (TRI)
+EXIT LOAD$$
+• In respect of each purchase / switch-in of
+Units, an Exit Load of 1.00% is payable if Units
+are redeemed / switched-out within 1 year from
+the date of allotment.
+• No Exit Load is payable if Units are redeemed
+/ switched-out after 1 year from the date of
+allotment
+....Contd on next page
+PORTFOLIO
+Company Industry+ % to
+NAV
+EQUITY & EQUITY RELATED
+• Aster DM Healthcare Limited Healthcare Services 3.83
+• Firstsource Solutions Ltd. Commercial Services &
+Supplies 3.31
+• Bank of Baroda Banks 3.16
+• Gabriel India Ltd. Auto Components 3.00
+• Eris Lifesciences Ltd Pharmaceuticals &
+Biotechnology 2.33
+• Fortis Healthcare Limited Healthcare Services 2.24
+• Krishna Institute Of Medical
+Sciences Limited Healthcare Services 2.24
+• eClerx Services Limited Commercial Services &
+Supplies 2.10
+• Apar Industries Limited Electrical Equipment 1.96
+• Indian Bank Banks 1.96
+The Federal Bank Ltd. Banks 1.70
+Home First Finance Company
+India Ltd Finance 1.68
+Great Eastern Shipping
+Company Ltd. Transport Services 1.66
+Kalpataru Projects
+International Ltd Construction 1.57
+Power Mech Projects Ltd. Construction 1.50
+Timken India Ltd. Industrial Products 1.50
+Vardhman Textiles Ltd. Textiles & Apparels 1.48
+Aditya Vision Limited Retailing 1.43
+Chalet Hotels Ltd. Leisure Services 1.40
+PEARL GLOBAL INDUSTRIES
+LIMITED Textiles & Apparels 1.39
+City Union Bank Ltd. Banks 1.38
+JSW Dulux Limited Consumer Durables 1.36
+PVR LIMITED Entertainment 1.36
+Suprajit Engineering Ltd. Auto Components 1.35
+Sonata Software Ltd. IT - Software 1.33
+Dodla Dairy Limited Food Products 1.30
+Godrej Consumer Products Ltd. Personal Products 1.30
+Equitas Small Finance Bank Ltd Banks 1.27
+Sudarshan Chemical Industries
+Limited
+Chemicals &
+Petrochemicals 1.26
+CIE Automotive India Ltd Auto Components 1.23
+Blue Dart Express Ltd. Transport Services 1.22
+FIEM INDUSTRIES LIMITED Auto Components 1.21
+Vishal Mega Mart Limited Retailing 1.20
+Sharda Cropchem Ltd. Fertilizers &
+Agrochemicals 1.18
+LG Balakrishnan & Bros Ltd. Auto Components 1.10
+Transport Corporation of India
+Ltd. Transport Services 1.09
+JK Tyre & Industries Limited Auto Components 1.07
+Vijaya Diagnostic Centre
+Limited Healthcare Services 1.06
+Voltamp Transformers Ltd. Electrical Equipment 1.03
+Chambal Fertilizers &
+Chemicals Ltd.
+Fertilizers &
+Agrochemicals 0.99
+TEGA INDUSTRIES LIMITED Industrial Manufacturing 0.98
+NRB Bearing Ltd. Auto Components 0.96
+Redington Ltd. Commercial Services &
+Supplies 0.93
+Kirloskar Ferrous
+Industries Ltd. Ferrous Metals 0.90
+UTI Asset Management
+Company Ltd Capital Markets 0.90
+Shoppers Stop Ltd. Retailing 0.88
+Zensar Technologies Ltd. IT - Software 0.88
+Company Industry+ % to
+NAV
+The Anup Engineering
+Limited
+Industrial
+Manufacturing 0.85
+VRL Logistics Ltd. Transport Services 0.84
+Bajaj Consumer Care Ltd. Personal Products 0.81
+SKF India (Industrial)
+Limited Industrial Products 0.79
+Indigo Paints Limited Consumer Durables 0.76
+Redtape Limited Consumer Durables 0.75
+PNC Infratech Ltd. Construction 0.74
+Lumax Industries Ltd Auto Components 0.73
+Aadhar Housing Finance
+Limited Finance 0.72
+Tata Steel Ltd. Ferrous Metals 0.72
+KEC International Ltd. Construction 0.64
+Unichem Laboratories Ltd. Pharmaceuticals &
+Biotechnology 0.62
+Mastek Ltd. IT - Software 0.53
+AWFIS SPACE SOLUTIONS
+LIMITED
+Commercial
+Services & Supplies 0.50
+Bajaj Electricals Ltd. Consumer Durables 0.49
+ION EXCHANGE (INDIA)
+LIMITED Other Utilities 0.49
+Gateway Distriparks
+Limited Transport Services 0.48
+KEI Industries Ltd. Industrial Products 0.47
+Wakefit Innovations
+Limited Consumer Durables 0.47
+SKF India Ltd. Auto Components 0.46
+Vesuvius India Ltd. Industrial Products 0.45
+Insecticides (India) Ltd. Fertilizers &
+Agrochemicals 0.42
+La Opala RG Limited Consumer Durables 0.42
+GMM Pfaudler Limited Industrial
+Manufacturing 0.41
+GNA Axles Ltd. Auto Components 0.36
+Emami Ltd. Personal Products 0.34
+G R Infraprojects Limited Construction 0.34
+Gujarat Pipavav Port Ltd. Transport
+Infrastructure 0.33
+Ifgl Refractories Limited
+(Erst Ifgl Exports Limited) Industrial Products 0.29
+Brainbees Solutions
+Limited (FirstCry) Retailing 0.27
+D B Corp Limited Media 0.23
+Goodyear India Ltd. Auto Components 0.23
+SULA VINEYARDS LIMITED Beverages 0.23
+Carborundum Universal
+Ltd. Industrial Products 0.19
+BEML Limited Agricultural,
+Commercial &
+Construction
+Vehicles 0.18
+TCI Express Ltd. Transport Services 0.13
+Sub Total 89.84
+Cash,Cash Equivalents and Net Current Assets 10.16
+Grand Total 100.00
+• Top Ten Holdings
+ace alue / llotment N per Unit: ₹ , + Industry
+Classification as recommended by AMFI, Data is as of June 30,
+2026 unless otherwise specified.
+¥ Dedicated Fund Manager for Overseas Investments:
+Mr. Dhruv Muchhal (since June 22, 2023)
+(Total Experience: Over 10 years).
+€ Includes in estments made by the schemes of H utual
+und aggregating to ₹ rores
+Please refer Minimum Application Amount, Plans & Options, on
+Page no. 104 to 106.
+$$ or further details, please refer to para ‘Exit Load’ on
+page no. 107.
+^ For Total Expense Ratio including brokerage,
+transaction cost and statutory levies please refer our
+website.
+
+16 | June 2026
+HDFC Small Cap Fund
+An open ended equity scheme predominantly investing in small cap stocks
+....Contd from previous page
+CATEGORY OF SCHEME
+SMALL CAP FUND
+Industry llocation of E uity Holding
+of Net ssets
+uto omponents
+an s
+Healthcare Ser ices
+ommercial Ser ices Supplies
+Transport Ser ices
+onstruction
+onsumer urables
+etailing
+Industrial roducts
+Electrical E uipment
+harmaceuticals iotechnology
+Textiles pparels
+IT Software
+ertili ers grochemicals
+ersonal roducts
+inance
+Industrial anufacturing
+errous etals
+Leisure Ser ices
+Entertainment
+ood roducts
+hemicals etrochemicals
+apital ar ets
+ther Utilities
+Transport Infrastructure
+edia
+e erages
+gricultural, ommercial onstruction ehicles
+SIP PERFORMANCE ^ - Regular Plan - Growth Option
+Since Inception
+SIP
+15 year
+SIP
+10 year
+SIP
+5 year
+SIP
+3 year
+SIP
+1 year
+SIP
+Total mount In ested ₹ in Lacs 21.90 18.00 12.00 6.00 3.60 1.20
+ar et alue as on June , ₹ in Lacs 127.68 76.32 29.72 8.32 3.92 1.21
+Returns (%) 17.02 17.45 17.28 13.07 5.61 0.92
+Benchmark Returns (%)# 14.34 15.59 17.06 15.02 9.21 13.47
+Additional Benchmark Returns (%)# # 12.01 12.14 11.72 7.57 3.35 -5.63
+ssuming ₹ , in ested systematically on the first usiness ay of e ery month o er a period of time G returns are
+computed after accounting for the cash flow by using XIRR method (investment internal rate of return) for Regular Plan -
+Growth Option. The above investment simulation is for illustrative purposes only and should not be construed as a promise on
+minimum returns and safeguard of capital.
+PERFORMANCE ^ - Regular Plan - Growth Option
+Date Period
+Scheme
+Returns
+(%)
+Benchmark
+Returns
+(%)#
+Additional
+Benchmark
+Returns (%)
+##
+Value of ₹ 10,000 invested
+Scheme (₹) Benchmark
+(₹)#
+Additional
+Benchmark
+(₹)##
+Jun 30, 25 Last 1 Year -2.73 -0.22 -5.42 9,727 9,978 9,458
+Jun 30, 23 Last 3 Years 13.42 17.74 8.80 14,595 16,327 12,882
+Jun 30, 21 Last 5 Years 15.68 16.15 9.98 20,727 21,146 16,097
+Jun 30, 16 Last 10 Years 17.19 15.40 12.50 48,910 41,924 32,501
+Apr 03, 08 Since Inception 15.41 10.86 10.54 136,844 65,627 62,235
+Returns greater than 1 year period are compounded annualized (CAGR). For performance of other schemes managed by Chirag
+Setalvad, please refer page 107. Different plans viz. Regular Plan and Direct Plan have a different expense structure. The
+expenses of the Direct Plan under the Scheme will be lower to the extent of the distribution expenses / commission charged in
+the Regular Plan. For Performance of Direct Plan, refer page 112 to 119.
+^Past performance may or may not be sustained in future and is not a guarantee of any future returns. Load is not taken
+into consideration for computation of performance.

@@ -1,0 +1,386 @@
+SOURCE DOCUMENT
+title        : Statement of Additional Information (SAI) - extract: Rights of Unit Holders / Disclosure and Reports (Account Statements, Consolidated Account Statement, MFCentral)
+scheme       : Cross-scheme
+source_type  : guide
+publisher    : HDFC Asset Management Company Limited
+source_url   : https://files.hdfcfund.com/s3fs-public/2025-09/SAI%20with%20updated%20Addendum%20dated%20September%2025%2C%202025.pdf?VersionId=wYHYr8mNBYkj28b0m6_KtwBr9S25IeIa
+doc_date     : 2025-06-30 (addendum dated 2025-09-25)
+as_of        : 2025-09-25
+pages        : 85, 86, 169 (PDF index)
+retrieved    : 2026-09-28
+================================================================================
+
+HDFC MF SAI - dated June 30, 2025
+77
+For more details, investors are advised to refer to ‘Scheme
+Information Document’ of the respective Scheme(s) of
+HDFC Mutual Fund.
+MF Central
+As per clause 16.6 of Master Circular, to comply with the
+requirements of RTA inter-operable Platform for enhancing
+investors’ experience in Mutual Fund transactions/service
+requests, the Qualified RTAs, currently, Kfin Technologies Private
+Limited (“KFintech”) and Computer Age Management Services
+Limited (“CAMS”) have jointly developed MFCentral - A digital
+platform for Mutual Fund investors (hereinafter referred to as
+“MFCentral” or “the Platform”).
+MFCentral is created with an intent to be a one stop portal/
+mobile app for all Mutual fund investments and service-related
+needs that significantly reduces the need for submission
+of physical documents by enabling various digital/physical
+services to Mutual fund investors across fund houses subject
+to applicable Terms and Conditions of the Platform. MFCentral
+will be enabling various features and services in a phased
+manner. MFCentral may be accessed using https://mfcentral.
+com/and a Mobile App in future.
+Any registered user of MFCentral, requiring submission of
+physical document as per the requirements of MFCentral, may
+do so at any of the DISCs or collection centres of Kfintech
+or CAMS. Investors can also fetch their holding statement(s),
+Consolidated account statement(s) and can avail nomination
+facility through DigiLocker mechanism whereby DigiLocker
+Nominee/s can then access the digital information of the
+deceased DigiLocker user, through the nominee’s own DigiLocker
+account after authentication.
+TRANSACTIONS THROUGH MF UTILITY (“MFU”)
+The AMC has entered into an Agreement with MF Utilities
+India Private Limited (“MFUI”), a “Category II - Registrar to an
+Issue” under SEBI (Registrars to an Issue and Share Transfer
+Agents) Regulations, 1993, for usage of MF Utility (“MFU”) a
+“Shared Services” initiative formed by the Asset Management
+Companies of SEBI registered Mutual Funds under the aegis
+of Association of Mutual Funds in India (AMFI). MFU acts as
+a transaction aggregation portal for enabling transaction in
+multiple Schemes of various Mutual Funds with a single form
+and a single payment instrument. Both financial and non-
+financial transactions pertaining to Scheme(s) of HDFC Mutual
+Fund (‘the Fund’) can be done through MFU at the authorized
+Points of Service (“POS”) of MFUI. The details of POS with effect
+from the respective dates published on MFU website at www.
+mfuindia.com will be considered as Official Point of Acceptance
+(OPA) for transactions in the Scheme(s) of the Fund.
+Additionally, such transactions can also be carried out
+electronically on the online transaction portal of MFU at www.
+mfuonline.com as and when such a facility is made available by
+MFUI and that the same will be considered OPA for transactions
+in the Scheme(s) of the Fund.
+The key features of MFU are:
+1. Investors will be required to obtain Common Account
+Number (“CAN”) for transacting through MFU.
+2. Investors can create a CAN by submitting the CAN
+Registration Form (CRF) and necessary documents at the
+Point of Service (POS) of MFUI. HDFC AMC and/or CAMS,
+Registrar and Transfer Agent (RTA) of the Fund shall provide
+necessary details to MFUI as may be needed for providing
+the required services to investors/distributors through MFU.
+3. Investors will be allotted a CAN, a single reference number
+for all investments across Mutual Funds, for transacting in
+multiple Schemes of various Mutual Funds through MFU
+and to map existing folios, if any.
+4. Currently, the transactions facilitated through MFU for the
+investors are:
+(i) CAN registration;
+(ii) Submission of documents to KRAs for KYC Registration;
+(iii) Financial transactions like Purchases, Redemptions and
+Switches, Registration of Systematic Transactions like
+Systematic Investments (SIP) using a single Mandate,
+Systematic Withdrawals (SWP) and Systematic Transfers
+(STP);
+(iv) Non-financial transactions (NFT) like Bank Account
+changes, facilitating change of address through KRAs
+etc. based on duly signed written requests from the
+Investors.
+5. The CRF and other relevant forms for transacting through
+MFU can be downloaded from MFUI website at www.
+mfuindia.com or can be obtained from MFUI POS.
+6. Investors transacting through MFU shall be deemed to have
+consented to exchange of information viz. personal and/
+or financial (including the changes, if any) between the
+Fund/HDFC AMC and MFUI and/or its authorized service
+providers for validation and processing of transactions
+carried out through MFU.
+7. For details on carrying out the transactions through MFU
+or any queries or clarifications related to MFU, investors
+are requested to contact the Customer Care of MFUI on
+1800-266-1415 (during the business hours on all days
+except Sunday and Public Holidays) or send an email to
+clientservices@mfuindia.com. Investors of the Fund can
+also get in touch with Investor Service Centres (ISCs) of
+HDFC AMC to know more about MFU.
+8. For any escalations and post-transaction queries pertaining
+to Scheme(s) of the Fund, the Investors are requested to
+get in touch with the ISCs of HDFC AMC.
+The transactions carried out through MFU shall be subject to
+the terms & conditions as may be stipulated by MFUI/Fund/
+HDFC AMC from time to time. The terms & conditions of
+offering of the Scheme(s) of the Fund as specified in the Scheme
+Information Document (SID), Key Information Memorandum
+(‘KIM’) and Statement of Additional Information (‘SAI’) shall
+be applicable to transactions through MFU.
+Default Scenarios available to the investors under Plans/
+Options of the Schemes:
+All schemes (except Exchange Traded Funds) offer Direct and
+Regular Plan to the investors for investments.
+Direct Plan is for investors who wish to invest directly without
+routing the investment through any distributor.
+Regular Plan is for investors who wish to route their investment
+through any distributor.
+Investors should indicate the Plan viz. Regular/Direct for
+which the subscription is made by indicating the choice in the
+appropriate box provided for this purpose in the application
+form. In case of valid applications received without indicating
+any choice of Plan, the application will be processed for the
+Plan as under:
+
+78
+HDFC MF SAI - dated June 30, 2025
+Scenario ARN Code
+mentioned by
+the investor
+Plan mentioned
+by the investor
+Default Plan to
+be captured
+1 Not mentioned Not mentioned Direct Plan
+2 Not mentioned Direct Direct Plan
+3 Not mentioned Regular Direct Plan
+4 Mentioned Direct Direct Plan
+5 Direct Not Mentioned Direct Plan
+6 Direct Regular Direct Plan
+7 Mentioned Regular Regular Plan
+8 Mentioned Not Mentioned Regular Plan
+In cases of wrong/invalid/incomplete ARN codes are mentioned
+on the application form, the application shall be processed
+under Regular Plan. The AMC shall contact and obtain the
+correct ARN code within 30 calendar days of the receipt of
+the application form from the investor/distributor. In case, the
+correct code is not received within 30 calendar days, the AMC
+shall reprocess the transaction under Direct Plan from the date
+of application without any exit load.
+In case an investor submits an application with ARN number
+which is valid, but the broker/distributor is not empanelled with
+the AMC, the transaction will be processed under “Direct Plan”
+or in the manner notified by SEBI/AMFI from time to time.
+The financial transactions# of an investor where his distributor’s
+AMFI Registration Number (ARN) has been suspended
+temporarily or terminated permanently received during the
+suspension period shall be processed under “Direct Plan” and
+continue to be processed under “Direct Plan” perpetually unless
+after suspension of ARN is revoked, unitholder makes a written
+request to process the future installments/investments under
+“Regular Plan”. Any financial transactions requests received
+through the stock exchange platform, from any distributor
+whose ARN has been suspended, shall be rejected.
+# Financial Transactions shall include all Purchase/Switch
+requests (including under fresh registrations of Systematic
+Investment Plan (“SIP”)/Systematic Transfer Plan (“STP”) or
+under SIPs/STPs registered prior to the suspension period).
+Treatment of transactions received under Regular Plan
+with invalid ARN
+Transactions received in Regular Plan with Invalid ARN shall be
+processed in Direct Plan of the same Scheme (even if reported
+in Regular Plan), applying the below logic:
+Transaction
+Type
+Primary ARN SUB distributor
+ARN
+EUIN* Execution
+Only
+Mentioned
+Regular
+Plan/
+Direct
+PlanValid Invalid Empan-
+elled
+Valid Invalid Valid Yes
+Lump Sum Y Y Y Regular
+Registration Y N Not applicable Direct
+Y Y N.A. N.A. N.A. N Regular*
+Y Y Y Y Regular
+Y Direct
+Y Y Y Y Regular
+Y Y Y Direct
+Trigger Y Not applicable Regular
+Y Not applicable Direct
+“Invalid ARNs” shall include the following situations:–
+1. ARN validity period expired
+2. ARN cancelled/terminated
+3. ARN suspended
+4. ARN Holder deceased
+5. Nomenclature change, as required pursuant to IA
+Regulations, not complied by the MFD
+6. MFD is debarred by SEBI
+7. ARN not present in AMFI ARN database
+8. ARN not empanelled with an AMC
+VII.RIGHTS OF UNITHOLDERS OF THE
+SCHEME
+● Unit holders of the Scheme have a proportionate right in
+the beneficial ownership of the assets of the Scheme.
+● When the Mutual Fund declares a an Income Distribution
+cum Capital Withdrawal (IDCW)/dividend under a
+Scheme, the IDCW/dividend warrants shall be transferred/
+despatched to the Unitholders within 7 working days from
+the record date of such declaration of IDCW/dividend or
+such other timeline as may be prescribed by SEBI from
+time to time. In the event of failure to transfer IDCW/
+dividend within the stipulated period, the AMC shall be
+liable to pay interest @ 15% per annum on the delayed
+payment to the Unitholders for the delay in payment as
+computed from the Record Date or from such other date
+or for such period as may be advised by SEBI from time
+to time.
+● On acceptance of a valid application/transaction request
+for Purchase (including SIP instalments), Switch, Redemption,
+STP , SWP , IDCW/Dividend reinvestment , an allotment
+confirmation specifying the number of units allotted by
+way of email and/or SMS within 5 working days from the
+date of receipt of application/transaction request/closure
+of New Fund Offer (NFO) shall be sent to the Unit holders
+registered e-mail address and/or mobile number (whether
+units are held in demat mode or in account statement
+form).
+a) For Unitholders having any security in Dematerialised
+form and having Mutual Fund (MF) folios:
+(i) The depositories shall dispatch the Securities
+Consolidated Account Statement (SCAS) within
+– 12 days from the month end where there are
+transactions either in MF or Demat account based
+on the data provided by MF Registrar & Transfer
+Agent (RTA) in respect of MF units;
+(i) In case of no transactions in either MF or Demat
+account, SCAS shall be sent on a Half- yearly basis
+showing the holding details by the Depositories.
+b) For investors having only mutual fund folios and no
+Demat account a Consolidated Account Statement
+(CAS) shall be sent within 15 days from the month
+end where there are transactions by mail/e-mail by
+the AMC/RTA.
+c) Half-yearly CAS shall be issued to all investors providing
+the prescribed details across all schemes of mutual
+funds and securities held in dematerialized form across
+demat accounts, if applicable, at the end of every six
+months (i.e. September/March) on or before 18th day
+
+HDFC MF SAI - dated June 30, 2025
+161
+For instance: If the investment amount is Rs. 100,000, the stamp
+duty will be calculated as follows: (Investment Amount *0.005)
+= Rs. 5. If the applicable Net Asset Value (NAV) is Rs. 10 per
+unit, then units allotted will be calculated as follows: (Investment
+Amount - Stamp Duty)/ Applicable NAV = 9,999.50 units.
+X. DISCLOSURE AND REPORTS BY THE
+FUND:
+1) Account Statements/Consolidated Account Statement
+1. An allotment confirmation specifying the units allotted
+shall be sent by way of email and/or SMS within 5
+working days of the closure of the NFO Period/date of
+receipt of valid request during continuous offer period
+to the Unit holder's registered e-mail address and/
+or mobile number (whether units are held in demat
+mode or in account statement form).
+2. The holding(s) of the beneficiary account holder
+for units held in demat mode will be shown in the
+statement issued by respective Depository Participants
+(DPs) periodically.
+3. A Consolidated Account Statement (CAS) detailing all the
+transactions across all mutual funds and holdings at the
+end of the month and securities held in dematerialized
+form across demat accounts, if applicable shall be
+sent to the Unit holders in whose folio(s) transaction(s)
+have taken place during the month on registered email
+address on or before 12th of the succeeding month
+and by 15th of the succeeding month for those who
+have opted for physical copy.
+4. Half-yearly CAS shall be issued to all investors providing
+the prescribed details across all schemes of mutual
+funds and securities held in dematerialized form across
+demat accounts, if applicable, at the end of every six
+months (i.e. September/March) on or before 18th day
+of succeeding month on registered email address and
+21st day of succeeding month through physical copy
+for those who do not have registered email addresses.
+5. Half yearly CAS will not be sent to those Unit holders
+who do not have any holdings in the schemes of
+mutual fund and where no commission against their
+investment has been paid to distributors, during the
+concerned half-year period.
+6. The periodical CAS will be sent by the Depositories
+to investors holding demat accounts (whether or not
+units are held in demat form) referred to as “SCAS”
+and by Mutual Fund Industry to other investors referred
+to as “MF-CAS”.
+7. The periodical CAS are issued on the basis of Permanent
+Account Number (PAN). Thus, CAS shall not be received
+by the Unit holders for the folios not updated with
+PAN. Unit holders are therefore requested to ensure
+that the folios are updated with their PAN/KYC details.
+8. For folios of the Fund not included in the CAS (due
+to non-availability of PAN), the AMC shall issue the
+necessary account statements within prescribed timeline
+by mail or email.
+9. In the event the account has more than one registered
+holder, the first named Unit holder shall receive the
+CAS/account statement.
+10. The Unit holder may request for a physical account
+statement without any charges by writing to/calling the
+AMC/ISC/RTA. The Mutual Fund/AMC shall despatch
+an account statement within 5 working days from the
+date of the receipt of request from the Unit holder.
+Pursuant to, clauses 14.4.3 and 11.3 of Master Circular,
+the following additional disclosures will be provided in the
+CAS issued to the investors:
+● Each CAS/SCAS shall also provide the total purchase
+value/cost of investment in each scheme. Further,
+whenever distributable surplus is distributed, a clear
+segregation between income distribution (appreciation
+on NAV) and capital distribution (Equalization Reserve)
+shall be suitably disclosed.
+● CAS/SCAS issued for the half-year (ended September/
+March) shall also provide (i) the amount of actual
+commission paid by the AMC/Fund to distributors (in
+absolute terms) during the half-year period, and (ii) the
+scheme’s average Total Expense Ratio (in percentage
+terms) along with the break up between Investment
+and Advisory fees, Commission paid to the distributor
+and Other expenses for the half-year period for the
+scheme’s applicable Option (regular or direct or both)
+where the concerned investor has actually invested in.
+● The term ‘commission’ refers to all direct monetary
+payments and other payments made in the form of
+gifts/rewards, trips, event sponsorships etc. by the
+AMC/Fund to distributors. The commission disclosed is
+gross commission and does not exclude costs incurred
+by distributors such as Goods & Service Tax (wherever
+applicable, as per existing rates), operating expenses, etc.
+Further information pertaining to SCAS sent by
+Depositories:
+● CAS shall be dispatched by the Depositories/MFs as
+per the rules specified by SEBI from time to time.
+2) Half Yearly Disclosures/Portfolio Disclosures/Financial
+Results
+Fortnightly Disclosures (applicable to open-ended
+debt schemes)
+The AMC will disclose portfolio (along with ISIN and other
+prescribed details) of the Scheme, in the prescribed format,
+on fortnightly basis on its website viz. www.hdfcfund.
+com and on the website of Association of Mutual Funds
+in India (AMFI) viz. www.amfiindia.com within 5 days of
+every fortnight.
+Monthly and Half yearly Disclosures
+The AMC will disclose portfolio (along with ISIN and other
+prescribed details) of the Scheme, in the prescribed format,
+as on the last day of the month/half-year i.e. March 31
+and September 30, on its website viz. www.hdfcfund.com
+and on the website of Association of Mutual Funds in
+India (AMFI) viz. www.amfiindia.com within 10 days from
+the close of each month/half-year respectively. In case of
+unitholders whose e-mail addresses are registered, the
+Mutual Fund/AMC will send via email both the monthly
+and half-yearly statement of scheme portfolio within 10
+days from the close of each month/half-year respectively.
+AMC will publish an advertisement every half-year in the all
+India edition of at least two daily newspapers, one each in
+English and Hindi, disclosing the hosting of the half-yearly
+statement of the Scheme portfolio on its website and on
+the website of Association of Mutual Funds in India (AMFI).
+AMC will provide a physical copy of the statement of its

@@ -1,0 +1,12 @@
+# Pinned from the working local environment. numpy is a hard pin: 1.26.x breaks
+# torch with "module 'numpy' has no attribute 'long'".
+sentence-transformers==6.1.0
+torch==2.5.1
+numpy==2.5.3
+python-dotenv==1.2.3
+groq==1.7.0
+streamlit==1.42.0
+
+# chromadb and onnxruntime are deliberately absent. Chroma's native write still
+# segfaults on this project (see docs/chunking_strategy.md), and retrieval runs
+# off the NumPy index in app/localindex.py instead.

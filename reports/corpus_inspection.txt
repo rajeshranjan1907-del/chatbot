@@ -1,0 +1,477 @@
+====================================================================================================
+CORPUS INSPECTION - mutual fund FAQ corpus
+====================================================================================================
+files scanned : 13
+longest lines shown per file: 15
+
+1. PER-FILE SHAPE
+----------------------------------------------------------------------------------------------------
+chars/lines are raw pypdf output. uP* are logical-paragraph stats AFTER de-wrapping.
+file                                          chars lines  uPar  uP50  uP90  uPmax  maxL head  num
+----------------------------------------------------------------------------------------------------
+general\investor-charter-2024-05.txt          13087   275     8  1555  2550   3794    97    1   21
+general\riskometer-benchmark-annexure-2026-06.txt  35002  1523    32   766  2381   2500   127    0   46
+general\sai-investor-statements-2025-09.txt   17767   372     5  5227  6152   6168    68    1    9
+hdfc-balanced-advantage\factsheet-2026-06.txt  21040   675    29    66  2213   4285   166   20   54
+hdfc-balanced-advantage\kim-2025-11.txt       64172  1137    28  2737  3605   4068   111    3   51
+hdfc-elss\factsheet-2026-06.txt                8763   299    17   159  1767   3093   158   13   27
+hdfc-elss\kim-2025-11.txt                     61170  1082    24  3006  3650   4039   111    2   49
+hdfc-flexi-cap\factsheet-2026-06.txt           9489   316    17   215  1877   2724   167   13   28
+hdfc-flexi-cap\kim-2025-11.txt                63041  1108    26  2764  3654   3966   111    2   49
+hdfc-large-cap\factsheet-2026-06.txt           7839   254    16   177  1446   2710   164   12   27
+hdfc-large-cap\kim-2025-11.txt                63197  1130    25  2779  3640   4098   111    1   49
+hdfc-small-cap\factsheet-2026-06.txt           9281   302    16    98  2374   2537   165   12   27
+hdfc-small-cap\kim-2025-11.txt                63051  1098    24  2852  3731   3969   111    1   46
+
+2. AGGREGATE LINE-LENGTH DISTRIBUTION  (the atomic unit a chunker must not break)
+----------------------------------------------------------------------------------------------------
+total characters        : 436,899
+total lines             : 9,571
+total paragraphs        : 150
+paragraph p50 / p90 / p99: 2815 / 3992 / 6522
+paragraph max           : 13,086
+line    p50 / p90 / p99 / max : 31 / 94 / 104 / 167
+
+  NOTE: `paragraph` here means a blank-line-separated block. The corpus has
+  only 150 of them across 436,899 chars because pypdf emits
+  one line per typeset row with no blank lines. A `\n\n` splitter would yield
+  150 blobs averaging 2,910 chars each -- unusable.
+  Section 2b measures what de-wrapping actually produces.
+
+2b. AFTER DE-WRAPPING  (the real atomic units the chunker will split on)
+----------------------------------------------------------------------------------------------------
+logical paragraphs      : 267  (from 9,571 physical lines)
+bare page numbers dropped: 0  (only when adjacent to a '<page> | <Month>' header)
+p50 / p90 / p99 / max   : 1706 / 3470 / 4605 / 6168
+mean                    : 1629
+
+logical-paragraph length histogram:
+       0-200      73   27.3%  ################
+     200-400      18    6.7%  ####
+     400-600       6    2.2%  #
+     600-900      11    4.1%  ##
+    900-1300      12    4.5%  ###
+      1300-+     147   55.1%  #################################
+
+  logical paragraphs > 400 chars :    176  (65.9%)
+  logical paragraphs > 900 chars :    159  (59.6%)
+  logical paragraphs >1300 chars :    147  (55.1%)
+
+
+line-length histogram:
+        0-40    5492   57.4%  ##################################
+       40-80    1471   15.4%  #########
+      80-120    2563   26.8%  ################
+     120-180      45    0.5%  
+     180-260       0    0.0%  
+     260-400       0    0.0%  
+       400-+       0    0.0%  
+
+3. STRUCTURAL SIGNALS  (drives chunk boundaries and the `section` metadata)
+----------------------------------------------------------------------------------------------------
+recognised headings     :      81  (0.8% of lines)
+numeric-with-unit lines :     483  (5.0% of lines)  <- PROTECTED UNITS
+'Label: value' lines     :     184  (1.9% of lines)
+boilerplate lines       :      58  (0.6% of lines)  <- must be stripped
+
+4. MOST COMMON HEADINGS ACROSS THE CORPUS
+----------------------------------------------------------------------------------------------------
+    19x  NAV
+    12x  CATEGORY OF SCHEME
+     8x  PORTFOLIO
+     5x  FUND MANAGER ¥
+     5x  DATE OF ALLOTMENT/INCEPTION DATE
+     5x  NAV PER
+     5x  QUANTITATIVE DATA
+     5x  EXPENSE RATIO
+     5x  Account Statements:
+     3x  ASSETS UNDER MANAGEMENT €
+     2x  ASSETS UNDER MANAGEMENT
+     1x  SERVICES PROVIDED FOR INVESTORS
+     1x  MF Central
+     1x  NAV.
+     1x  Exit Load:
+     1x  LOCK-IN PERIOD
+     1x  Exit Load: Nil
+     1x  Exit Load: -
+
+5. MOST COMMON BOILERPLATE (strip candidates)
+----------------------------------------------------------------------------------------------------
+     5x  ....Contd on next page
+     5x  ....Contd from previous page
+     5x  For Product label and Riskometers, refer page no: 123-138
+     1x  Page 4 of 8
+     1x  Page 1 of 8
+     1x  Page 2 of 8
+     1x  Page 3 of 8
+     1x  Page 7 of 8
+     1x  Page 8 of 8
+     1x  Page 5 of 8
+     1x  Page 6 of 8
+     1x  133 | June 2026
+     1x  129 | June 2026
+     1x  131 | June 2026
+     1x  126 | June 2026
+
+6. THE LONGEST LINES PER FILE  (reveals whether table rows survive as single units)
+----------------------------------------------------------------------------------------------------
+
+### general\investor-charter-2024-05.txt
+  [  97    ] 13.To p r o t e ct o n e s e l f b y n ot is su i n g b la n k ch e qu e s o r b la n k si gn e d
+  [  94    ] 1. * All the above-mentioned time taken for providing service (Financial & Non-Financial) will
+  [  94    ] 2. If the investor’s complaint is not redressed satisfactorily, one may lodge a complaint with
+  [  91    ] 12.To protect oneself by not falling for the promise of indicative or exorbitant or assured
+  [  90    ]  To pool money by issuing units to the investors at the applicable Net Asset Value (NAV).
+  [  89    ] transparency and ethics by enacting regulations to govern the functioning of mutual funds
+  [  89    ] professional and ethical standards in all areas of operation of the mutual fund industry.
+  [  89    ] liable for suitable action as deemed fir in terms of SEBI Act, 1992 or regulations framed
+  [  89    ] 1. In case of any grievance / complaint, an investor should approach the concerned Mutual
+  [  89    ] 12. Right to timely redressal of grievances and complaints within the timelines specified
+  [  89    ] 14.To avoid using third-party bank accounts for fund flows for subscription or redemption
+  [  88    ]  To support the development of a vibrant, transparent, ethical and globally competitive
+  [  88    ]  Deploy the monies pooled from investors in various securities and manage the portfolio
+  [  88 NUM] 16 Disclosure of Complaints redressal report 2 months of the close of the financial year
+  [  88    ] 7. Providing nomination/ declaration for opting out is mandatory since 1st October 2022.
+
+### general\riskometer-benchmark-annexure-2026-06.txt
+  [ 127    ] For latest riskometer, investors may refer to the Monthly Portfolios disclosed on the website of the fund viz. www.hdfcfund.com
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+  [ 111 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+
+### general\sai-investor-statements-2025-09.txt
+  [  68    ] unit, then units allotted will be calculated as follows: (Investment
+  [  66    ] requests, the Qualified RTAs, currently, Kfin Technologies Private
+  [  66    ] The financial transactions# of an investor where his distributor’s
+  [  65    ] Points of Service (“POS”) of MFUI. The details of POS with effect
+  [  65    ] which is valid, but the broker/distributor is not empanelled with
+  [  64    ] India Private Limited (“MFUI”), a “Category II - Registrar to an
+  [  64    ] offering of the Scheme(s) of the Fund as specified in the Scheme
+  [  64    ] Direct Plan is for investors who wish to invest directly without
+  [  64    ] Regular Plan is for investors who wish to route their investment
+  [  64    ] the application form from the investor/distributor. In case, the
+  [  64 NUM] For instance: If the investment amount is Rs. 100,000, the stamp
+  [  63    ] mfuindia.com will be considered as Official Point of Acceptance
+  [  63    ] form. In case of valid applications received without indicating
+  [  63    ] shall reprocess the transaction under Direct Plan from the date
+  [  63    ] continue to be processed under “Direct Plan” perpetually unless
+
+### hdfc-balanced-advantage\factsheet-2026-06.txt
+  [ 166    ] INVESTMENT OBJECTIVE: To provide long term capital appreciation / income from a dynamic mix of equity and debt investments. There is no assurance t ha
+  [ 131    ] linked to the interest rate reset period. The interest rate risk in a floating rate instrument or in a fixed rate instrument hedged
+  [ 127    ] inception date, dividend history, etc.) and past performance of erstwhile HDFC Prudence Fund has been considered, in line wit h
+  [ 127    ] This scheme has exposure to floating rate instruments and / or interest rate derivatives. The duration of these instruments i s
+  [ 125    ] expenses of the Direct Plan under the Scheme will be lower to the extent of the distribution expenses / commission charged in
+  [ 124    ] Growth Option. The above investment simulation is for illustrative purposes only and should not be construed as a promise on
+  [ 123    ] Balanced Advantage Fund after changes in fundamental attributes). As the portfolio characteristics and the broad investment
+  [ 123    ] circumstances the volatility may be of an order greater than what may ordinarily be expected considering only its duration.
+  [ 122    ] IDCW & Growth Options are assumed to be reinvested in the units of the Scheme at the then prevailing NAV (ex -distribution
+  [ 122    ] using composite CAGR of NIFTY 50 PRI values from February 1, 1994 to June 29, 1999 and TRI values since June 30, 1999. For
+  [ 121    ] NAV). As NIFTY 50 TRI data is not available since inception of the scheme, additional benchmark performance is calculated
+  [ 121    ] Bamboli, please refer page 107. Different plans viz. Regular Plan and Direct Plan have a different expense structure. The
+  [ 121    ] strategy of HDFC Balanced Advantage Fund is similar to that of erstwhile HDFC Prudence Fund, the track record (i.e. since
+  [ 121    ] Hence investors are recommended to consider the unadjusted portfolio maturity of the scheme as well and exercise adequate
+  [ 120    ] computed after accounting for the cash flow by using XIRR method (investment internal rate of return) for Regular Plan -
+
+### hdfc-balanced-advantage\kim-2025-11.txt
+  [ 111 NUM] *Investors should consult their financial advisers, if in doubt about whether the product is suitable for them.
+  [ 108    ] #As on September 30, 2025. For latest riskometer, investors may refer to the Monthly Portfolios disclosed on
+  [ 105    ] utilization of CCIL's contribution if there is a residual loss, it is appropriated from t he default fund
+  [ 104    ] In case the portfolio is not rebalanced within the period of 30 Business days, justification in writing,
+  [ 104    ] illiquidity and interest rate risk on the underlying instrument. To mitigate the risk of price reduction
+  [ 104    ] application submitted to it with its bank expeditiously, it shall not be liable for delay in realization
+  [ 103    ] haircut on the intrinsic value of the collateral. In the event of default by the repo counterparty, the
+  [ 103    ] to address the risk related to reduction in market value of corporate debt security held as collate ral
+  [ 102    ] In the event of change in the asset allocation, the fund manager will carry ou t portfolio rebalancing
+  [ 102    ] The mutual fund is exposed to the extent of its contribution to the default fund of CCIL, in the event
+  [ 102    ] The Country risk arises from the inability of a country, to meet its financial obli gations. It is the
+  [ 102    ] IDCW, if declared, will be paid (subject of deduction of tax at source, if any) to those Unitholders /
+  [ 102    ] be specified by SEBI from time to time. In the event of failure to transfer IDCW within the stipulated
+  [ 101    ] Different asset classes exhibit different risk -return profile and relatively low correlation to each
+  [ 101    ] only with counterparties having strong credit profiles. Also, the counter -party risk is to an extent
+
+### hdfc-elss\factsheet-2026-06.txt
+  [ 158    ] INVESTMENT OBJECTIVE: To generate capital appreciation / income from a portfolio, comprising predominantly of equity & equity related instruments. The
+  [ 125    ] calculated using composite CAGR of NIFTY 50 PRI values from Mar 29, 96 (Data for March 31, 96 is not available) to Jun 29, 99
+  [ 125    ] and TRI values since Jun 30, 99. As NIFTY 500 TRI data is not available for March 31, 96, benchmark performance is calculated
+  [ 124    ] Growth Option. The above investment simulation is for illustrative purposes only and should not be construed as a promise on
+  [ 124    ] plans viz. Regular Plan and Direct Plan have a different expense structure. The expenses of the Direct Plan under the Scheme
+  [ 124    ] will be lower to the extent of the distribution expenses / commission charged in the Regular Plan. For Performance of Direct
+  [ 124    ] Plan, refer page 112 to 119. As TRI data is not available since inception of the scheme, additional benchmark performance is
+  [ 123 NUM] Returns greater than 1 year period are compounded annualized (CAGR) $$ All Distributions declared prior to the splitting of
+  [ 120    ] computed after accounting for the cash flow by using XIRR method (investment internal rate of return) for Regular Plan -
+  [ 120    ] the Scheme into IDCW & Growth Options are assumed to be reinvested in the units of the Scheme at the then prevailing NAV
+  [ 118    ] (ex-distribution NAV). For performance of other schemes managed by Amar Kalkundrikar, please refer page 107. Different
+  [ 113    ] ^Past performance may or may not be sustained in future and is not a guarantee of any future returns. Load is not
+  [ 110 NUM] ssuming ₹ , in ested systematically on the first usiness ay of e ery month o er a period of time G returns are
+  [ 105 NUM] An open ended equity linked savings scheme with a statutory lock in of 3 years and tax benefit (This is a
+  [ 105 NUM] An open ended equity linked savings scheme with a statutory lock in of 3 years and tax benefit (This is a
+
+### hdfc-elss\kim-2025-11.txt
+  [ 111 NUM] *Investors should consult their financial advisers, if in doubt about whether the product is suitable for them.
+  [ 108    ] #As on September 30, 2025. For latest riskometer, investors may refer to the Monthly Portfolios disclosed on
+  [ 104    ] In case the portfolio is not rebalanced within the period of 30 Business days, justification in writing,
+  [ 104    ] ● While securities that are listed on the stock exchange carry lower liquidity risk, the ability to sell
+  [ 104    ] application submitted to it with its bank expeditiously, it shall not be liable for delay in realization
+  [ 102    ] IDCW, if declared, will be paid (subject of deduction of tax at source, if any) to those Unitholders /
+  [ 102    ] be specified by SEBI from time to time. In the event of failure to transfer IDCW within the stipulated
+  [ 101    ] In the event of change in the asset allocation, the fund manager will carry out portfolio rebalancing
+  [ 101    ] The Country risk arises from the inability of a country, to meet its financial obligations. It is the
+  [ 101    ] affiliate of the Seller, Issuer and Originator. No financial recourse is available to the Certificate
+  [ 100    ] including details of efforts taken to rebalance the portfolio shall be placed b efore the Investment
+  [ 100    ] Mutual Fund Units involve investment risks including the possible loss of principal. Please read the
+  [ 100    ] able to invest in securities falling within its investment objective resulting in holding the monies
+  [  99    ] political and economic factors. It must be clearly understood that the percentages stated above are
+  [  99    ] Investment in debt securities will be guided by credit quality, liquidity, interest rates and their
+
+### hdfc-flexi-cap\factsheet-2026-06.txt
+  [ 167    ] INVESTMENT OBJECTIVE: To generate capital appreciation / income from a portfolio, predominantly invested in equity & equity related instruments. Th er
+  [ 129    ] the Regular Plan. For Performance of Direct Plan, refer page 112 to 119. As NIFTY 50 TRI data is not available since inception of
+  [ 125    ] expenses of the Direct Plan under the Scheme will be lower to the extent of the distribution expenses / commission charged in
+  [ 124    ] Growth Option. The above investment simulation is for illustrative purposes only and should not be construed as a promise on
+  [ 121    ] Ganatra, please refer page 107. Different plans viz. Regular Plan and Direct Plan have a different expense structure. The
+  [ 120    ] computed after accounting for the cash flow by using XIRR method (investment internal rate of return) for Regular Plan -
+  [ 119    ] ^Past performance may or may not be sustained in future and is not a guarantee of any future returns. Load is not taken
+  [ 118    ] the scheme, additional benchmark performance is calculated using composite CAGR of NIFTY 50 PRI values from January 1,
+  [ 116 NUM] Returns greater than 1 year period are compounded annualized (CAGR) For performance of other schemes managed by Amit
+  [ 110 NUM] ssuming ₹ , in ested systematically on the first usiness ay of e ery month o er a period of time G returns are
+  [ 101    ] An open ended dynamic equity scheme investing across large cap, mid cap & small cap stocks.(This is a
+  [ 101    ] An open ended dynamic equity scheme investing across large cap, mid cap & small cap stocks.(This is a
+  [  93    ] simple and performing scheme which is eligible for distribution by new cadre of distributors)
+  [  93    ] simple and performing scheme which is eligible for distribution by new cadre of distributors)
+  [  84    ] ^ For Total Expense Ratio including brokerage, transaction cost and statutory levies
+
+### hdfc-flexi-cap\kim-2025-11.txt
+  [ 111 NUM] *Investors should consult their financial advisers, if in doubt about whether the product is suitable for them.
+  [ 108    ] #As on September 30, 2025. For latest riskometer, investors may refer to the Monthly Portfolios disclosed on
+  [ 105    ] illiquidity and interest rate risk on the underlying instrument. To mitigat e the risk of price reduction
+  [ 104    ] In case the portfolio is not rebalanced within the period of 30 Business days, justification in writing,
+  [ 104    ] ● While securities that are listed on the stock exchange carry lower liquidity risk, the ability to sell
+  [ 104    ] application submitted to it with its bank expeditiously, it shall not be liable for delay in realization
+  [ 102    ] The aim of the equity strategy will be to build a portfolio, representing a cross section of companies
+  [ 102    ] Regulations. Investment in debt securities will be guided by credit quality, liquidity, interest rates
+  [ 102    ] dealing only with counterparties having strong credit profiles. Also, the counter -party risk is to an
+  [ 102    ] to address the risk related to reduction in market value of corporate debt security held as collateral
+  [ 102    ] IDCW, if declared, will be paid (subject of deduction of tax at source, if any) to those Unitholders /
+  [ 102    ] be specified by SEBI from time to time. In the event of failure to transfer IDCW within the stipulated
+  [ 101    ] In the event of change in the asset allocation, the fund manager will carry out portfolio rebalancing
+  [ 101    ] securities (including securitised debt) and Money Market Instruments will be as per the limits in the
+  [ 101    ] The Country risk arises from the inability of a country, to meet its financial obligations. It is the
+
+### hdfc-large-cap\factsheet-2026-06.txt
+  [ 164    ] INVESTMENT OBJECTIVE: To provide long-term capital appreciation/income by investing predominantly in Large -Cap companies. There is no assurance that 
+  [ 128    ] Different plans viz. Regular Plan and Direct Plan have a different expense structure. The expenses of the Direct Plan under t he
+  [ 127    ] computed after accounting for the cash flow by using XIRR method (investment internal rate of return) for Regular Plan - Growth
+  [ 127 NUM] Returns greater than 1 year period are compounded annualized (CAGR). N.A. Not Available. $$ All Distributions declared prior to
+  [ 125    ] Option. The above investment simulation is for illustrative purposes only and should not be construed as a promise on minimum
+  [ 124    ] Scheme will be lower to the extent of the distribution expenses / commission charged in the Regular Plan. For Performance of
+  [ 122    ] the splitting of the Scheme into IDCW & Growth Options are assumed to be reinvested in the units of the Scheme at the then
+  [ 119    ] ^Past performance may or may not be sustained in future and is not a guarantee of any future returns. Load is not taken
+  [ 118    ] prevailing NAV (ex-distribution NAV). For performance of other schemes managed by Rahul Baijal, please refer page 107.
+  [ 110 NUM] ssuming ₹ , in ested systematically on the first usiness ay of e ery month o er a period of time G returns are
+  [  92    ] An open ended equity scheme predominantly investing in large cap stocks(This is a simple and
+  [  92    ] An open ended equity scheme predominantly investing in large cap stocks(This is a simple and
+  [  82    ] performing scheme which is eligible for distribution by new cadre of distributors)
+  [  82    ] performing scheme which is eligible for distribution by new cadre of distributors)
+  [  70    ] ar et alue as on June , ₹ in Lacs $$ 883.40 49.91 22.71 7.62 3.82 1.19
+
+### hdfc-large-cap\kim-2025-11.txt
+  [ 111 NUM] *Investors should consult their financial advisers, if in doubt about whether the product is suitable for them.
+  [ 108    ] #As on September 30, 2025. For latest riskometer, investors may refer to the Monthly Portfolios disclosed on
+  [ 104    ] In case the portfolio is not rebalanced within the period of 30 Business days, justification in writing,
+  [ 104    ] ● While securities that are listed on the stock exchange carry lower liquidity risk, the ability to sell
+  [ 104    ] illiquidity and interest rate risk on the underlying instrument. To mitigate the risk of price reduction
+  [ 104    ] application submitted to it with its bank expeditiously, it shall not be liable for delay in realization
+  [ 102    ] dealing only with counterparties having strong credit profiles. Also, the counter -party risk is to an
+  [ 102    ] to address the risk related to reduction in market value of corporate debt security held as collateral
+  [ 102    ] IDCW, if declared, will be paid (subject of deduction of tax at source, if any) to those Unitholders /
+  [ 102    ] be specified by SEBI from time to time. In the event of failure to transfer IDCW within the stipulated
+  [ 101    ] In the event of change in the asset allocation, the fund manager will carry out portfolio rebalancing
+  [ 101    ] The Country risk arises from the inability of a country, to meet its financial obligations. It is the
+  [ 101    ] affiliate of the Seller, Issuer and Originator. No financial recourse is available to the Certificate
+  [ 101    ] able to invest in securities falling within it s investment objective resulting in holding the monies
+  [ 100    ] Mutual Fund Units involve investment risks including the possible loss of principal. Please read the
+
+### hdfc-small-cap\factsheet-2026-06.txt
+  [ 165    ] INVESTMENT OBJECTIVE: To provide long-term capital appreciation /income by investing predominantly in Small -Cap companies. There is no assurance that
+  [ 125    ] expenses of the Direct Plan under the Scheme will be lower to the extent of the distribution expenses / commission charged in
+  [ 124    ] Growth Option. The above investment simulation is for illustrative purposes only and should not be construed as a promise on
+  [ 122    ] Setalvad, please refer page 107. Different plans viz. Regular Plan and Direct Plan have a different expense structure. The
+  [ 120    ] computed after accounting for the cash flow by using XIRR method (investment internal rate of return) for Regular Plan -
+  [ 119 NUM] Returns greater than 1 year period are compounded annualized (CAGR). For performance of other schemes managed by Chirag
+  [ 119    ] ^Past performance may or may not be sustained in future and is not a guarantee of any future returns. Load is not taken
+  [ 110 NUM] ssuming ₹ , in ested systematically on the first usiness ay of e ery month o er a period of time G returns are
+  [  72    ] the Regular Plan. For Performance of Direct Plan, refer page 112 to 119.
+  [  71    ] An open ended equity scheme predominantly investing in small cap stocks
+  [  71    ] An open ended equity scheme predominantly investing in small cap stocks
+  [  69    ] Additional Benchmark Returns (%)# # 12.01 12.14 11.72 7.57 3.35 -5.63
+  [  67    ] ar et alue as on June , ₹ in Lacs 127.68 76.32 29.72 8.32 3.92 1.21
+  [  66    ] Apr 03, 08 Since Inception 15.41 10.86 10.54 136,844 65,627 62,235
+  [  63    ] Total mount In ested ₹ in Lacs 21.90 18.00 12.00 6.00 3.60 1.20
+
+### hdfc-small-cap\kim-2025-11.txt
+  [ 111 NUM] *Investors should consult their financial advisers, if in doubt about whether the product is suitable for them.
+  [ 108    ] #As on September 30, 2025. For latest riskometer, investors may refer to the Monthly Portfolios disclosed on
+  [ 105    ] different levels of volatility and investment returns. And it is important to note that generally, no one
+  [ 104    ] In case the portfolio is not rebalanced within the period of 30 Business days, justification in writing,
+  [ 104    ] ● While securities that are listed on the stock exchange carry lower liquidity risk, the ability to sell
+  [ 104    ] illiquidity and interest rate risk on the underlying instrument. To mitigate the risk of price reduction
+  [ 104    ] application submitted to it with its bank expeditiously, it shall not be liable for delay in realization
+  [ 103    ] stocks can be riskier and more volatile on a relative basis. Therefore, the risk levels of investing in
+  [ 102    ] dealing only with counterparties having strong credit profiles. Also, the counter -party risk is to an
+  [ 102    ] to address the risk related to reduction in market value of corporate debt security held as collateral
+  [ 102    ] IDCW, if declared, will be paid (subject of deduction of tax at source, if any) to those Unitholders /
+  [ 102    ] be specified by SEBI from time to time. In the event of failure to transfer IDCW within the stipulated
+  [ 101    ] In the event of change in the asset allocation, the fund manager will carry out portfolio rebalancing
+  [ 101    ] stocks and present possible higher capital appreciation, it is important to note that Small & Mid-cap
+  [ 101    ] The Country risk arises from the inability of a country, to meet its financial obligations. It is the
+
+6b. THE LONGEST LOGICAL PARAGRAPHS  (the actual chunking decisions Phase 3 must make)
+----------------------------------------------------------------------------------------------------
+These are the units that will be split. Each needs either to fit in one chunk
+or to be split on a sentence boundary without orphaning its numbers.
+
+### general\investor-charter-2024-05.txt
+  [ 3794 NUM] SERVICES PROVIDED FOR INVESTORS Non-Financial Transaction Sr. no. Description of Service / Activity Time taken for providing service 1 Providing Consolidated Account Statement (CAS) for each
+  [ 2018 NUM] 6. Right to timely receipt of redemption proceeds / dividend payments / refunds, as applicable. 7. Right to be notified about any change in the fundamental attributes (features) of a mutual 
+  [ 1932 NUM] GRIEVANCE REDRESSAL MECHANISM FOR INVESTORS 1. In case of any grievance / complaint, an investor should approach the concerned Mutual Fund / Investor Service Centre of the Mutual Fund. If th
+  [ 1769 NUM] 6. Read communications / notices / addendums / press releases, etc. sent / or published by the mutual fund via newspapers, email, etc. 7. Providing nomination/ declaration for opting out is 
+  [ 1341    ] Annexure- B INVESTOR CHARTER FOR MUTUAL FUNDS VISION  To develop the Indian Mutual Fund Industry and bring a high degree of professionalism transparency and ethics by enacting regulations t
+
+### general\riskometer-benchmark-annexure-2026-06.txt
+  [ 2500 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them Fund Name & Benchmark Product Labelling (This product is suitable for investor
+  [ 2465 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them Fund Name & Benchmark Product Labelling (This product is suitable for investor
+  [ 2408 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them Fund Name & Benchmark Product Labelling (This product is suitable for investor
+  [ 2385 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them Fund Name & Benchmark Product Labelling (This product is suitable for investor
+  [ 2351 NUM] ~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them Fund Name & Benchmark Product Labelling (This product is suitable for investor
+
+### general\sai-investor-statements-2025-09.txt
+  [ 6168 NUM] MF Central As per clause 16.6 of Master Circular, to comply with the requirements of RTA inter-operable Platform for enhancing investors’ experience in Mutual Fund transactions/service reque
+  [ 6128 NUM] 161 For instance: If the investment amount is Rs. 100,000, the stamp duty will be calculated as follows: (Investment Amount *0.005) = Rs. 5. If the applicable Net Asset Value (NAV) is Rs. 10
+  [ 5227 NUM] Scenario ARN Code mentioned by the investor Plan mentioned by the investor Default Plan to be captured 1 Not mentioned Not mentioned Direct Plan 2 Not mentioned Direct Direct Plan 3 Not ment
+  [  133    ] 77 For more details, investors are advised to refer to ‘Scheme Information Document’ of the respective Scheme(s) of HDFC Mutual Fund.
+  [    2    ] 78
+
+### hdfc-balanced-advantage\factsheet-2026-06.txt
+  [ 4285 NUM] CATEGORY OF SCHEME BALANCED ADVANTAGE FUND CD - Certificate of Deposit; ( ) E uity / S / +/ + S E ui alent So ereign ash, ash E ui alents and Net urrent ssets + Units issued by In IT ( ) E u
+  [ 2374 NUM] NAV 7.48% Madhya Pradesh MAT 011045 Sovereign 0.09 7.63% Andhra Pradesh SDL ISD 030925 MAT 030937 Sovereign 0.09 7.07% Gujarat SDL ISD 240925 MAT 261133 Sovereign 0.08 7.48% Andhra Pradesh S
+  [ 2233    ] NAV Aditya Birla Sun Life AMC Limited Capital Markets 0.13 Dr Reddys Laboratories Ltd. Pharmaceuticals & Biotechnology 0.13 Shriram Finance Ltd. Finance 0.13 Tata Motors Passenger Vehicles L
+  [ 2208 NUM] NAV Bharat Forge Ltd. Auto Components 0.38 Apollo Tyres Ltd. Auto Components 0.36 Bajaj Auto Limited Automobiles 0.36 BEML Limited Agricultural, Commercial & Construction Vehicles 0.35 Titag
+  [ 2032 NUM] NAV BEML Land Assets Limited Finance 0.02 Coromandel International Limited Fertilizers & Agrochemicals 0.02 Fusion Finance Limited Finance 0.02 L&T Finance Ltd. Finance 0.02 TruAlt Bioenergy
+
+### hdfc-balanced-advantage\kim-2025-11.txt
+  [ 4068    ] 7 HDFC Balanced Advantage Fund - KIM • Settlement risk: Different segments of Indian financial markets have different settlement periods and such periods may be extended significantly by unf
+  [ 3942    ] 9 HDFC Balanced Advantage Fund - KIM (OTC) repo trades, the investment manager will endeavour to manage counterparty risk by dealing only with counterparties having strong credit profiles. A
+  [ 3858 NUM] 8 HDFC Balanced Advantage Fund - KIM • Investment in unrated instruments may involve a risk of default or decline in market value higher than rated instruments due to adverse economic and is
+  [ 3497    ] 6 HDFC Balanced Advantage Fund - KIM 8. Risk Profile of the Scheme Mutual Fund Units involve investment risks including the possible loss of principal. Please read the details on risk factor
+  [ 3476    ] 15 HDFC Balanced Advantage Fund - KIM This refers to the ease with which securities/instruments of REITs/InvITs can be sold. There is no assurance that an active secondary market will develo
+
+### hdfc-elss\factsheet-2026-06.txt
+  [ 3093 NUM] CATEGORY OF SCHEME EQUITY LINKED SAVINGS SCHEME Industry llocation of E uity Holding of Net ssets an s utomobiles IT Software Insurance Telecom Ser ices harmaceuticals iotechnology Healthcar
+  [ 1811 NUM] NAV Havells India Ltd. Consumer Durables 0.79 Hindustan Unilever Ltd. Diversified Fmcg 0.74 ICICI PRUDENTIAL ASSET MANAGEMENT COMPANY LIMITED Capital Markets 0.70 Mahindra & Mahindra Ltd. Au
+  [ 1739    ] NAV EQUITY & EQUITY RELATED • ICICI Bank Ltd. Banks 9.64 • HDFC Bank Ltd.£ Banks 8.44 • Axis Bank Ltd. Banks 7.60 • Maruti Suzuki India Limited Automobiles 4.95 • State Bank of India Banks 4
+  [  393 NUM] QUANTITATIVE DATA Portfolio Turnover Equity Turnover Total Turnover 18.59% 18.70% Total Turnover = Equity + Debt + Derivative Risk Ratio Standard Deviation Beta Sharpe Ratio* 13.559% 0.828 0
+  [  297 NUM] EXPENSE RATIO (As On June 30, 2026) Base expense Ratio Including statutory levies on expenses part of BER, excluding brokerage, transaction cost and execution related statutory levies^ Regul
+
+### hdfc-elss\kim-2025-11.txt
+  [ 4039    ] 6 HDFC ELSS Tax Saver - KIM NAV of the Scheme is expected to increase from a fall in interest rates while it would be adversely affected by an increase in the level of interest rates. • Mone
+  [ 3987 NUM] 7 HDFC ELSS Tax Saver - KIM • The AMC may, considering the overall level of risk of the portfolio, invest in lower rated / unrated securities offering higher yields as well as zero coupon se
+  [ 3729    ] 14 HDFC ELSS Tax Saver - KIM (xiii) Risk factors associated for investments in Mutual Fund Schemes 1. Movements in the Net Asset Value (NAV) of these Schemes may impact the performance. Any 
+  [ 3467    ] 8 HDFC ELSS Tax Saver - KIM rated debt instruments. Hence, lower liquidity of such instruments, could lead to inability of the scheme to sell such debt instruments and generate liquidity for
+  [ 3271    ] 16 HDFC ELSS Tax Saver - KIM ● In respect of valid applications received after 3.00 p.m. and where the funds for the entire amount are credited to the bank account of the Scheme either at an
+
+### hdfc-flexi-cap\factsheet-2026-06.txt
+  [ 2724 NUM] CATEGORY OF SCHEME FLEXI CAP FUND Industry llocation of E uity Holding of Net ssets an s utomobiles harmaceuticals iotechnology etailing IT Software onstruction Healthcare Ser ices Insurance
+  [ 2143 NUM] NAV EQUITY & EQUITY RELATED • ICICI Bank Ltd. Banks 9.18 • Axis Bank Ltd. Banks 6.84 • HDFC Bank Ltd.£ Banks 6.77 • State Bank of India Banks 4.30 • SBI Life Insurance Company Ltd. Insurance
+  [ 1701 NUM] NAV Bank of Baroda Banks 0.45 Ashok Leyland Ltd Agricultural, Commercial & Construction Vehicles 0.44 Cyient Ltd. IT - Services 0.44 CIE Automotive India Ltd Auto Components 0.43 CORONA REME
+  [  634 NUM] PORTFOLIO ace alue / llotment N per Unit: ₹ , + Industry lassification as recommended by AMFI, Data is as of June 30, 2026 unless otherwise specified. ¥ Dedicated Fund Manager for Overseas I
+  [  577 NUM] EXPENSE RATIO (As On June 30, 2026) Base expense Ratio Including statutory levies on expenses part of BER, excluding brokerage, transaction cost and execution related statutory levies^ Regul
+
+### hdfc-flexi-cap\kim-2025-11.txt
+  [ 3966    ] 6 HDFC Flexi Cap Fund - KIM ● While securities that are listed on the stock exchange carry lower liquidity risk, the ability to sell these investments is limited by the overall trading volum
+  [ 3873 NUM] 8 HDFC Flexi Cap Fund - KIM bank, financial institution, etc. Credit enhancement could include additional security in form of pledge of shares listed on stock exchanges, etc. SO transactions
+  [ 3770    ] 7 HDFC Flexi Cap Fund - KIM dealing in existing securities. The price -risk is not unique to Government Securities. It exists for all fixed income securities. However, Government Securities 
+  [ 3539 NUM] 14 HDFC Flexi Cap Fund - KIM Infrastructure sectors, level of interest rates, trading volumes, settlement periods and transfer procedures. ● Interest Rate Risk: Securities/Instruments of REI
+  [ 3399    ] 15 HDFC Flexi Cap Fund - KIM Collateral Risk : Collateral risk arises when the market value of the securities is inadequate to meet the repo obligations. This risk can be partly mitigated by
+
+### hdfc-large-cap\factsheet-2026-06.txt
+  [ 2710 NUM] CATEGORY OF SCHEME LARGE-CAP FUND Industry llocation of E uity Holding of Net ssets an s harmaceuticals iotechnology utomobiles inance onsumer urables Telecom Ser ices etroleum roducts etail
+  [ 1508    ] NAV EQUITY & EQUITY RELATED • ICICI Bank Ltd. Banks 9.73 • HDFC Bank Ltd.£ Banks 7.92 • Bharti Airtel Ltd. Telecom - Services 5.66 • Kotak Mahindra Bank Limited Banks 5.46 • Reliance Industr
+  [ 1385 NUM] NAV Eicher Motors Ltd. Automobiles 0.94 Tata Capital Ltd. Finance 0.77 Dabur India Ltd. Personal Products 0.74 CG Power and Industrial Solutions Ltd. Electrical Equipment 0.66 Maruti Suzuki 
+  [  593 NUM] EXPENSE RATIO (As On June 30, 2026) Base expense Ratio Including statutory levies on expenses part of BER, excluding brokerage, transaction cost and execution related statutory levies^ Regul
+  [  393 NUM] QUANTITATIVE DATA Portfolio Turnover Equity Turnover Total Turnover 22.34% 22.34% Total Turnover = Equity + Debt + Derivative Risk Ratio Standard Deviation Beta Sharpe Ratio* 13.927% 0.918 0
+
+### hdfc-large-cap\kim-2025-11.txt
+  [ 4098    ] 7 HDFC Large Cap Fund - KIM is the "interest on interest" component. The risk is that the rate at which interim cash flows can be reinvested may be lower than that originally assumed. • Sett
+  [ 3695    ] 15 HDFC Large Cap Fund - KIM (OTC) repo trades, the investment manager will endeavo ur to manage counterparty risk by dealing only with counterparties having strong credit profiles. Also, th
+  [ 3688 NUM] 8 HDFC Large Cap Fund - KIM there can be no assurance that the Scheme will realise their investments in unlisted securities at a fair value. • Investment in unrated instruments may involve a
+  [ 3569    ] 6 HDFC Large Cap Fund - KIM Though every endeavour will be made to achieve the objective of the Scheme, the AMC/Sponsor/Trustee do not guarantee that the investment objective of the Scheme w
+  [ 3483    ] 10 HDFC Large Cap Fund - KIM these may entail a higher outgo to the Scheme by way of taxes, trans action costs, fees etc. thus adversely impacting its NAV; resulting in lower returns to an I
+
+### hdfc-small-cap\factsheet-2026-06.txt
+  [ 2537 NUM] CATEGORY OF SCHEME SMALL CAP FUND Industry llocation of E uity Holding of Net ssets uto omponents an s Healthcare Ser ices ommercial Ser ices Supplies Transport Ser ices onstruction onsumer 
+  [ 2421 NUM] NAV The Anup Engineering Limited Industrial Manufacturing 0.85 VRL Logistics Ltd. Transport Services 0.84 Bajaj Consumer Care Ltd. Personal Products 0.81 SKF India (Industrial) Limited Indus
+  [ 2328    ] NAV EQUITY & EQUITY RELATED • Aster DM Healthcare Limited Healthcare Services 3.83 • Firstsource Solutions Ltd. Commercial Services & Supplies 3.31 • Bank of Baroda Banks 3.16 • Gabriel Indi
+  [  583 NUM] EXPENSE RATIO (As On June 30, 2026) Base expense Ratio Including statutory levies on expenses part of BER, excluding brokerage, transaction cost and execution related statutory levies^ Regul
+  [  391 NUM] QUANTITATIVE DATA Portfolio Turnover Equity Turnover Total Turnover 8.15% 8.15% Total Turnover = Equity + Debt + Derivative Risk Ratio Standard Deviation Beta Sharpe Ratio* 17.858% 0.764 0.4
+
+### hdfc-small-cap\kim-2025-11.txt
+  [ 3969    ] 6 HDFC Small Cap Fund - KIM ● While securities that are listed on the stock exchange carry lower liquidity risk, the ability to sell these investments is limited by the overall trading volum
+  [ 3866    ] 7 HDFC Small Cap Fund - KIM dealing in existing securities. The price -risk is not unique to Government Securities. It exists for all fixed income securities. However, Government Securities 
+  [ 3777 NUM] 8 HDFC Small Cap Fund - KIM of pledge of shares listed on stock exchanges, etc. SO transactions are asset backed/ mortgage backed securities, securitized paper backed by hypo thecation of ca
+  [ 3624    ] 14 HDFC Small Cap Fund - KIM REITs and InvITs are likely to have volatile cash flows as the repayment dates would not necessarily be pre scheduled. ● Liquidity Risk: This refers to the ease 
+  [ 3510    ] 15 HDFC Small Cap Fund - KIM replacement of security with eligible security. Moreover, the investment manager may apply a higher haircut on the underlying security than required as per RBI/S
+
+7. SOURCE PROVENANCE
+----------------------------------------------------------------------------------------------------
+general\investor-charter-2024-05.txt
+    type=guide        as_of=2024-05-01   url=https://files.hdfcfund.com/s3fs-public/2024-05/Investor%20Charter%20-%20MF.pdf
+general\riskometer-benchmark-annexure-2026-06.txt
+    type=riskometer   as_of=2026-06-30   url=https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+general\sai-investor-statements-2025-09.txt
+    type=guide        as_of=2025-09-25   url=https://files.hdfcfund.com/s3fs-public/2025-09/SAI%20with%20updated%20Addendum%20dated%20S
+hdfc-balanced-advantage\factsheet-2026-06.txt
+    type=factsheet    as_of=2026-06-30   url=https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+hdfc-balanced-advantage\kim-2025-11.txt
+    type=kim          as_of=2025-11-21   url=https://files.hdfcfund.com/s3fs-public/KIM/2025-11/KIM%20-%20HDFC%20Balanced%20Advantage%2
+hdfc-elss\factsheet-2026-06.txt
+    type=factsheet    as_of=2026-06-30   url=https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+hdfc-elss\kim-2025-11.txt
+    type=kim          as_of=2025-11-21   url=https://files.hdfcfund.com/s3fs-public/KIM/2025-11/KIM%20-%20HDFC%20ELSS%20Tax%20Saver%20d
+hdfc-flexi-cap\factsheet-2026-06.txt
+    type=factsheet    as_of=2026-06-30   url=https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+hdfc-flexi-cap\kim-2025-11.txt
+    type=kim          as_of=2025-11-21   url=https://files.hdfcfund.com/s3fs-public/KIM/2025-11/KIM%20-%20HDFC%20Flexi%20Cap%20Fund%20d
+hdfc-large-cap\factsheet-2026-06.txt
+    type=factsheet    as_of=2026-06-30   url=https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+hdfc-large-cap\kim-2025-11.txt
+    type=kim          as_of=2025-11-21   url=https://files.hdfcfund.com/s3fs-public/KIM/2025-11/KIM%20-%20HDFC%20Large%20Cap%20Fund%20d
+hdfc-small-cap\factsheet-2026-06.txt
+    type=factsheet    as_of=2026-06-30   url=https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+hdfc-small-cap\kim-2025-11.txt
+    type=kim          as_of=2025-11-21   url=https://files.hdfcfund.com/s3fs-public/KIM/2025-11/KIM%20-%20HDFC%20Small%20Cap%20Fund%20d
+
+====================================================================================================
+Derived quantities used by docs/chunking_strategy.md:
+  raw physical lines               : 9,571
+  blank-line paragraphs (unusable) : 150
+  logical paragraphs after de-wrap : 267
+  logical para p50 / p90 / p99     : 1706 / 3470 / 4605
+  logical para max                 : 6168
+  max single PHYSICAL line         : 167
+  headings recognised              : 81
+  numeric-with-unit lines          : 483
+  'Label: value' lines             : 184
+  boilerplate lines                : 58  (0.6% of lines)
+====================================================================================================

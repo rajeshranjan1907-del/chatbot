@@ -1,0 +1,286 @@
+SOURCE DOCUMENT
+title        : HDFC Mutual Fund - Investor Charter
+scheme       : Cross-scheme
+source_type  : guide
+publisher    : HDFC Asset Management Company Limited
+source_url   : https://files.hdfcfund.com/s3fs-public/2024-05/Investor%20Charter%20-%20MF.pdf
+as_of        : 2024-05-01
+pages        : 9
+retrieved    : 2026-09-28
+================================================================================
+
+Annexure- B
+INVESTOR CHARTER FOR MUTUAL FUNDS
+VISION
+ To develop the Indian Mutual Fund Industry and bring a high degree of professionalism
+transparency and ethics by enacting regulations to govern the functioning of mutual funds
+in order to enhance and maintain standards to protect and promote the interests of unit
+holders of mutual funds.
+MISSION
+ To support the development of a vibrant, transparent, ethical and globally competitive
+asset management industry.
+ To enact and enforce rules and regulations that promote the maintenance of high
+professional and ethical standards in all areas of operation of the mutual fund industry.
+ To work closely with the mutual fund industry in order to recommend and promote good
+business practices and a code of conduct to be followed by all asset management
+companies engaged in the activities of investment management in the best interests of
+unitholders / investors.
+ To recommend standardized operational processes to be followed by the Mutual Fund
+industry for the convenience and benefit of the investors.
+ To undertake nationwide investor awareness programs, so as to inform and educate
+existing and prospective investors about mutual funds as an asset class and to educate
+the public about the concept and working of mutual funds.
+ To protect the interest of investors/unit holders.
+Page 1 of 8
+DESCRIPTION OF ACTIVITIES / BUSINESS OF THE ENTITY
+ To offer investment opportunities to the investors through various schemes.
+ To pool money by issuing units to the investors at the applicable Net Asset Value (NAV).
+ Deploy the monies pooled from investors in various securities and manage the portfolio
+in accordance with objectives as disclosed in offer document and in compliance with all
+applicable regulations.
+ Disclose various information including NAV on daily basis, Risk-o-meter of schemes,
+portfolio of the schemes, performance of the schemes, annual report or abridged annual
+report etc.
+ Pay redemption proceeds, dividends etc. to the investors.
+ Process investor’s financial and non – financial transactions / service requests.
+Page 2 of 8
+SERVICES PROVIDED FOR INVESTORS
+Non-Financial Transaction
+Sr.
+no.
+Description of Service / Activity
+Time taken for providing service
+1 Providing Consolidated Account Statement
+(CAS) for each calendar month
+by 15th of succeeding month
+2 Providing Consolidated Account Statement
+(CAS) for the half year
+By 21st of succeeding month
+3 Request for Dematerialization of units 2 Days *
+Financial Transactions (Commercial Transactions)
+Sr.
+no.
+Description of Service / Activity
+Time taken for providing service*
+1 Pay-out of redemption proceeds 3 working days – for all schemes other
+than below
+5 working days – for schemes investing
+atleast 80% of total assets in
+permissible overseas investments viz.
+HDFC Developed World Indexes Fund
+of Funds
+Such other timeline as may be
+prescribed by AMFI in case of
+exceptional circumstances notified by it.
+2 Pay-out of dividend from the record date 7 working days
+Such other timeline as may be
+prescribed by AMFI in case of
+exceptional circumstances notified by it.
+3 Pay-out of proceeds on maturity of a close-
+ended scheme
+3 working days
+Such other timeline as may be
+prescribed by AMFI in case of
+exceptional circumstances notified by it.
+4
+Issue of statement of accounts specifying the
+number of units allotted or issue units in the
+dematerialized form
+5 days from the date of closure of the
+initial subscription list or from the date of
+receipt of the application
+5
+Refund of subscription Money in case of
+New Fund Offer
+5 working days from the date of
+closure of the initial subscription list
+Complaints/Requests
+Sr.
+no.
+Description of Service / Activity
+Time taken for providing service*
+1
+Submission of ATR to SEBI in respect of
+complaint received from investor through
+SCORES
+21 days
+Disclosure / Reports
+Sr.
+no.
+Description of Service / Activity
+Time taken for providing service
+1
+Intimation regarding change in TER of
+schemes
+3 days in advance of TER effective date
+2
+Intimation regarding change in Fundamental
+Attributes of schemes (Exit Window)
+30 days prior to the effective date of
+Fundamental Attribute change
+3
+Intimation regarding Merger of schemes 30 days prior to the effective date of
+Merger
+4 Intimation regarding Conversion of Close
+Ended Scheme to Open Ended Scheme
+30 days prior to the effective date of
+conversion
+5 Disclosure of Daily NAV other than FOF
+Schemes
+Daily by 11 pm
+6 Disclosure of Daily NAV of FOF Schemes T+1 by 10 am
+7 Disclosure of Fortnightly Portfolio of
+Schemes (Debt Schemes)
+within 5 calendar days.
+8 Disclosure of Monthly Portfolio of Schemes within 10 calendar days
+9 Disclosure of half Yearly Portfolio of
+Schemes
+within 10 calendar days
+10 Disclosure of Risk-o-meter by 10th of calendar day
+11 Disclosure of TER of scheme Every day
+12 Disclosure of Annual report of Schemes /
+abridged scheme wise Annual Report
+Every year before July 31
+13
+Disclosure of Annual report of AMC Within 4 months from the end of the
+financial year
+14 Disclosure of half Yearly Unaudited
+Financials
+within 1 month
+15 Disclosure of notice in respect of Dividend
+declaration
+2 working days prior to Record Date
+declaration of dividend
+16 Disclosure of Complaints redressal report 2 months of the close of the financial year
+17 Disclosure of Asset Under Management 7 days from the end of the month
+18 Disclosure of transactions in debt and money
+market securities
+15 days from each transaction day
+19 Disclosure of half yearly updated scheme
+information document
+1 month from the end of the half-year
+20 Disclosure of half yearly updated Key
+Information Memorandum
+1 month from the end of the half-year
+21 Disclosure of statement of additional
+information
+3 months from end of financial year
+22 Disclosure of Executive Remuneration 1 month from the end of financial year.
+23 Details of Complaint report 7 days from the end of the month
+Page 3 of 8
+Notes:
+1. * All the above-mentioned time taken for providing service (Financial & Non-Financial) will
+be subject to receipt of complete documentation/information from the investor.
+2. Day refers to working day unless otherwise specified.
+3. The Asset Management Companies which fail to meet the stipulated timelines maybe
+liable for suitable action as deemed fir in terms of SEBI Act, 1992 or regulations framed
+thereunder.
+Page 4 of 8
+GRIEVANCE REDRESSAL MECHANISM FOR INVESTORS
+1. In case of any grievance / complaint, an investor should approach the concerned Mutual
+Fund / Investor Service Centre of the Mutual Fund. If the complaint remains unresolved,
+the investor may write to the designated Investor Relations Officer of the mutual fund.
+The name of the Investor Relations Officer / contact person is mentioned in the Scheme
+Information Document (SID) of the mutual fund scheme, and also on the website of the
+concerned mutual fund, whom one may approach / write to in case of any query,
+complaints or grievance.
+2. If the investor’s complaint is not redressed satisfactorily, one may lodge a complaint with
+SEBI on SEBI’s portal, named, 'SCORES', which is a centralized web-based complaints
+redress system. SEBI takes up the complaints registered via SCORES
+(https://scores.gov.in/scores/Welcome.html) with the concerned mutual fund /
+intermediary for timely redressal. SCORES facilitates tracking the status of the
+complaint.
+3. Investors may send their physical complaints to: Office of Investor Assistance and
+Education, Securities and Exchange Board of India, SEBI Bhavan. Plot No. C4-A, ‘G’
+Block, Bandra-Kurla Complex, Bandra (E), Mumbai - 400 051
+DO’ s and DON’ Ts FOR INVESTORS
+Do’s
+1. Check registration status of the Mutual Fund on SEBI website before transacting with
+them.
+2. Read all Scheme related documents and understand the scheme features and the risks
+involved and suitability of the scheme to the investor’s risk profile.
+3. Provide and keep updated KYC details including address, tax status, residency, and
+other key information such as PAN & bank account details.
+4. Provide own email address and mobile number and to promptly notify changes to this
+information, if any.
+5. Check Account Statement & Common Account Statements for discrepancy, if any and
+promptly bring any such discrepancies to the notice of the Asset Management
+Company
+Page 5 of 8
+6. Read communications / notices / addendums / press releases, etc. sent / or published
+by the mutual fund via newspapers, email, etc.
+7. Providing nomination/ declaration for opting out is mandatory since 1st October 2022.
+8. Choose the plan for investments i.e. Direct Plan or Regular Plan.
+9. Invest through registered and regulated entities
+10.Keep confidential critical information such as user ID, password, etc.
+11.Invest by issuing payments in the name of the Mutual fund / scheme only and not in
+the name of any other entity.
+Don’ts
+1. Do not invest based on speculation, rumor or informal advice.
+2. Do not fall for the promise of indicative or exorbitant or assured returns.
+3. Do not issue blank cheques or blank signed transaction instructions.
+4. Do not use third-party bank accounts for fund flows for subscription or redemption of
+units.
+RIGHTS OF INVESTORS
+1. Right to receive information and details about the scheme including about its
+investment philosophy, risk profile, portfolio holdings, fees, charges and expenses
+and such other information as may be required under SEBI regulations to enable
+investors to make an informed decision about investing in a scheme, prior to making
+any such investment.
+2. Right to timely receipt of account statement evidencing a transaction as specified in
+the SEBI Mutual Funds Regulations, or to receive such statements on request.
+3. Right to receive Consolidated Account Statement (CAS) at a periodic frequency as
+specified by SEBI.
+4. Right to timely disclosure of daily Net Asset Values (NAV), Portfolio and Performance
+of each scheme including scheme’s AUM, investment objective, expense ratios on
+mutual fund website.
+5. Right to receive Annual report / abridged annual report of the scheme(s) invested in,
+Page 6 of 8
+6. Right to timely receipt of redemption proceeds / dividend payments / refunds, as
+applicable.
+7. Right to be notified about any change in the fundamental attributes (features) of a
+mutual fund scheme in which the investor has investments and to be provided a right
+to exit the scheme without cost, if so desired, as a result of the fundamental attribute
+change.
+8. Right to be informed about such disclosures which may have a material bearing on
+their investments in mutual fund schemes.
+9. Right to privacy of information in accordance with the applicable laws of the land.
+10. Right to security of, and access to, information provided to Asset Management
+Companies and their service providers in relation to investments in mutual funds.
+Right to have such information corrected and receive confirmation of such correction.
+11. Right to information about how complaints are handled and can be escalated in the
+event investors are not satisfied with the resolution provided.
+12. Right to timely redressal of grievances and complaints within the timelines specified
+by regulations and the right to escalate complaint not resolved satisfactorily to the
+Investor Grievance Officer of the respective Asset Management Company.
+13. Right to escalate unresolved complaints to SEBI via the SCORES portal.
+RESPONSIBILITIES OF INVESTORS
+1. To check registration status of the Mutual Fund on SEBI website before transacting
+with them.
+2. To read all Scheme related documents and understand the scheme features and the
+risks involved and suitability of the scheme to the investor’s risk profile.
+3. To provide and keep updated KYC details including address, tax status, residency, and
+other key information such as PAN & bank account details.
+4. To provide own email address and mobile number and to promptly notify changes to
+this information, if any.
+5. To check Account Statement & Consolidated Account Statements for discrepancy, if
+any and promptly bring any such discrepancies to the notice of the Asset Management
+Company
+Page 7 of 8
+6. To read communications / notices / addendums / press releases, etc. sent / or
+published by the mutual fund via newspapers, email, etc.
+7. Providing nomination/ declaration for opting out is mandatory since 1st October 2022.
+8. To choose the plan for investments i.e. Direct Plan or Regular Plan.
+9. To invest through registered and regulated entities and not to invest based on
+speculation, rumor or informal advice.
+10.To keep confidential critical information such as user ID, password, etc.
+11.To invest by issuing payments in the name of the Mutual fund / scheme only and not
+in the name of any other entity.
+12.To protect oneself by not falling for the promise of indicative or exorbitant or assured
+returns.
+13.To p r o t e ct o n e s e l f b y n ot is su i n g b la n k ch e qu e s o r b la n k si gn e d
+t r a n s a c t io n instructions.
+14.To avoid using third-party bank accounts for fund flows for subscription or redemption
+of units.
+*******
+Page 8 of 8

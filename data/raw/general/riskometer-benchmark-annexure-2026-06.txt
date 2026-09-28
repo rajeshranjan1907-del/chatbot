@@ -1,0 +1,1549 @@
+SOURCE DOCUMENT
+title        : HDFC Mutual Fund Factsheet - June 2026 (Annexure: Benchmark and Scheme riskometers)
+scheme       : Cross-scheme
+source_type  : riskometer
+publisher    : HDFC Asset Management Company Limited
+source_url   : https://files.hdfcfund.com/s3fs-public/2026-07/HDFC%20MF%20Factsheet%20-%20June%202026.pdf
+as_of        : 2026-06-30
+pages        : 123-138 (printed)
+retrieved    : 2026-09-28
+================================================================================
+
+BENCHMARK AND SCHEME RISKOMETERS
+123 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC Flexi Cap Fund
+BENCHMARK: NIFTY 500
+Index (TRI)
+• To generate long-term capital
+appreciation / income
+• Investment predominantly in
+equity & equity related
+instruments
+HDFC Multi Cap Fund
+BENCHMARK: NIFTY500
+Multicap 50:25:25 (TRI)
+• To generate long-term capital
+appreciation/ income
+• Investments predominantly in
+equity and equity related
+securities of large cap, mid cap and
+small cap companies.
+HDFC Large Cap Fund
+BENCHMARK: NIFTY 100 Total
+Returns Index (TRI)
+•To generate long-term capital
+appreciation / income
+•Investment predominantly in
+Large-cap companies
+HDFC Mid Cap Fund
+BENCHMARK: NIFTY MIDCAP
+150 (TRI)
+• To generate long-term capital
+appreciation / income
+• Investment predominantly in
+Mid-cap companies
+HDFC Small Cap Fund
+BENCHMARK: BSE 250
+Smallcap Index (TRI)
+• To generate long-term capital
+appreciation / income
+• Investment predominantly in
+Small-cap companies
+HDFC Large and Mid Cap
+Fund
+BENCHMARK: NIFTY LARGE -
+MIDCAP 250 Index (TRI)
+• To generate long-term capital
+appreciation/income
+• Investment predominantly in
+Large Cap and Mid Cap companies
+HDFC Value Fund
+BENCHMARK: NIFTY 500
+Index (TRI)
+• To generate long-term capital
+appreciation / income in the long
+term
+• Investment primarily in
+undervalued stocks
+HDFC Dividend Yield
+Fund
+BENCHMARK: NIFTY 500
+Index (TRI)
+• Capital appreciation over long
+term/regular income
+• Investment predominantly in
+equity and equity related
+Instruments of dividend yielding
+companies
+
+BENCHMARK AND SCHEME RISKOMETERS
+124 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC Focused Fund
+BENCHMARK: NIFTY 500
+Index (TRI)
+• To generate long-term capital
+appreciation / income
+• Investments in equity & equity
+related instruments of up to 30
+companies
+HDFC Business Cycle
+Fund
+BENCHMARK: NIFTY 500
+Index (TRI)
+• to generate long-term capital
+appreciation/ income
+• investment predominantly in
+equity & equity related
+instruments of business cycle
+based theme
+HDFC Transportation and
+Logistics Fund
+BENCHMARK: NIFTY
+Transportation & Logistics
+Index (TRI)
+• To generate long-term capital
+appreciation
+• Investment predominantly in
+equity & equity related
+instruments of companies under
+Transportation and Logistics
+theme
+HDFC Defence Fund
+BENCHMARK: NIFTY India
+Defence Index TRI (Total
+Returns Index)
+• To generate long-term capital
+appreciation/income
+• Investment predominantly in
+equity & equity related
+instruments of defence and allied
+sector companies.
+HDFC Banking & Financial
+Services Fund
+BENCHMARK: NIFTY Financial
+Services (TRI)
+• To generate long-term capital
+appreciation/income
+• Investment predominantly in
+equity & equity related
+instruments of banking and
+financial services companies
+HDFC Technology Fund
+BENCHMARK: BSE Teck Index
+(TRI)
+•To generate long-term capital
+appreciation
+• Investment predominantly in
+equity & equity related
+instruments of Technology &
+technology related companies
+HDFC Pharma and
+Healthcare Fund
+BENCHMARK: BSE Healthcare
+Index (TRI)
+• To generate long-term capital
+appreciation
+• Investment predominantly in
+equity & equity related
+instruments of Pharma and
+healthcare companies.
+HDFC Housing
+Opportunities Fund
+BENCHMARK: Nifty Housing
+Index (TRI)
+• Capital appreciation over long
+term
+• Investment predominantly in
+equity and equity related
+instruments of entities engaged in
+and/ or expected to benefit from
+the growth in housing and its
+allied business activities
+
+BENCHMARK AND SCHEME RISKOMETERS
+125 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC Infrastructure Fund
+BENCHMARK: BSE India
+Infrastructure Index (TRI)
+• To generate long-term capital
+appreciation / income
+• Investment predominantly in
+equity and equity related
+securities of companies engaged in
+or expected to benefit from the
+growth and development of
+infrastructure
+HDFC MNC Fund
+BENCHMARK: NIFTY MNC
+(TRI)
+• To generate long-term capital
+appreciation/income
+• Investment predominantly in
+equity & equity related
+instruments of multinational
+companies.
+HDFC Consumption Fund
+BENCHMARK: NIFTY India
+Consumption Index (TRI)
+• To generate long-term capital
+appreciation / income.
+• Investment in equity and equity
+related securities of companies
+with a focus on consumption and
+consumption related sector or
+allied sectors theme.
+HDFC Manufacturing
+Fund
+BENCHMARK: NIFTY India
+Manufacturing Index (TRI)
+• To generate long term capital
+appreciation
+• Investment predominantly in
+equity & equity related securities
+of companies engaged in the
+manufacturing theme.
+HDFC Innovation Fund
+BENCHMARK: NIFTY 500
+Index (TRI)
+• Capital appreciation over long
+term
+• To invest in equity and equity
+related instruments of companies
+that are adopting innovative
+themes and strategies
+HDFC Balanced
+Advantage Fund
+BENCHMARK: NIFTY 50
+Hybrid Composite Debt 50:50
+Index (Total Returns Index)
+• To generate long-term capital
+appreciation / income
+• Investments in a mix of equity
+and debt instruments
+HDFC Hybrid Equity Fund
+BENCHMARK: NIFTY 50
+Hybrid Composite Debt 65:35
+Index (Total Returns Index)
+• To generate long-term capital
+appreciation / income.
+• Investments predominantly in
+equity & equity related
+instruments. The Scheme will also
+invest in debt and money market
+instruments.
+HDFC Multi-Asset
+Allocation Fund
+BENCHMARK: 65% Nifty 50
+TRI + 22.5% Nifty Composite
+Debt Index +10% Domestic
+Price of Gold + 2.5% Domestic
+Price of Silver
+• To generate long-term capital
+appreciation / income
+• Investments in a diversified
+portfolio of equity & equity related
+instruments, debt & money
+market instruments and
+Commodities ETFs such as
+Gold/Silver/other Commodity
+ETFs as permitted and ETCD
+
+BENCHMARK AND SCHEME RISKOMETERS
+126 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC Multi-Asset Active
+FOF
+BENCHMARK: 50% NIFTY 50
+TRI + 40% NIFTY Composite
+Debt Index + 10% Gold derived
+as per regulatory norms
+• Capital appreciation over long
+term
+• Investment predominantly in
+equity oriented, debt oriented and
+Gold ETF schemes
+HDFC Diversified Equity
+All Cap Active FOF
+BENCHMARK: NIFTY 500 (TRI)
+• Capital appreciation / generate
+income over long term
+• To invest in units of Equity-
+oriented schemes based on varied
+market caps.
+HDFC Gold ETF Fund of
+Fund
+BENCHMARK: Domestic Price
+of Physical Gold
+• Capital appreciation over long
+term
+• Investment in Units of HDFC Gold
+ETF(HGETF). HGETF invests in
+gold bullion of 0.995 fineness
+HDFC Silver ETF Fund of
+Fund
+BENCHMARK: Domestic Prices
+of physical Silver (derived as
+per regulatory norms)
+• Capital appreciation over long
+term.
+• Investment in Units of HDFC
+Silver ETF (HSETF). HSETF invests
+in Silver and Silver related
+instruments.
+HDFC Equity Savings Fund
+BENCHMARK: NIFTY Equity
+Savings Index (Total Returns
+Index)
+• Capital appreciation while
+generating income over medium
+to long term.
+• Provide capital appreciation and
+income distribution to the
+investors by using equity and
+equity related instruments,
+arbitrage opportunities, and
+investments in debt and money
+market instruments.
+HDFC Hybrid Debt Fund
+BENCHMARK: NIFTY 50
+Hybrid Composite Debt 15:85
+Index (Total Returns Index)
+• To generate long-term income /
+capital appreciation
+• Investments primarily in debt
+securities, money market
+instruments and moderate
+exposure to equities
+HDFC ELSS Tax Saver
+BENCHMARK: NIFTY 500
+Index (TRI)
+• To generate long-term capital
+appreciation / income
+• Investment predominantly of
+equity & equity related
+instruments
+HDFC Children's Fund
+BENCHMARK: NIFTY 50
+Hybrid Composite Debt 65:35
+Index (Total Returns Index)
+• Capital appreciation over long
+term
+• Investment in equity and equity
+related instruments as well as debt
+and money market instruments.
+
+BENCHMARK AND SCHEME RISKOMETERS
+127 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC Retirement Savings
+Fund - Equity Plan
+BENCHMARK: NIFTY 500
+(Total Returns Index)
+• A corpus to provide for pension
+in the form of income to the extent
+of the redemption value of their
+holding after the age of 60 years.
+• Investment predominantly in
+equity and equity related
+instruments.
+HDFC Retirement Savings
+Fund - Hybrid Equity Plan
+BENCHMARK: NIFTY 50
+Hybrid Composite Debt 65:35
+Index (Total Returns Index)
+• A corpus to provide for pension
+in the form of income to the extent
+of the redemption value of their
+holding after the age of 60 years
+• Investment predominantly in
+equity and equity related
+instruments & balance in debt and
+money market instruments.
+HDFC Retirement Savings
+Fund - Hybrid Debt Plan
+BENCHMARK: NIFTY 50
+Hybrid Composite Debt 15:85
+Index (Total Returns Index)
+• A corpus to provide for pension
+in the form of income to the extent
+of the redemption value of their
+holding after the age of 60 years.
+• Investment predominantly in
+debt and money market
+instruments & balance in equity
+and equity related instruments.
+HDFC Arbitrage Fund
+BENCHMARK: NIFTY 50
+Arbitrage Index (Total Returns
+Index)
+• Income over short term.
+• Income through arbitrage
+opportunities between cash and
+derivative market and arbitrage
+opportunities within the derivative
+segment.
+HDFC Income Plus
+Arbitrage Active FOF
+BENCHMARK: 40% NIFTY 50
+Arbitrage Index (TRI) + 60%
+NIFTY Composite Debt Index
+• Capital appreciation over long
+term
+• investment in Units of Arbitrage
+and Debt schemes
+HDFC Income Plus
+Arbitrage Omni FOF
+BENCHMARK: 40% NIFTY 50
+Arbitrage Index (TRI) + 60%
+NIFTY Short Duration Debt
+Index
+• Capital appreciation / generate
+income over long term.
+• Investment in Units of domestic
+Arbitrage schemes and active/
+passive Debt-oriented schemes.
+Fund Name &
+Benchmark
+Product Labelling
+(This product is suitable
+for investors who are
+seeking ~)
+Scheme Riskometer (Current
+risk as per latest month end
+portfolio)
+Benchmark Riskometer
+Potential Risk Class
+(Maximum risk the Scheme can take)
+HDFC
+Overnight
+Fund
+BENCHMARK:
+CRISIL Liquid
+Overnight Index
+• Regular income over
+short term that may be in
+line with the overnight call
+rates
+• To generate returns by
+investing in debt and
+money market
+instruments with
+overnight maturity
+
+BENCHMARK AND SCHEME RISKOMETERS
+128 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name &
+Benchmark
+Product Labelling
+(This product is suitable
+for investors who are
+seeking ~)
+Scheme Riskometer (Current
+risk as per latest month end
+portfolio)
+Benchmark Riskometer
+Potential Risk Class
+(Maximum risk the Scheme can take)
+HDFC Liquid
+Fund
+BENCHMARK:
+CRISIL Liquid
+Debt A-I Index
+• Regular income over
+short term
+• To generate income
+through a portfolio
+comprising money market
+and debt instruments
+HDFC Ultra
+Short Term
+Fund
+BENCHMARK:
+CRISIL Ultra
+Short Duration
+Debt A-I Index
+• Income over short term
+• Income/capital
+appreciation through
+investment in debt
+securities and money
+market instruments
+HDFC Low
+Duration Fund
+BENCHMARK:
+NIFTY Low
+Duration Debt
+Index A-I
+• Income over short term.
+• To generate income /
+capital appreciation
+through investment in
+debt securities and money
+market instruments
+HDFC Money
+Market Fund
+BENCHMARK:
+CRISIL Money
+Market A-I
+Index
+• Income over short term
+• To generate income /
+capital appreciation by
+investing in money
+market instruments
+HDFC Short
+Term Debt
+Fund
+BENCHMARK:
+CRISIL Short
+Duration Debt
+A-II Index
+• Income over short term.
+• To generate income /
+capital appreciation
+through investments in
+Debt and Money Market
+Instruments
+HDFC Medium
+Term Debt
+Fund
+BENCHMARK:
+NIFTY Medium
+Duration Debt
+Index A-III
+• Income over medium
+term
+• To generate income /
+capital appreciation
+through investments in
+Debt and Money Market
+Instruments
+
+BENCHMARK AND SCHEME RISKOMETERS
+129 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name &
+Benchmark
+Product Labelling
+(This product is suitable
+for investors who are
+seeking ~)
+Scheme Riskometer (Current
+risk as per latest month end
+portfolio)
+Benchmark Riskometer
+Potential Risk Class
+(Maximum risk the Scheme can take)
+HDFC Income
+Fund
+BENCHMARK:
+CRISIL Medium
+To Long
+Duration Debt
+A-III Index
+• Income over medium to
+long term
+• To generate income /
+capital appreciation
+through investments in
+debt and money market
+instruments
+HDFC Long
+Duration Debt
+Fund
+BENCHMARK:
+NIFTY Long
+Duration Debt
+Index - A-III
+• Income over the long
+term
+• To generate income /
+capital appreciation
+through investments in
+debt and money market
+instruments
+HDFC Floating
+Rate Debt
+Fund
+BENCHMARK:
+CRISIL Short
+Duration Debt
+A-II Index
+• Income over short term
+• To generate income /
+capital appreciation
+through investment in a
+portfolio comprising
+substantially of floating
+rate debt, fixed rate debt
+instruments swapped for
+floating rate returns and
+money market
+instruments
+HDFC
+Corporate
+Bond Fund
+BENCHMARK:
+NIFTY
+Corporate Bond
+Index A- II
+• Income over short to
+medium term
+• To generate
+income/capital
+appreciation through
+investments
+predominantly in AA+ and
+above rated corporate
+bonds
+HDFC Banking
+and PSU Debt
+Fund
+BENCHMARK:
+NIFTY Banking
+& PSU Debt
+Index A-II
+• Income over short to
+medium term
+• To generate income /
+capital appreciation
+through investments in
+debt and money market
+instruments consisting
+predominantly of
+securities issued by
+entities such as Scheduled
+Commercial Banks
+(SCBs),Public Sector
+undertakings (PSUs),
+Public Financial
+Institutions (PFIs),
+Municipal Corporations
+and such other bodies
+HDFC Credit
+Risk Debt
+Fund
+BENCHMARK:
+NIFTY Credit
+Risk Bond Index
+B-II
+• Income over short to
+medium term
+• To generate
+income/capital
+appreciation by investing
+predominantly in AA and
+below rated corporate
+debt (excluding AA+ rated
+corporate bonds)
+
+BENCHMARK AND SCHEME RISKOMETERS
+130 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name &
+Benchmark
+Product Labelling
+(This product is suitable
+for investors who are
+seeking ~)
+Scheme Riskometer (Current
+risk as per latest month end
+portfolio)
+Benchmark Riskometer
+Potential Risk Class
+(Maximum risk the Scheme can take)
+HDFC Dynamic
+Debt Fund
+BENCHMARK:
+NIFTY
+Composite Debt
+Index A- III
+• Income over medium to
+long term
+• To generate income /
+capital appreciation by
+investing in a range of
+debt and money market
+instruments
+HDFC Gilt Fund
+BENCHMARK:
+NIFTY All
+Duration G-Sec
+Index
+• Credit risk free returns
+over medium to long term
+• To generate credit risk-
+free returns through
+investments in sovereign
+securities issued by the
+Central Government and /
+or State Government
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC BSE Sensex Index
+Fund
+BENCHMARK: BSE SENSEX
+Index (TRI)
+• Returns that are commensurate
+with the performance of the BSE
+SENSEX Index (TRI), subject to
+tracking errors over long term.
+• Investment in equity securities
+covered by the BSE SENSEX Index
+(TRI).
+HDFC Nifty 50 Index Fund
+BENCHMARK: Nifty 50 Index
+(TRI)
+• Returns that are commensurate
+with the performance of the NIFTY
+50 Index (TRI), subject to tracking
+errors over long term
+• Investment in equity securities
+covered by the NIFTY 50 Index
+(TRI).
+HDFC NIFTY Next 50
+Index Fund
+BENCHMARK: NIFTY Next 50
+Total Returns Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY Next
+50 Index (TRI) over long term,
+subject to tracking error
+• Investment in securities covered
+by the NIFTY Next 50 Index (TRI).
+HDFC NIFTY Midcap 150
+Index Fund
+BENCHMARK: NIFTY Midcap
+150 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY
+Midcap 150 Index (TRI) over long
+term, subject to tracking error.
+• Investment in securities covered
+by the NIFTY Midcap 150 Index
+(TRI)
+HDFC NIFTY Smallcap 250
+Index Fund
+BENCHMARK: NIFTY Smallcap
+250 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY
+Smallcap 250 Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY Smallcap 250 Index
+(TRI).
+
+BENCHMARK AND SCHEME RISKOMETERS
+131 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC BSE 500 Index Fund
+BENCHMARK: BSE 500 Index
+(TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the BSE 500
+Index (TRI) over long term, subject
+to tracking error
+• Investment in securities covered
+by the BSE 500 Index (TRI).
+HDFC NIFTY200
+Momentum 30 Index
+Fund
+BENCHMARK: NIFTY200
+Momentum 30 Total Returns
+Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY200
+Momentum 30 Index (TRI) over
+long term, subject to tracking
+error.
+• Investment in equity securities
+covered by the NIFTY200
+Momentum 30 Index (TRI)
+HDFC NIFTY Realty Index
+Fund
+BENCHMARK: NIFTY Realty
+Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY
+Realty Index (TRI) over long term,
+subject to tracking error.
+• Investment in securities covered
+by the NIFTY Realty Index (TRI).
+HDFC NIFTY 100 Index
+Fund
+BENCHMARK: NIFTY 100 Total
+Returns Index (TRI)
+• Returns that are
+commensurate(before fees and
+expenses) with the performance of
+the NIFTY 100 Index (TRI) over
+long term, subject to tracking error
+• Investment in equity securities
+covered by the NIFTY 100 Index
+(TRI).
+HDFC NIFTY50 Equal
+Weight Index Fund
+BENCHMARK: NIFTY50 Equal
+Weight Total Returns Index
+(TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY50
+Equal Weight Index (TRI) over
+long term, subject to tracking error
+• Investment in securities covered
+by the NIFTY50 Equal Weight
+Index (TRI).
+HDFC NIFTY 100 Equal
+Weight Index Fund
+BENCHMARK: NIFTY 100
+Equal Weight Total Returns
+Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY 100
+Equal Weight Index (TRI) over
+long term, subject to tracking error
+• Investment in equity securities
+covered by the NIFTY 100 Equal
+Weight Index (TRI).
+HDFC NIFTY100 Low
+Volatility 30 Index Fund
+BENCHMARK: NIFTY100 Low
+Volatility 30 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY100
+Low Volatility 30 Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY100 Low Volatility 30
+Index (TRI).
+
+BENCHMARK AND SCHEME RISKOMETERS
+132 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC NIFTY500
+MULTICAP 50:25:25
+INDEX FUND
+BENCHMARK: Nifty500
+Multicap 50:25:25 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the Nifty500
+Multicap 50:25:25 Index (TRI),
+over long term, subject to tracking
+error.
+• Investment in securities covered
+by the Nifty500 Multicap 50:25:25
+Index (TRI).
+HDFC Nifty LargeMidcap
+250 Index Fund
+BENCHMARK: Nifty
+LargeMidcap 250 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the Nifty
+LargeMidcap 250 Index (TRI),
+over long term, subject to tracking
+error.
+• Investment in equity securities
+covered by the Nifty LargeMidcap
+250 Index (TRI).
+HDFC Nifty India Digital
+Index Fund
+BENCHMARK: Nifty India
+Digital Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the Nifty India
+Digital Index (TRI), over long term,
+subject to tracking error.
+• Investment in equity securities
+covered by the Nifty India Digital
+Index (TRI)
+HDFC BSE SENSEX ETF
+BENCHMARK: BSE SENSEX
+Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the BSE
+SENSEX Index (TRI), over long
+term, subject to tracking error.
+• Investment in securities covered
+by the BSE SENSEX Index (TRI).
+HDFC NIFTY 50 ETF
+BENCHMARK: Nifty 50 Index
+(TRI)
+• Returns that are commensurate
+with the performance of the NIFTY
+50 Index (TRI), over long term,
+subject to tracking error.
+• Investment in equity securities
+covered by the NIFTY 50 Index
+(TRI).
+HDFC NIFTY Next 50 ETF
+BENCHMARK: NIFTY Next 50
+Total Returns Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY Next
+50 Total Returns Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY Next 50 Total
+Returns Index (TRI).
+HDFC NIFTY 100 ETF
+BENCHMARK: NIFTY 100 Total
+Returns Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY 100
+Total Returns Index (TRI) over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY 100 Total Returns
+Index (TRI).
+
+BENCHMARK AND SCHEME RISKOMETERS
+133 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC NIFTY Bank ETF
+BENCHMARK: NIFTY Bank
+Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY
+Bank Index (TRI), subject to
+tracking error, over long term.
+• Investment in equity securities
+covered by the NIFTY Bank Index
+(TRI).
+HDFC NIFTY IT ETF
+BENCHMARK: NIFTY IT Index
+(TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY IT
+Index (TRI), over long term,
+subject to tracking error.
+• Investment in securities covered
+by the NIFTY IT Index (TRI).
+HDFC NIFTY Private Bank
+ETF
+BENCHMARK: NIFTY Private
+Bank Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY
+Private Bank Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY Private Bank Index
+(TRI).
+HDFC NIFTY Midcap 150
+ETF
+BENCHMARK: NIFTY Midcap
+150 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY
+Midcap 150 Index (TRI), over long
+term, subject to tracking error
+• Investment in securities covered
+by the NIFTY Midcap 150 Index
+(TRI).
+HDFC NIFTY Smallcap 250
+ETF
+BENCHMARK: NIFTY Smallcap
+250 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY
+Smallcap 250 Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY Smallcap 250 Index
+(TRI).
+HDFC NIFTY PSU BANK
+ETF
+BENCHMARK: NIFTY PSU Bank
+Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY PSU
+Bank Index (TRI), over long term,
+subject to tracking error.
+• Investment in securities covered
+by the NIFTY PSU Bank Index
+(TRI).
+HDFC BSE 500 ETF
+BENCHMARK: BSE 500 Index
+(TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the BSE 500
+Index (TRI), over long term,
+subject to tracking error.
+• Investment in securities covered
+by the BSE 500 Index (TRI).
+
+BENCHMARK AND SCHEME RISKOMETERS
+134 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC NIFTY100 Quality
+30 ETF
+BENCHMARK: NIFTY100
+Quality 30 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY100
+Quality 30 Index Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY100 Quality 30 Index
+Index (TRI).
+HDFC NIFTY50 VALUE 20
+ETF
+BENCHMARK: NIFTY50 Value
+20 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY50
+Value 20 Index (TRI), over long
+term, subject to tracking error.
+• Investment in securities covered
+by the NIFTY50 Value 20 Index
+(TRI).
+HDFC NIFTY Growth
+Sectors 15 ETF
+BENCHMARK: NIFTY Growth
+Sectors 15 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY
+Growth Sectors 15 Index (TRI),
+over long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY Growth Sectors 15
+Index (TRI).
+HDFC NIFTY100 Low
+Volatility 30 ETF
+BENCHMARK: NIFTY100 Low
+Volatility 30 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY100
+Low Volatility 30 Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY100 Low Volatility 30
+Index (TRI).
+HDFC NIFTY200
+Momentum 30 ETF
+BENCHMARK: NIFTY 200
+Momentum 30 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the NIFTY200
+Momentum 30 Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the NIFTY200 Momentum 30
+Index (TRI).
+HDFC Gold ETF
+BENCHMARK: Domestic Price
+of Physical Gold
+• Returns that are commensurate
+with the performance of gold,
+subject to tracking errors, over
+long term
+• Investment in Gold bullion of
+0.995 fineness
+HDFC Silver ETF
+BENCHMARK: Domestic Prices
+of physical Silver (derived as
+per regulatory norms)
+• Returns that are commensurate
+with the performance of Silver,
+subject to tracking errors, over
+long term.
+• Investment in Silver bullion of
+0.999 fineness.
+
+BENCHMARK AND SCHEME RISKOMETERS
+135 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name & Benchmark Product Labelling
+(This product is suitable for
+investors who are seeking ~)
+Scheme Riskometer Benchmark Riskometer
+HDFC Developed World
+Overseas Equity Passive
+FOF
+BENCHMARK: MSCI World
+Index (Net Total Return Index)
+(Due to time zone difference,
+benchmark performance will be
+calculated with a day’s lag).
+• Returns that closely correspond
+to the performance of the MSCI
+World Index, subject to tracking
+errors, over long term
+• Investments in units/shares of
+overseas equity Index Funds
+and/or ETFs
+HDFC Nifty Top 20 Equal
+Weight Index Fund
+BENCHMARK: Nifty Top 20
+Equal Weight Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the Nifty Top
+20 Equal Weight Index (TRI), over
+long term, subject to tracking
+error.
+• Investment in securities covered
+by the Nifty Top 20 Equal Weight
+Index (TRI)
+HDFC Nifty100 Quality 30
+Index Fund
+BENCHMARK: Nifty100 Quality
+30 Index (TRI)
+• Returns that are commensurate
+(before fees and expenses) with
+the performance of the Nifty100
+Quality 30 Index (TRI), over long
+term, subject to tracking error.
+• Investment in equity securities
+covered by the Nifty100 Quality 30
+Index(TRI)
+HDFC BSE India Sector
+Leaders Index Fund
+BENCHMARK: BSE India Sector
+Leaders Index (TRI)
+• Returns that are
+commensurate (before fees and
+expenses) with the performance
+of the BSE India Sector Leaders
+Index (TRI), over long term,
+subject to tracking error.
+• Investment in equity securities
+covered by the BSE India Sector
+Leaders Index (TRI)
+Fund Name &
+Benchmark
+Product Labelling
+(This product is suitable
+for investors who are
+seeking ~)
+Scheme Riskometer (Current
+risk as per latest month end
+portfolio)
+Benchmark Riskometer
+Potential Risk Class
+(Maximum risk the Scheme can take)
+HDFC Nifty G-
+Sec Dec 2026
+Index Fund
+BENCHMARK:
+NIFTY G-Sec
+Dec 2026 Index
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+Nifty G-sec Dec 2026
+Index, subject to tracking
+difference over long term
+• Investment in
+Government
+Securities/SDL, TREPS on
+Government
+Securities/Treasury bills
+
+BENCHMARK AND SCHEME RISKOMETERS
+136 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name &
+Benchmark
+Product Labelling
+(This product is suitable
+for investors who are
+seeking ~)
+Scheme Riskometer (Current
+risk as per latest month end
+portfolio)
+Benchmark Riskometer
+Potential Risk Class
+(Maximum risk the Scheme can take)
+HDFC Nifty G-
+Sec Jul 2031
+Index Fund
+BENCHMARK:
+NIFTY G-Sec
+July 2031 Index
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+Nifty G-Sec July 2031
+Index, subject to tracking
+difference over long term.
+• Investment in
+Government
+Securities/SDL, TREPS on
+Government
+Securities/Treasury bills
+HDFC Nifty G-
+Sec Jun 2027
+Index Fund
+BENCHMARK:
+NIFTY G-Sec Jun
+2027 Index
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+Nifty G- Sec Jun 2027
+Index, subject to tracking
+difference over long term.
+• Investment in
+Government
+Securities/SDL, TREPS on
+Government
+Securities/Treasury bills
+HDFC Nifty G-
+Sec Sep 2032
+Index Fund
+BENCHMARK:
+NIFTY G-Sec
+Sep 2032 Index
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+Nifty G-Sec Sep 2032
+Index, subject to tracking
+difference over long term
+• Investment in
+Government
+Securities/SDL, TREPS on
+Government
+Securities/Treasury bills
+HDFC NIFTY G-
+Sec Apr 2029
+Index Fund
+BENCHMARK:
+NIFTY G- Sec
+Apr 2029 Index
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+NIFTY G- Sec Apr 2029
+Index, subject to tracking
+difference over long term.
+• Investment in
+Government
+Securities/SDL, TREPS on
+Government
+Securities/Treasury bills.
+HDFC NIFTY G-
+sec Jun 2036
+Index Fund
+BENCHMARK:
+NIFTY G-Sec Jun
+2036 Index
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+NIFTY G-sec Jun 2036
+Index, subject to tracking
+difference over long term
+• Investment in
+Government
+Securities/SDL, TREPS on
+Government
+Securities/Treasury bills
+
+BENCHMARK AND SCHEME RISKOMETERS
+137 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name &
+Benchmark
+Product Labelling
+(This product is suitable
+for investors who are
+seeking ~)
+Scheme Riskometer (Current
+risk as per latest month end
+portfolio)
+Benchmark Riskometer
+Potential Risk Class
+(Maximum risk the Scheme can take)
+HDFC NIFTY
+SDL Plus G-Sec
+Jun 2027 40:60
+Index Fund
+BENCHMARK:
+NIFTY SDL Plus
+G-Sec Jun 2027
+40:60 Index
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+NIFTY SDL Plus G-Sec Jun
+2027 40:60 Index, subject
+to tracking difference over
+long term
+• Investment in
+Government
+Securities/SDL, TREPS on
+Government
+Securities/Treasury bills
+HDFC Nifty SDL
+Oct 2026 Index
+Fund
+BENCHMARK:
+NIFTY SDL Oct
+2026 Index
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+Nifty SDL Oct 2026 Index,
+subject to tracking
+difference over long term
+• Investment in
+Government
+Securities/SDL, TREPS on
+Government
+Securities/Treasury bills
+HDFC CRISIL-
+IBX Financial
+Services 3-6
+Months Debt
+Index Fund
+BENCHMARK:
+CRISIL-IBX
+Financial
+Services 3-6
+Months Debt
+Index (“the
+Underlying
+Index”)
+• Income generated from
+exposure to shorter-term
+maturities on the yield
+curve.
+• Returns that are
+commensurate (before
+fees and expenses) with
+the performance of the
+CRISIL-IBX Financial
+Services 3-6 Months Debt
+Index, subject to tracking
+difference.
+• Investment in debt
+securities replicating the
+Underlying Index.
+HDFC NIFTY
+1D RATE
+LIQUID ETF -
+Growth
+BENCHMARK:
+NIFTY 1D Rate
+Index
+• Investment over short
+term with returns that,
+before expenses,
+correspond to the returns
+of the NIFTY 1D Rate
+Index, subject to tracking
+errors, along with high
+degree of liquidity
+• Investment in TREPS
+covered by the NIFTY 1D
+Rate Index
+HDFC Charity
+Fund for
+Cancer Cure
+BENCHMARK:
+NIFTY Medium
+Duration Debt
+Index
+• Regular income over
+1196 days (tenure of the
+Scheme)
+• Investment in debt and
+money market
+instruments and
+government securities
+
+BENCHMARK AND SCHEME RISKOMETERS
+138 | June 2026
+~ Investors should consult their financial advisers, if in doubt about whether the product is suitable for them
+Fund Name &
+Benchmark
+Product Labelling
+(This product is suitable
+for investors who are
+seeking ~)
+Scheme Riskometer (Current
+risk as per latest month end
+portfolio)
+Benchmark Riskometer
+Potential Risk Class
+(Maximum risk the Scheme can take)
+HDFC FMP
+1359D
+September
+2022 (46)
+BENCHMARK:
+NIFTY Medium
+Duration Debt
+Index
+• Regular income over
+1359 days (tenure of the
+plan)
+• Investment in debt and
+money market
+instruments and
+government securities.
+HDFC FMP
+1861D March
+2022 (46)
+BENCHMARK:
+NIFTY Medium
+To Long
+Duration Debt
+Index
+• Regular income over
+1861 days (tenure of the
+Plan)
+• Investment in debt and
+money market
+instruments and
+government securities.
+HDFC FMP
+2638D
+February 2023
+(47)
+BENCHMARK:
+NIFTY Long
+Duration Debt
+Index
+• Regular income over
+2638 days (tenure of the
+plan)
+• Investment in debt and
+money market
+instruments and
+government securities.
+HDFC FMP
+1269D March
+2023 (47)
+BENCHMARK:
+NIFTY Medium
+Duration Debt
+Index
+• Regular income over
+1269 Days (tenure of the
+plan)
+• Investment in debt and
+money market
+instruments and
+government securities.
+HDFC FMP
+1876D March
+2022 (46)
+BENCHMARK:
+NIFTY Medium
+To Long
+Duration Debt
+Index
+• Regular income over
+1876 days (tenure of the
+Plan)
+• Investment in debt and
+money market
+instruments and
+government securities.
+HDFC FMP
+1406D August
+2022(46)
+BENCHMARK:
+NIFTY Medium
+Duration Debt
+Index
+• Regular income over
+1406 days (tenure of the
+plan)
+• Investment in debt and
+money market
+instruments and
+government securities.
+Benchmark and Scheme Riskometer As on June 30, 2026
+For latest riskometer, investors may refer to the Monthly Portfolios disclosed on the website of the fund viz. www.hdfcfund.com
