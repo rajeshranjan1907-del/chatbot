@@ -9,12 +9,24 @@ from one that made it up.
 
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
 import streamlit as st
+
+# Streamlit runs the script, not the package, so the repo root is not guaranteed
+# to be importable - and it is not on sys.path when the app is started from
+# another directory (a Render start command, say). Put it there explicitly
+# before the first app import.
+REPO = Path(__file__).resolve().parents[1]
+if str(REPO) not in sys.path:
+    sys.path.insert(0, str(REPO))
 
 st.set_page_config(page_title="HDFC Mutual Fund Facts", page_icon="📊", layout="centered")
 
 from app import config
 from app.generate import answer_question
+from app.localindex import ensure_index
 from app.retrieve import retrieve
 
 EXAMPLES = [
@@ -46,15 +58,37 @@ REASON_COPY = {
 }
 
 
+#: Lines captured while the index was built. Module-level on purpose: the build
+#: happens inside a cached function, so the output has to outlive that call to be
+#: renderable. `ensure_index` is chatty about what it did and why, and on Render
+#: that output is the only evidence of what happened during a cold start.
+_BUILD_LOG: list[str] = []
+
+
+def _log(line: str) -> None:
+    _BUILD_LOG.append(str(line))
+
+
 @st.cache_resource
 def _warm():
-    """Load the model and index once, not per rerun.
+    """Load the index and embedding model once, not per rerun.
 
     Streamlit reruns the whole script on every interaction, so without this the
-    embedding model would reload on each keystroke.
+    ~90 MB embedding model would reload on each keystroke.
+
+    `ensure_index` builds the index when it is absent. The index is a gitignored
+    artifact and Render's filesystem is ephemeral, so a fresh instance has the
+    corpus and no vectors and could not answer anything at all. A Render build
+    command or pre-deploy step can produce it ahead of time - see
+    docs/deploy_render.md - but neither is something the app can rely on: a
+    failed build, a redeploy onto a clean disk, or a service that was never
+    configured to build leaves the deployment unable to answer. Recovering here
+    costs one build on the first request of a cold start and makes the app
+    independent of deploy-time state.
     """
-    retrieve("warm up the index and embedding model")
-    return True
+    index = ensure_index(log=_log)
+    retrieve("warm up the index and embedding model", index)
+    return index
 
 
 def main() -> None:
@@ -71,7 +105,26 @@ def main() -> None:
         )
 
     with st.spinner("Loading the corpus index..."):
-        _warm()
+        try:
+            _warm()
+        except Exception as exc:
+            # Anything that goes wrong warming up - no corpus, a coverage
+            # failure, a blocked Hugging Face download, an out-of-memory kill -
+            # leaves the bot unable to answer, and none of it is the user's
+            # fault. A deployed app renders the reason; it does not show a
+            # traceback to somebody asking about an expense ratio.
+            st.error("The bot could not load its vector index.")
+            st.code(f"{type(exc).__name__}: {exc}", language=None)
+            st.caption(
+                "The index is built from data/raw on first load. On a deployed "
+                "service this usually means the build step did not run or the "
+                "model could not be downloaded - see docs/deploy_render.md."
+            )
+            st.stop()
+
+    if _BUILD_LOG:
+        with st.expander("Index log"):
+            st.code("\n".join(_BUILD_LOG[-40:]), language=None)
 
     for question in EXAMPLES:
         if st.sidebar.button(question, key=f"ex_{question[:24]}", use_container_width=True):

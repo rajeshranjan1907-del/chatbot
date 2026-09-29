@@ -18,11 +18,21 @@ Layout on disk:
     <dir>/vectors.npy     float32, shape (n_chunks, 384), C order
     <dir>/chunks.jsonl   one JSON object per line, aligned to the row order
     <dir>/manifest.json  corpus_version, model, dim, count, built_at
+
+`ensure_index()` is the single entry point every caller should use. It is the
+answer to the one failure that a fresh deploy always hits: the index above is a
+gitignored build artifact, so a Render instance - whose filesystem is ephemeral
+and starts empty - has `data/raw` and no vectors, and the app could not answer a
+single question until an index existed. `ensure_index` loads a usable index when
+there is one and otherwise builds it from `data/raw` in the same process, so the
+app recovers without anyone remembering a build step.
 """
 
 from __future__ import annotations
 
 import json
+import tempfile
+from collections.abc import Callable
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -37,8 +47,17 @@ class IndexError_(RuntimeError):
     """Raised when the index is missing, stale, or unreadable."""
 
 
+#: Set only when the configured index dir turned out to be unwritable and we fell
+#: back to a temp dir. Sticky for the process so that a later `load()` with no
+#: argument reads the directory `ensure_index()` actually wrote, rather than
+#: looking in a place that can never hold an index.
+_ACTIVE_ROOT: Path | None = None
+
+
 def default_index_dir() -> Path:
-    return config.PROCESSED_DIR / "vector_index"
+    if _ACTIVE_ROOT is not None:
+        return _ACTIVE_ROOT
+    return config.INDEX_DIR
 
 
 class LocalIndex:
@@ -105,7 +124,8 @@ class LocalIndex:
         if not (root / MANIFEST_FILE).exists():
             raise IndexError_(
                 f"no vector index at {root}. Build it with:\n"
-                f"  python scripts/build_index.py"
+                f"  python scripts/build_index.py\n"
+                f"or call ensure_index(), which builds it on demand."
             )
         manifest = json.loads((root / MANIFEST_FILE).read_text(encoding="utf-8"))
         vectors = np.load(root / VECTORS_FILE, allow_pickle=False)
@@ -175,3 +195,163 @@ class LocalIndex:
 
 def build_index(chunks: list, vectors: list[list[float]], root: Path | None = None) -> LocalIndex:
     return LocalIndex.build(chunks, vectors, root)
+
+
+# ------------------------------------------------------------------- bootstrap
+def unusable_reason(root: Path) -> str | None:
+    """Why the index at `root` cannot be used, or None if it is fine.
+
+    Separate from `load()` so a caller can tell "nothing there yet" (build it)
+    from "something is there but wrong" (rebuild it, and say so). The two
+    produce different deploy logs, and a silent rebuild of a corrupt index is
+    how a real disk problem goes unnoticed.
+    """
+    if not (root / MANIFEST_FILE).exists():
+        return f"no index at {root}"
+
+    try:
+        manifest = json.loads((root / MANIFEST_FILE).read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        return f"{root / MANIFEST_FILE} is unreadable ({exc})"
+
+    model = manifest.get("embed_model")
+    if model != config.EMBED_MODEL:
+        return (
+            f"index was built with embed_model={model!r} but config.EMBED_MODEL is "
+            f"{config.EMBED_MODEL!r}"
+        )
+
+    version = manifest.get("corpus_version")
+    if version != config.CORPUS_VERSION:
+        return (
+            f"index corpus_version is {version!r} but config.CORPUS_VERSION is "
+            f"{config.CORPUS_VERSION!r}"
+        )
+
+    missing = [n for n in (VECTORS_FILE, CHUNKS_FILE) if not (root / n).exists()]
+    if missing:
+        return f"index at {root} is incomplete: missing {', '.join(missing)}"
+
+    return None
+
+
+def _writable(root: Path) -> bool:
+    """True if `root` exists (or can be created) and accepts a write."""
+    probe = root / ".write-probe"
+    try:
+        root.mkdir(parents=True, exist_ok=True)
+        probe.write_text("", encoding="utf-8")
+        probe.unlink()
+        return True
+    except OSError:
+        return False
+
+
+def _resolve_build_root(preferred: Path, log: Callable[[str], None]) -> Path:
+    """A directory we can actually write the index into.
+
+    The configured path is the normal answer. A read-only checkout is the
+    exception - a container image or a mount that does not allow writes under
+    the source tree - and there the only sane thing is to build somewhere
+    writable rather than to fail a deploy over it. The choice is recorded in
+    `_ACTIVE_ROOT` so `load()` looks in the same place.
+    """
+    global _ACTIVE_ROOT
+    if _writable(preferred):
+        return preferred
+
+    fallback = Path(tempfile.gettempdir()) / "hdfc_mf_facts_vector_index"
+    log(f"{preferred} is not writable; building the index in {fallback} instead")
+    if not _writable(fallback):
+        raise IndexError_(
+            f"cannot write a vector index: neither {preferred} nor {fallback} is "
+            f"writable. Set INDEX_DIR to a writable directory."
+        )
+    _ACTIVE_ROOT = fallback
+    return fallback
+
+
+def build_from_raw(
+    root: Path | None = None,
+    log: Callable[[str], None] = print,
+) -> LocalIndex:
+    """Chunk `data/raw`, embed it and write the index. Raises on any failure.
+
+    The same sequence `scripts/build_index.py` runs, kept here so the deploy
+    path and the CLI path cannot drift apart: a prebuilt index and a
+    self-healed one have to be byte-compatible or search results depend on who
+    started the app.
+    """
+    # Imported here, not at module scope: the chunker and the embedder pull in
+    # torch, and a caller that only wants to *read* an existing index should not
+    # pay ~90 MB of model load to do it.
+    from app.chunking import load_and_chunk
+    from app.embedder import embed_texts
+    from app.ingest import check_coverage
+
+    if not config.RAW_DIR.exists():
+        raise IndexError_(
+            f"{config.RAW_DIR} does not exist, so there is no corpus to build an "
+            f"index from. data/raw is committed to the repo, so this means the "
+            f"deploy did not check the source out - check the build log."
+        )
+
+    target = _resolve_build_root(Path(root) if root is not None else default_index_dir(), log)
+
+    log(f"loading {config.RAW_DIR} ...")
+    chunks = load_and_chunk()
+    if not chunks:
+        raise IndexError_("the chunker produced zero chunks, so there is nothing to index")
+    log(f"  -> {len(chunks)} chunks")
+
+    # The same gate ingest applies. A deploy that half-cloned the corpus must
+    # fail loudly rather than serve a bot that cannot answer "expense ratio".
+    problems = check_coverage(chunks)
+    if problems:
+        raise IndexError_("coverage check failed:\n" + "\n".join(f"  - {p}" for p in problems))
+
+    log(f"embedding {len(chunks)} chunks with {config.EMBED_MODEL} ...")
+    vectors = embed_texts([c.embed_text for c in chunks])
+    log(f"  -> {len(vectors)} vectors, dim {len(vectors[0])}")
+
+    index = LocalIndex.build(chunks, vectors, target)
+    log(f"  -> wrote {index.manifest['count']} vectors to {target}")
+
+    # Prove it is searchable rather than asserting it. An index that was written
+    # but cannot be read back is the exact failure this whole path exists for.
+    top = index.query(vectors[0], n=1)[0]
+    if top["chunk_id"] != chunks[0].chunk_id:
+        raise IndexError_(
+            f"the freshly built index does not return its own first chunk: got "
+            f"{top['chunk_id']!r}, expected {chunks[0].chunk_id!r}"
+        )
+    log(f"  -> self-query check PASS ({top['chunk_id']} at cosine {top['score']:.4f})")
+    return index
+
+
+def ensure_index(
+    root: Path | None = None,
+    log: Callable[[str], None] = print,
+) -> LocalIndex:
+    """Return a usable index, building it from `data/raw` if there isn't one.
+
+    This is the call the UI, the CLI and `retrieve()` all make. Load is the
+    fast path and costs one small JSON read; a missing, stale, corrupt or
+    model-mismatched index is rebuilt, because every one of those states means
+    the app cannot answer and there is nothing to lose by rebuilding.
+
+    Raises `IndexError_` with the reason when the corpus is missing or the
+    coverage gate fails, so the caller can show something actionable rather than
+    a bare traceback.
+    """
+    target = Path(root) if root is not None else default_index_dir()
+
+    reason = unusable_reason(target)
+    if reason is None:
+        try:
+            return LocalIndex.load(target)
+        except (IndexError_, OSError, ValueError) as exc:
+            reason = f"index at {target} could not be read ({exc})"
+
+    log(f"building the vector index: {reason}")
+    return build_from_raw(target, log=log)

@@ -35,7 +35,7 @@ from pathlib import Path
 from app import config
 from app.chunking import Chunk
 from app.embedder import embed_query
-from app.localindex import LocalIndex
+from app.localindex import IndexError_, LocalIndex, ensure_index
 
 RULE = "=" * 100
 THIN = "-" * 100
@@ -307,7 +307,7 @@ def retrieve(question: str, index: LocalIndex | None = None) -> Context:
     if not question or not question.strip():
         return Context(ok=False, reason=INSUFFICIENT_NO_HITS)
 
-    index = index or LocalIndex.load()
+    index = index or ensure_index()
 
     # Step 1: embed the question exactly as ingest embedded the chunks.
     q_vec = embed_query(question)
@@ -431,13 +431,16 @@ def main(argv: list[str] | None = None) -> int:
 
     question = " ".join(args.question)
 
-    if not LocalIndex.exists():
-        print("ERROR: no vector index found.", file=sys.stderr)
-        print("Build it first:  python scripts/build_index.py", file=sys.stderr)
+    # The index is a build artifact and a fresh checkout has none, so the CLI
+    # builds it rather than refusing to run - the same recovery the UI does.
+    try:
+        index = ensure_index()
+    except IndexError_ as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
         return 2
 
     try:
-        ctx = retrieve(question)
+        ctx = retrieve(question, index)
     except Exception as exc:
         print(f"ERROR: retrieval failed: {exc}", file=sys.stderr)
         return 2

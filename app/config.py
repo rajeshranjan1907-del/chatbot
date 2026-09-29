@@ -146,6 +146,13 @@ CHROMA_METADATA: dict[str, str] = {"hnsw:space": "cosine"}
 
 RAW_DIR: Path = Path(_env("RAW_DIR", str(REPO_ROOT / "data" / "raw")))
 PROCESSED_DIR: Path = Path(_env("PROCESSED_DIR", str(REPO_ROOT / "data" / "processed")))
+
+#: Where the NumPy vector index lives. A build artifact, so it is gitignored
+#: and absent from any fresh checkout - including a Render deploy, whose
+#: filesystem is ephemeral and starts empty. Overridable so a deployment with a
+#: read-only checkout can point it at a writable volume instead; app/localindex
+#: falls back to a temp dir on its own if this one is not writable.
+INDEX_DIR: Path = Path(_env("INDEX_DIR", str(PROCESSED_DIR / "vector_index")))
 LOGS_DIR: Path = Path(_env("LOGS_DIR", str(REPO_ROOT / "data" / "logs")))
 CHUNKS_TXT: Path = PROCESSED_DIR / "chunks.txt"
 INGEST_REPORT: Path = PROCESSED_DIR / "ingest_report.json"
@@ -211,6 +218,7 @@ def summary() -> str:
         f"groq_model       : {GROQ_MODEL} (temp {GROQ_TEMPERATURE})",
         f"groq_api_key     : {masked}",
         f"raw_dir          : {RAW_DIR}",
+        f"index_dir        : {INDEX_DIR}",
     ]
     return "\n".join(lines)
 
