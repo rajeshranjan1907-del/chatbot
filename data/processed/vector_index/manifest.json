@@ -1,0 +1,9 @@
+{
+  "built_at": "2026-10-01T18:55:40.574303+00:00",
+  "corpus_version": "2026-09-28.1",
+  "count": 720,
+  "dim": 384,
+  "embed_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "normalised": true,
+  "space": "cosine"
+}
