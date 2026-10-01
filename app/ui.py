@@ -114,11 +114,19 @@ def main() -> None:
             # fault. A deployed app renders the reason; it does not show a
             # traceback to somebody asking about an expense ratio.
             st.error("The bot could not load its vector index.")
-            st.code(f"{type(exc).__name__}: {exc}", language=None)
+            detail = f"{type(exc).__name__}: {exc}"
+            if len(detail) > 600:
+                # A warm-up failure can be an HTTP error body, and rendering a
+                # response page as the app's own error is what made this look
+                # like a browser fault. app/embedder.py already reduces its own
+                # failures to a sentence; this is the backstop for the rest.
+                detail = detail[:600] + "\n... truncated, the rest is in the deploy log"
+            st.code(detail, language=None)
             st.caption(
                 "The index is built from data/raw on first load. On a deployed "
-                "service this usually means the build step did not run or the "
-                "model could not be downloaded - see docs/deploy_render.md."
+                "service this usually means the build step did not run, or "
+                "huggingface.co rate-limited the model download - set HF_TOKEN to "
+                "a free read token to fix the second one. See docs/deploy_render.md."
             )
             st.stop()
 

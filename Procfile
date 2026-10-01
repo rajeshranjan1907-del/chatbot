@@ -11,5 +11,13 @@
 # log" expander. A transient Hugging Face download failure should not take the
 # deployment down when there is a second path to the same index.
 #
+# The three environment variables are the out-of-memory fix, and they live here
+# rather than in the dashboard so they travel with the repository. torch sizes its
+# thread pool from the CPU count; a free Render instance reports more cores than
+# it can afford to run in parallel, and the resulting private commit measured
+# 950 MB against a 512 MB instance - killed, and surfaced to the browser as a 502.
+# Pinning to one thread drops that to 499 MB. The cost is a slightly slower embed
+# of 720 chunks, once per cold start.
+#
 # Locally:  python -m scripts.build_index && streamlit run app/ui.py
-web: python -m scripts.build_index; exec streamlit run app/ui.py --server.address 0.0.0.0 --server.port $PORT
+web: export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false; python -m scripts.build_index; exec streamlit run app/ui.py --server.address 0.0.0.0 --server.port $PORT

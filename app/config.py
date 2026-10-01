@@ -124,8 +124,25 @@ MAX_CONTEXT_CHARS: int = _env_int("MAX_CONTEXT_CHARS", 8000)
 EMBED_MODEL: str = _env("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 EMBED_BATCH: int = _env_int("EMBED_BATCH", 64)
 
+#: Attempts and base backoff for the one network call the app cannot avoid.
+#:
+#: A cold instance has no model cache, so the first embed is an ~87 MB download
+#: from huggingface.co. That host sits behind Cloudflare and answers anonymous
+#: callers past its quota with HTTP 429 and a "Just a moment..." HTML page
+#: instead of the weights - see app/embedder.py, which spends these two values
+#: turning that transient answer into a successful load. 4 attempts with a 5 s
+#: base is 5+10+20 s of waiting, which outlasts the limit window in practice.
+MODEL_LOAD_ATTEMPTS: int = _env_int("MODEL_LOAD_ATTEMPTS", 4)
+MODEL_LOAD_BACKOFF: float = _env_float("MODEL_LOAD_BACKOFF", 5.0)
+
+#: Read straight from the environment by huggingface_hub, not by this module.
+#: Declared here so summary() can report whether one is configured. The value is
+#: never logged, printed or interpolated into an error message - the token's only
+#: job is to raise the hub rate limit that turns a cold start into a 429.
+HF_TOKEN: str = _env("HF_TOKEN", "")
+
 GROQ_API_KEY: str = _env("GROQ_API_KEY", "")
-GROQ_MODEL: str = _env("GROQ_MODEL", "llama-3.1-8b-instant")
+GROQ_MODEL: str = _env("GROQ_MODEL", "qwen/qwen3.8-27b")
 GROQ_TEMPERATURE: float = _env_float("GROQ_TEMPERATURE", 0.0)
 
 #: Shown on every refusal (architecture.md §5.3 FR-3.3: "a deterministic message
@@ -210,6 +227,8 @@ def summary() -> str:
         f"hnsw:space       : {CHROMA_METADATA['hnsw:space']}",
         f"embed_model      : {EMBED_MODEL}",
         f"embed_batch      : {EMBED_BATCH}",
+        f"model_load       : {MODEL_LOAD_ATTEMPTS} attempts, {MODEL_LOAD_BACKOFF}s base backoff",
+        f"hf_token         : {'<set>' if HF_TOKEN else '<unset>'}",
         f"chunk_size       : {CHUNK_SIZE}",
         f"tail_overlap     : {TAIL_OVERLAP}",
         f"top_k / fetch_k  : {TOP_K} / {FETCH_K}",

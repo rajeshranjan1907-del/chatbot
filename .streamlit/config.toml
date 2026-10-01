@@ -1,0 +1,7 @@
+# Streamlit configuration. Committed so a deployed instance starts the same way
+# a local one does, instead of printing the telemetry notice into the deploy log.
+
+[browser]
+# Render instances have no browser to opt in, and the first-run prompt is
+# noise in a log that operators read to diagnose a failed deploy.
+gatherUsageStats = false
