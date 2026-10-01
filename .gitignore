@@ -13,8 +13,20 @@ venv/
 
 # Vector store and logs are build artifacts, not source.
 chroma_db/
-data/processed/vector_index/
 data/logs/
+
+# data/processed/vector_index/ is deliberately NOT ignored - see the note below.
+# The index is a build artifact, but on Render it is also the reason the free
+# instance can start at all: the 720-chunk build peaks at 565 MB (fp32, batch 8)
+# against a 512 MB limit, so an instance that builds on boot is killed before it
+# serves a question. Committing the 2.8 MB index moves that work to a developer
+# machine, where a full rebuild costs 2.2 minutes and no cold start is at risk.
+# Render then only *loads* it (489 MB resident), which fits.
+#
+# The trade: the committed vectors can drift from data/raw. The manifest carries
+# corpus_version and embed_model, and localindex rebuilds on either mismatch, so a
+# stale index self-heals rather than silently answering from old facts.
+# Rebuild with: python -m scripts.build_index
 
 # Audit dumps are regenerable from data/raw via scripts/.
 data/processed/chunks.txt

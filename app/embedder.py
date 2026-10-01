@@ -205,7 +205,36 @@ def get_model():
             "sentence-transformers is not installed. "
             "Run: pip install sentence-transformers"
         ) from exc
-    return _load(lambda: SentenceTransformer(config.EMBED_MODEL))
+    model = _load(lambda: SentenceTransformer(config.EMBED_MODEL))
+    if config.EMBED_FP16:
+        _to_fp16(model)
+    return model
+
+
+def _to_fp16(model):
+    """Halve the model weights in place, once per process.
+
+    Half precision is the only lever measured to bring the serving floor inside
+    a Render free instance: resident 489 MB -> 453 MB. int8 dynamic quantisation
+    was measured at 600 MB, worse than doing nothing, because fbgemm packs its
+    integers into wider buffers than the floats they replace.
+
+    The cast is skipped when the model is already half, so calling it per batch
+    costs nothing after the first. It is deliberately not wrapped in a
+    try/except: a model that silently stayed fp32 would put the instance back
+    over the limit while looking healthy in the logs, which is worse than a
+    loud failure.
+    """
+    import torch
+
+    try:
+        current = next(model.parameters()).dtype
+    except StopIteration:  # pragma: no cover - a model with no parameters
+        return
+    if current is torch.float16:
+        return
+    model.half()
+    return model
 
 
 def embed_texts(texts: list[str], batch_size: int | None = None) -> list[list[float]]:
@@ -216,15 +245,47 @@ def embed_texts(texts: list[str], batch_size: int | None = None) -> list[list[fl
     """
     if not texts:
         return []
+    # asarray rather than .tolist() on the assumption it is always an array: a
+    # test double - or any caller that swaps in its own embedder - may hand back
+    # a plain list of lists, and that should not read as a numpy bug.
+    import numpy as np
+
+    return np.asarray(embed_texts_np(texts, batch_size=batch_size), dtype="float32").tolist()
+
+
+def embed_texts_np(texts: list[str], batch_size: int | None = None):
+    """Embed and return a float32 numpy array rather than Python lists.
+
+    720 chunks x 384 dims as `list[list[float]]` is 276,480 Python float objects,
+    each with its own allocation and pointer - several times the 1.1 MB the same
+    values occupy as one contiguous array. The index build held both that and the
+    numpy matrix at once.
+
+    `inference_mode` is the guard that matters here: without it torch builds an
+    autograd graph per batch, holding every intermediate activation alive until
+    the result is consumed. Measured neutral on a single short question, but the
+    build embeds 720 chunks through this path and that is where the transient
+    activations are large.
+    """
+    import numpy as np
+    import torch
+
+    if not texts:
+        return np.zeros((0, 0), dtype="float32")
+
     model = get_model()
-    vectors = model.encode(
-        texts,
-        batch_size=batch_size or config.EMBED_BATCH,
-        normalize_embeddings=True,
-        show_progress_bar=False,
-        convert_to_numpy=True,
-    )
-    return [list(map(float, v)) for v in vectors]
+    with torch.inference_mode():
+        vectors = model.encode(
+            texts,
+            batch_size=batch_size or config.EMBED_BATCH,
+            normalize_embeddings=True,
+            show_progress_bar=False,
+            convert_to_numpy=True,
+        )
+    # float32 regardless of the model's dtype: half precision halves the resident
+    # model but would halve the stored vectors too, and float16 has ~3 decimal
+    # digits - not enough to keep SIM_FLOOR stable across a rebuild.
+    return np.asarray(vectors, dtype="float32")
 
 
 def embed_query(text: str) -> list[float]:

@@ -85,7 +85,8 @@ def deploy(monkeypatch, tmp_path):
             vectors.append(v)
         return vectors
 
-    monkeypatch.setattr("app.embedder.embed_texts", fake_embed_texts)
+    # The index build calls embed_texts_np; see the same note in test_bootstrap.
+    monkeypatch.setattr("app.embedder.embed_texts_np", fake_embed_texts)
 
     st.cache_resource.clear()
     yield tmp_path / "vector_index"
@@ -148,7 +149,7 @@ def test_a_model_download_failure_is_explained_not_raised(monkeypatch, deploy):
     def boom(*_args, **_kwargs):
         raise RuntimeError("could not reach huggingface.co")
 
-    monkeypatch.setattr("app.embedder.embed_texts", boom)
+    monkeypatch.setattr("app.embedder.embed_texts_np", boom)
     at = AppTest.from_file(UI).run(timeout=300)
 
     assert not at.exception, [str(e.value) for e in at.exception]

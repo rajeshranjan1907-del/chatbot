@@ -98,7 +98,10 @@ def fake_corpus(monkeypatch):
     def fake_embed_texts(texts, *_args, **_kwargs):
         state["embeds"] += 1
         # Deterministic, distinct and unit-ish vectors: index i is one-hot-ish so
-        # a self-query for chunk i must return chunk i.
+        # a self-query for chunk i must return chunk i. Returns a plain list of
+        # lists - `LocalIndex.build` accepts either form, and returning the
+        # awkward one here is deliberate: it keeps this fixture honest about the
+        # fact that the build does not require a numpy array.
         vectors = []
         for i in range(len(texts)):
             v = [0.0] * DIM
@@ -107,7 +110,11 @@ def fake_corpus(monkeypatch):
         return vectors
 
     monkeypatch.setattr("app.chunking.load_and_chunk", fake_load_and_chunk)
-    monkeypatch.setattr("app.embedder.embed_texts", fake_embed_texts)
+    # The build calls embed_texts_np, not embed_texts: it wants the contiguous
+    # array rather than 276,480 Python floats. Patching the name it actually
+    # uses is the point - patching the old one would let these tests pass while
+    # the real model downloaded on every run.
+    monkeypatch.setattr("app.embedder.embed_texts_np", fake_embed_texts)
     monkeypatch.setattr("app.ingest.check_coverage", lambda chunks: [])
     return state
 

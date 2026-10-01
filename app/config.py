@@ -40,6 +40,22 @@ def _env_float(name: str, default: float) -> float:
         return default
 
 
+def _env_bool(name: str, default: bool) -> bool:
+    """A flag read from the environment. Anything unrecognised keeps the default.
+
+    Deliberately forgiving rather than strict: a typo in a dashboard value should
+    not silently become `False`, so the *default* is returned instead - which is
+    the safe direction for the flags that guard memory, since their default is
+    the smaller footprint.
+    """
+    raw = _env(name, "").strip().lower()
+    if raw in ("1", "true", "yes", "on"):
+        return True
+    if raw in ("0", "false", "no", "off"):
+        return False
+    return default
+
+
 # --- corpus identity ---------------------------------------------------------
 
 CORPUS_VERSION: str = _env("CORPUS_VERSION", "2026-09-28.1")
@@ -122,7 +138,35 @@ SIM_FLOOR: float = _env_float("SIM_FLOOR", 0.30)
 MAX_CONTEXT_CHARS: int = _env_int("MAX_CONTEXT_CHARS", 8000)
 
 EMBED_MODEL: str = _env("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
-EMBED_BATCH: int = _env_int("EMBED_BATCH", 64)
+
+#: Chunks per `model.encode` call. 64 was measured at an 829 MB peak working set
+#: while building the index - 1.6x a Render free instance's 512 MB, so the build
+#: process was OOM-killed before it could write a single vector. The peak is
+#: dominated by the attention activations of one batch, so it scales with this
+#: number: 32 -> 676 MB, 16 -> 581 MB, 8 -> 565 MB. 8 is the knee of the curve
+#: and is also slightly *faster* (217 s vs 231 s for the 720-chunk corpus), so
+#: the lower ceiling costs nothing.
+#:
+#: The floor is ~490 MB no matter how small this gets, because that is what
+#: `torch` plus a resident MiniLM costs. See EMBED_FP16.
+EMBED_BATCH: int = _env_int("EMBED_BATCH", 8)
+
+#: Hold the model weights in half precision. OFF, and it should stay off.
+#:
+#: Measured on this project, fp16 does exactly what it promises and still loses.
+#: Resident model 489 MB -> 453 MB, and the full answer path peaks at 493 MB
+#: instead of 503 MB. The problem is the CPU. torch here is 2.5.1+cpu, which has
+#: no native fp16 compute, so every matmul falls back to emulated arithmetic:
+#: measured 40x slower on the real 720-chunk corpus (2.2 min -> 90 min). That is
+#: a build that cannot finish inside a cold-start window, which is a worse
+#: failure than the memory it saves. int8 dynamic quantisation was worse still
+#: (600 MB - fbgemm packs its integers into wider buffers than the floats).
+#:
+#: The override is retained rather than deleted so the measurement is not lost,
+#: and because it becomes viable the moment a CUDA deployment target exists.
+#: Setting it changes the stored vectors, so an existing index goes stale; that
+#: is caught by the manifest (see EMBED_DTYPE in localindex), not left to bite.
+EMBED_FP16: bool = _env_bool("EMBED_FP16", False)
 
 #: Attempts and base backoff for the one network call the app cannot avoid.
 #:

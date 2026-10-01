@@ -1,23 +1,28 @@
 # Render reads this for the web service's start command.
 #
-# Why the index is built here rather than only in the build command: the vector
-# index is a gitignored artifact under data/processed/, and Render's filesystem
-# is ephemeral, so a fresh instance has data/raw and no vectors. Building here
-# happens once per instance, before streamlit takes the port, and it is the only
-# build that is guaranteed to land on the filesystem the app actually reads.
+# There is no `python -m scripts.build_index` here any more, and that is the whole
+# point of this revision. An earlier version built the index on boot because the
+# index was gitignored, so a fresh instance had data/raw and no vectors. Measured
+# against a 512 MB free instance, that build peaks at 565 MB (fp32, batch 8) and
+# is killed before streamlit takes the port - which is what the 502s were.
 #
-# The trailing `;` is deliberate: if this build fails, streamlit still starts and
-# the app retries the build on its first load, showing the reason in the "Index
-# log" expander. A transient Hugging Face download failure should not take the
-# deployment down when there is a second path to the same index.
+# The index is now committed (see the note in .gitignore), so the build happens on
+# a developer machine where it costs 2.2 minutes and no cold start is at risk, and
+# this instance only *loads* it: 489 MB resident, inside the limit. The cost is
+# that the vectors can drift from data/raw, which the manifest catches -
+# localindex rebuilds on a corpus_version or embed_model mismatch rather than
+# serving stale facts.
 #
-# The three environment variables are the out-of-memory fix, and they live here
-# rather than in the dashboard so they travel with the repository. torch sizes its
-# thread pool from the CPU count; a free Render instance reports more cores than
-# it can afford to run in parallel, and the resulting private commit measured
-# 950 MB against a 512 MB instance - killed, and surfaced to the browser as a 502.
-# Pinning to one thread drops that to 499 MB. The cost is a slightly slower embed
-# of 720 chunks, once per cold start.
+# If the index is ever missing from the image, the app still builds it on first
+# load and shows the reason in the "Index log" expander. That path exists for
+# local use; on a free instance it is expected to hit the same memory ceiling, so
+# a build error there means "rebuild and commit the index", not "retry harder".
 #
-# Locally:  python -m scripts.build_index && streamlit run app/ui.py
-web: export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false; python -m scripts.build_index; exec streamlit run app/ui.py --server.address 0.0.0.0 --server.port $PORT
+# The three environment variables are still here. torch sizes its thread pool from
+# the CPU count; a free Render instance reports more cores than it can afford to
+# run in parallel, and an unpinned private commit measured 950 MB - killed, and
+# surfaced to the browser as a 502. One thread is what keeps the *serving* path
+# (not just the build) under the limit.
+#
+# Locally:  streamlit run app/ui.py     (build first with: python -m scripts.build_index)
+web: export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false; exec streamlit run app/ui.py --server.address 0.0.0.0 --server.port $PORT

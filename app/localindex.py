@@ -47,6 +47,45 @@ class IndexError_(RuntimeError):
     """Raised when the index is missing, stale, or unreadable."""
 
 
+def _wanted_dtype() -> str:
+    return "float16" if config.EMBED_FP16 else "float32"
+
+
+def _dtype_mismatch(manifest: dict) -> str | None:
+    """Why the index's vectors are not the ones this process will compare against.
+
+    `vectors.npy` is float32 in both cases - half precision halves the *resident
+    model*, but the vectors are widened on the way in so `SIM_FLOOR` does not move
+    between builds. That means a dtype change is invisible in the file itself and
+    can only be caught from the manifest, so it is recorded and compared here.
+
+    An index written before `embed_dtype` existed has no such key. Treated as a
+    match when the process wants fp32 - which is the old behaviour, and the only
+    combination that can legitimately be present on disk.
+    """
+    built = manifest.get("embed_dtype")
+    if built is None:
+        return None if _wanted_dtype() == "float32" else (
+            "index predates EMBED_FP16 and was built in float32, but this process "
+            "wants float16. Rebuild, or every similarity is computed against a "
+            "different vector space."
+        )
+    wanted = _wanted_dtype()
+    if built != wanted:
+        return (
+            f"index was built with embed_dtype={built!r} but this process is "
+            f"configured for {wanted!r}. Rebuild, or the similarities compare "
+            f"vectors from two different spaces."
+        )
+    return None
+
+
+def _check_dtype(manifest: dict) -> None:
+    reason = _dtype_mismatch(manifest)
+    if reason:
+        raise IndexError_(reason)
+
+
 #: Set only when the configured index dir turned out to be unwritable and we fell
 #: back to a temp dir. Sticky for the process so that a later `load()` with no
 #: argument reads the directory `ensure_index()` actually wrote, rather than
@@ -71,8 +110,13 @@ class LocalIndex:
 
     # ---------------------------------------------------------------- build
     @classmethod
-    def build(cls, chunks: list, vectors: list[list[float]], root: Path | None = None) -> "LocalIndex":
-        """Write chunks + vectors to disk. Deterministic: same input, same bytes."""
+    def build(cls, chunks: list, vectors, root: Path | None = None) -> "LocalIndex":
+        """Write chunks + vectors to disk. Deterministic: same input, same bytes.
+
+        `vectors` may be a list of lists or a numpy array. The array form exists so
+        the build can hand over the matrix it already has instead of round-tripping
+        276,480 Python floats through `np.asarray` while both copies are resident.
+        """
         import numpy as np
 
         root = root or default_index_dir()
@@ -85,6 +129,8 @@ class LocalIndex:
                 f"chunk/vector count mismatch: {len(chunks)} chunks, {len(vectors)} vectors"
             )
 
+        # asarray on an existing float32 array is a no-op rather than a copy, which
+        # is the whole point of accepting it.
         matrix = np.asarray(vectors, dtype="float32")
         if matrix.ndim != 2:
             raise IndexError_(f"expected a 2-D matrix, got shape {matrix.shape}")
@@ -104,6 +150,13 @@ class LocalIndex:
         manifest = {
             "corpus_version": config.CORPUS_VERSION,
             "embed_model": config.EMBED_MODEL,
+            # Recorded so an index built with EMBED_FP16=1 is recognised as a
+            # different vector space from an fp32 one and rebuilt rather than
+            # silently searched with mismatched similarities. The vectors are
+            # stored as float32 either way, so dtype alone cannot reveal the
+            # mismatch - only the manifest can.
+            "embed_dtype": "float16" if config.EMBED_FP16 else "float32",
+            "embed_batch": config.EMBED_BATCH,
             "dim": int(matrix.shape[1]),
             "count": int(matrix.shape[0]),
             "space": "cosine",
@@ -161,6 +214,7 @@ class LocalIndex:
                 f"config.EMBED_MODEL is {config.EMBED_MODEL!r}. Rebuild, or the "
                 f"similarities are meaningless."
             )
+        _check_dtype(self.manifest)
 
         query = np.asarray([q_vec], dtype="float32")
         if query.shape[1] != self.vectors.shape[1]:
@@ -193,7 +247,7 @@ class LocalIndex:
         return hits
 
 
-def build_index(chunks: list, vectors: list[list[float]], root: Path | None = None) -> LocalIndex:
+def build_index(chunks: list, vectors, root: Path | None = None) -> LocalIndex:
     return LocalIndex.build(chunks, vectors, root)
 
 
@@ -220,6 +274,10 @@ def unusable_reason(root: Path) -> str | None:
             f"index was built with embed_model={model!r} but config.EMBED_MODEL is "
             f"{config.EMBED_MODEL!r}"
         )
+
+    dtype = _dtype_mismatch(manifest)
+    if dtype:
+        return dtype
 
     version = manifest.get("corpus_version")
     if version != config.CORPUS_VERSION:
@@ -285,8 +343,10 @@ def build_from_raw(
     # Imported here, not at module scope: the chunker and the embedder pull in
     # torch, and a caller that only wants to *read* an existing index should not
     # pay ~90 MB of model load to do it.
+    import numpy as np
+
     from app.chunking import load_and_chunk
-    from app.embedder import embed_texts
+    from app.embedder import embed_texts_np
     from app.ingest import check_coverage
 
     if not config.RAW_DIR.exists():
@@ -310,9 +370,16 @@ def build_from_raw(
     if problems:
         raise IndexError_("coverage check failed:\n" + "\n".join(f"  - {p}" for p in problems))
 
-    log(f"embedding {len(chunks)} chunks with {config.EMBED_MODEL} ...")
-    vectors = embed_texts([c.embed_text for c in chunks])
-    log(f"  -> {len(vectors)} vectors, dim {len(vectors[0])}")
+    log(
+        f"embedding {len(chunks)} chunks with {config.EMBED_MODEL} "
+        f"(batch {config.EMBED_BATCH}, fp16={config.EMBED_FP16}) ..."
+    )
+    vectors = embed_texts_np([c.embed_text for c in chunks])
+    # A hand-rolled embedder - and the test fixtures - may hand back a plain list
+    # of lists, so the shape is read off the normalised matrix below rather than
+    # off the return value.
+    matrix = np.asarray(vectors, dtype="float32")
+    log(f"  -> {matrix.shape[0]} vectors, dim {matrix.shape[1]}")
 
     index = LocalIndex.build(chunks, vectors, target)
     log(f"  -> wrote {index.manifest['count']} vectors to {target}")
