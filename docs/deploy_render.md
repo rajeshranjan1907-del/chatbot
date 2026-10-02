@@ -1,39 +1,65 @@
 # Deploying to Render
 
 The bot answers questions about HDFC mutual fund facts from a local NumPy vector
-index. That index is a **build artifact**: it is gitignored, and it is not in the
-repository. A Render instance therefore starts with the corpus and no vectors,
-which is what produced the reported failure.
+index. That index is **committed to the repository** at
+`data/processed/vector_index`, so a Render instance loads it instead of building
+it. Nothing about startup needs the corpus, a model, or write access to
+`data/processed`.
+
+This is a change from the previous revision of this document, which described
+building the index on every cold start. That approach was measured and it does
+not work on the free tier - see "Memory" below.
+
+## What happens at startup
 
 ```
-IndexError_: no vector index at /opt/render/project/src/data/processed/vector_index.
-Build it with:
-  python scripts/build_index.py
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false
+exec streamlit run app/ui.py --server.address 0.0.0.0 --server.port $PORT
 ```
 
-## What now happens
+That is the whole start command, from the `Procfile`. There is no
+`scripts/build_index` step. `app.localindex.ensure_index()` finds the committed
+index, validates it against `config.CORPUS_VERSION` and `config.EMBED_MODEL`,
+and loads it. Measured from a clean checkout of the repository: **0.47 s, 720
+chunks, and `torch` is never imported.**
 
-Three layers, so no single misconfiguration can leave the deployment unable to
-answer:
+Two things still self-heal, so a misconfigured deploy degrades instead of
+serving stale facts:
 
-1. **`Procfile` start command** - `python -m scripts.build_index` runs once per
-   instance, before Streamlit binds the port. This is the primary path.
-2. **Render build command** (optional, see below) - builds the same index at
-   build time. Cheaper at runtime when the artifact survives into the image.
-3. **`app.localindex.ensure_index()`** - the app builds the index itself on the
-   first request of a cold start if neither of the above ran. It also rebuilds a
-   *stale* index: wrong `embed_model`, wrong `corpus_version`, or missing
-   `vectors.npy` / `chunks.jsonl`. Progress is shown in the **Index log**
-   expander under the title, and a failure is rendered as an error rather than a
-   traceback.
+1. **Stale index.** A `corpus_version` or `embed_model` mismatch rebuilds. So a
+   commit that changes `data/raw` without regenerating the index fails loudly
+   rather than answering from old facts. If you see `IndexError_: index
+   corpus_version is ... but config.CORPUS_VERSION is ...` in the log, rebuild and
+   commit the index.
+2. **Missing index.** If `data/processed/vector_index` is somehow absent, the app
+   builds it on first load and shows progress in the **Index log** expander under
+   the title. This path is for local use. On a free instance it is expected to
+   hit the memory ceiling, so a failure there means "rebuild and commit the
+   index", not "retry harder".
 
-Layer 3 is a deliberate deviation from PRD FR-1.5 ("ingestion is a separate
-command, never on app startup"). It is there because layers 1 and 2 depend on
-configuration that lives in the Render dashboard, outside the repository: a
-service that was never given a start command cannot answer a single question,
-and there is no code change that can fix that from here. With the `Procfile` in
-place the build is a separate command, run by the process manager, and layer 3
-only ever fires when that command was skipped.
+`app/ui.py` is unchanged by any of this. A valid index renders exactly as before.
+
+## Rebuilding and committing the index
+
+The index is a build artifact, but a deployable one. When `data/raw` changes:
+
+```bash
+python -m scripts.build_index
+git add data/processed/vector_index
+git commit -m "Rebuild the vector index"
+```
+
+Regenerate it on a developer machine. It takes ~2.2 minutes and ~565 MB there,
+which is affordable; neither is affordable on a free instance.
+
+The manifest carries `corpus_version`, `embed_model`, `embed_dtype` and
+`embed_batch`. Any mismatch with the running config invalidates the index - that
+check is what makes committing it safe.
+
+The committed files contain chunk text and its provenance (`scheme`, `section`,
+`as_of_date`, `source_url`). The only URLs are the eight public `hdfcfund.com`
+fact sheets, which are already committed under `data/raw`. There are no
+credentials in any of them.
 
 ## Service settings
 
@@ -41,105 +67,102 @@ only ever fires when that command was skipped.
 | --- | --- |
 | Environment | Python |
 | Python version | `.python-version` in the repo root - Render reads it (3.12.10) |
-| Build command | `pip install -r requirements.txt && python scripts/build_index.py` |
-| Start command | `python -m scripts.build_index; exec streamlit run app/ui.py --server.address 0.0.0.0 --server.port $PORT` (or leave blank to use the `Procfile`) |
-| Health check path | `/_stcore/health` (optional). Not `/healthz` - Streamlit's catch-all serves the app shell for any unmatched path, so `/healthz` returns 200 even when the app is broken. `/_stcore/health` returns a real `ok` body. |
-| Environment variables | `GROQ_API_KEY` - required for generated answers. `HF_TOKEN` - strongly recommended, see below |
+| Build command | `pip install -r requirements.txt` |
+| Start command | leave blank to use the `Procfile`, or set it explicitly:<br>`export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 TOKENIZERS_PARALLELISM=false; exec streamlit run app/ui.py --server.address 0.0.0.0 --server.port $PORT` |
+| Health check path | `/_stcore/health` |
+| Instance type | Free (512 MB) - see "Memory" |
 
-`GROQ_API_KEY` must be set in the dashboard. `.env` is gitignored, so it is not
-deployed; without the key the app still starts and still retrieves, and falls
-back to the top retrieved sentence with a banner saying so.
+The **build command must not include `scripts/build_index.py`**. The build step
+runs under the same 512 MB ceiling as the running service, so an index build
+there is killed exactly as it would be at startup. This was the previous
+recommendation in this file and it was wrong.
 
-Set `HF_TOKEN` in the dashboard too. It is a free Hugging Face *read* token
-(`https://huggingface.co/settings/tokens`), it is never logged, and it exists to
-fix the failure described under "Hugging Face is reached at build and at first
-start". Nothing else about the service changes when you set it.
+## Environment variables
 
-## The build command alone is not enough
+Set these in the Render dashboard. **Never commit them** - `.env` is gitignored
+and no key belongs in any file in the repository.
 
-Worth knowing before you spend time on it: Render runs the build command on
-separate compute from the running instance, and the pre-deploy command
-explicitly does not carry filesystem changes into the deployed service. Do not
-rely on the build command as the only place the index is created. Setting both
-as above is deliberate.
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `GROQ_API_KEY` | **Yes** | Generation. Without it the app still starts and still retrieves, and falls back to the top retrieved sentence with a banner saying so. |
+| `HF_TOKEN` | Strongly recommended | Embedding model download. Free Hugging Face *read* token from `https://huggingface.co/settings/tokens`. Never logged. See "Hugging Face can refuse" below. |
+| `EMBED_BATCH` | No | Index build batch size. Defaults to 8. Only matters if you rebuild on the instance. |
+| `EMBED_FP16` | No | Off. Leave it off: torch here is CPU-only, so half precision is ~40x slower (2.2 min to 90 min) to save 36 MB. Only useful on a CUDA target. |
+| `INDEX_DIR` | No | Where the index lives. Defaults to `data/processed/vector_index`. Point it at a writable volume if the checkout is read-only. |
+| `MODEL_LOAD_ATTEMPTS` / `MODEL_LOAD_BACKOFF` | No | Retry count and base backoff for the model download. Defaults already outlast the rate-limit window. |
+
+`GROQ_API_KEY` is the only one that is mandatory. Nothing in the repository
+contains it, so a fresh instance cannot generate answers until it is set.
 
 ## Free-tier behaviour
 
-- **Ephemeral filesystem.** Everything written at runtime is lost on redeploy,
-  restart and spin-down, so a free instance rebuilds the index on each cold
-  start. That is one embed of 720 chunks: roughly 20-40 s on a free CPU, paid
-  for once per cold start, shown in the Index log expander. A persistent disk
-  removes the rebuild but is a paid feature and cannot be mounted during a build.
+- **Memory, and the out-of-memory 502.** This was the reported failure. Measured
+  on this project against a 512 MB limit:
+
+  | Path | Peak | Fits? |
+  | --- | --- | --- |
+  | Index build (fp32, batch 8) | 565 MB | No - killed |
+  | Index build, unpinned threads | 950 MB | No - killed |
+  | Load index, answer a question | 503 MB | Yes, thin |
+  | Load index only, no model | 28 MB | Yes |
+
+  So the build cannot run on a free instance and the serving path can. Committing
+  the index is what separates the two. Render's proxy keeps the route registered
+  while the container is reaped, which is why an out-of-memory death surfaces as
+  a **502** rather than a clean 503.
+
+  The serving peak is still close to the ceiling. `OMP_NUM_THREADS=1` and
+  `MKL_NUM_THREADS=1` in the `Procfile` are load-bearing: torch sizes its thread
+  pool from the CPU count, and a free instance reports more cores than it can run
+  in parallel. If you override the start command in the dashboard, include them.
+
+- **Ephemeral filesystem.** Anything written at runtime is lost on redeploy and
+  spin-down. With the index committed this costs nothing - there is nothing to
+  rebuild. A persistent disk is not needed for correctness and is a paid feature.
 - **Spin-down after 15 minutes of inactivity.** The first request after a
-  spin-down pays the model download and the rebuild again.
-- **Memory, and the out-of-memory 502.** This is the cause of the reported
-  failure. Measured on the cold-start path this repo actually runs
-  (`scripts/build_index` then `streamlit run`):
+  spin-down pays the ~87 MB embedding model download again. The index itself is
+  always there.
+- **Hugging Face can refuse.** The embedding model is downloaded rather than
+  vendored. `huggingface.co` is Cloudflare-fronted and rate-limits anonymous
+  callers: past its quota the response is an HTTP **429** carrying a
+  "Just a moment..." HTML challenge page instead of the weights. The service stays
+  LIVE, because nothing in the app failed - a dependency did - so you see a chat
+  UI that loads and then reports a connection error while warming up, with a page
+  of HTML where the message should be. Every cold start races the same limit from
+  a shared free-tier IP, so restarting does not fix it.
 
-  | Configuration | Working set | Private commit | Threads |
-  | --- | --- | --- | --- |
-  | Default | 504 MB | 950 MB | 32 |
-  | `OMP_NUM_THREADS=1`, `MKL_NUM_THREADS=1` | 503 MB | 499 MB | 7 |
+  In order of effect:
 
-  The working set sits at the 512 MB free limit, and the private commit nearly
-  doubles it, because `torch` sizes its thread pool from the CPU count and a
-  free instance reports more cores than it can afford to run in parallel.
-  Render's proxy still has the route registered while the container is reaped,
-  which is why the symptom is a **502** rather than a clean 503.
-
-  The `Procfile` now sets `OMP_NUM_THREADS=1` and `MKL_NUM_THREADS=1`, which is
-  the whole fix: ~450 MB less committed memory, and the single-threaded embed
-  of 720 chunks costs a few extra seconds once per cold start. Set the same two
-  variables in the dashboard if you ever override the start command.
-
-  If you would rather not serialise the embed, the alternative is a paid
-  instance with more than 512 MB. Changing `EMBED_MODEL` to a smaller
-  sentence-transformer is the third option, and note that it invalidates the
-  existing index, which `ensure_index` detects and rebuilds automatically.
-- **Hugging Face is reached at build and at first start, and it can refuse.**
-  The embedding model is downloaded rather than vendored, so a cold instance
-  pulls ~87 MB before it can answer anything. `huggingface.co` is Cloudflare-
-  fronted and rate-limits anonymous callers: past its quota the response is an
-  HTTP **429** carrying a "Just a moment..." HTML challenge page instead of the
-  weights. The service stays LIVE throughout, because nothing about the app
-  failed - a dependency did - so what you see is a chat UI that loads and then
-  reports a connection error while warming up, with a page of HTML where the
-  error message should be. This is the most likely reason a working deploy
-  appears broken, and it is not fixed by restarting: every cold start races the
-  same limit from a shared free-tier IP.
-
-  Three things address it, in order of effect.
-
-  1. **Set `HF_TOKEN`.** The model is public, but an authenticated download
-     gets a much higher rate limit. This is the fix.
-  2. **Retries already happen.** The load retries transient failures four times
-     with a 5/10/20 s backoff (`MODEL_LOAD_ATTEMPTS`, `MODEL_LOAD_BACKOFF`),
-     which outlasts the limit window in practice, and logs each attempt in the
-     Index log. Raise the backoff rather than the count if the host is slow.
-  3. **Keep the instance warm.** The model cache is on the same ephemeral disk as
-     the index, so a paid instance or a persistent disk stops the download
-     happening at all. Both are paid features.
-
-  If all attempts fail, the UI now names the cause and the fix instead of
-  rendering the challenge page, so the log will say
-  `Could not load the embedding model ... huggingface.co ...` rather than HTML.
+  1. **Set `HF_TOKEN`.** The model is public, but an authenticated download gets a
+     much higher rate limit. This is the fix.
+  2. **Retries already happen.** Four attempts with a 5/10/20 s backoff
+     (`MODEL_LOAD_ATTEMPTS`, `MODEL_LOAD_BACKOFF`), logged in the Index log. Raise
+     the backoff rather than the count if the host is slow.
+  3. If all attempts fail, the UI names the cause instead of rendering the
+     challenge page, so the log says `Could not load the embedding model ...
+     huggingface.co ...` rather than HTML.
 
 ## Verifying a deploy
 
 ```bash
-curl -s https://<your-service>.onrender.com/healthz          # 200
+curl -s https://<your-service>.onrender.com/_stcore/health
+# {"status":"ok"}
 ```
 
-Then in the browser: the title renders, no red traceback, an **Index log**
-expander is present, and the first question returns an answer with a clickable
-citation and a sources expander. A question the corpus cannot answer must show
-the refusal copy, not an error.
+Use `/_stcore/health`, not `/healthz`. Streamlit's catch-all serves the app shell
+for any unmatched path, so `/healthz` returns 200 even when the app is broken.
 
-Locally, the same two states can be reproduced without touching the repo's own
-index:
+Then in the browser: the title renders, no red traceback, and the first question
+returns an answer with a clickable citation. A question the corpus cannot answer
+must show the refusal copy, not an error.
+
+The **Index log** expander is only populated if the app built the index. A healthy
+deploy leaves it empty. That is the expected state now, not a missing feature.
+
+Locally, both states can be reproduced without touching the committed index:
 
 ```bash
-INDEX_DIR=$(mktemp -d)/vector_index python -m app.retrieve "expense ratio of HDFC ELSS Tax Saver Fund" --debug
+INDEX_DIR=$(mktemp -d)/vector_index python -m app.retrieve "expense ratio of HDFC ELSS TaxSaver Fund" --debug
 ```
 
 The first run prints `building the vector index: no index at ...` and then
