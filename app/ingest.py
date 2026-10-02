@@ -179,7 +179,7 @@ def main(argv: list[str] | None = None) -> int:
 
     # Assert we are embedding the model the whole app is configured for.
     assert config.EMBED_MODEL == config._env(
-        "EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2"
+        "EMBED_MODEL", config.DEFAULT_EMBED_MODEL
     ), "EMBED_MODEL drifted from the configured value"
 
     from app.embedder import embed_texts

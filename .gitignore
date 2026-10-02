@@ -28,6 +28,22 @@ data/logs/
 # stale index self-heals rather than silently answering from old facts.
 # Rebuild with: python -m scripts.build_index
 
+# models/ is deliberately NOT ignored either, and it is the bigger of the two.
+# Committing the vector index removed the *build-time* need to download the
+# embedding model, but serving a question still needs it in the process -
+# app/retrieve calls embed_query() on every question. Render's filesystem starts
+# empty, so leaving the weights on the hub meant an ~87 MB download from
+# huggingface.co on every cold start and every spin-down. That host is
+# Cloudflare-fronted and answers past its quota with HTTP 429 plus a "Just a
+# moment..." HTML page, which surfaced as a LIVE service whose chat box reported a
+# connection error. Every cold start raced the same limit from a shared free-tier
+# IP, so retrying and HF_TOKEN did not fix it.
+#
+# The weights are the same MiniLM the vectors were built with - re-embedding a
+# spread of chunks from models/ reproduces vectors.npy to 5.96e-08, which is
+# float32 epsilon - so the index above is unaffected and only its manifest label
+# changed. Refresh with: python -m scripts.vendor_model
+
 # Audit dumps are regenerable from data/raw via scripts/.
 data/processed/chunks.txt
 data/processed/embeddings.txt

@@ -137,7 +137,31 @@ FETCH_K: int = _env_int("FETCH_K", 10)
 SIM_FLOOR: float = _env_float("SIM_FLOOR", 0.30)
 MAX_CONTEXT_CHARS: int = _env_int("MAX_CONTEXT_CHARS", 8000)
 
-EMBED_MODEL: str = _env("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
+#: The default embedding model: a repo-relative directory holding the vendored
+#: MiniLM weights (87 MB), committed on purpose - see the note in .gitignore.
+DEFAULT_EMBED_MODEL: str = "models/all-MiniLM-L6-v2"
+
+#: The identity of the embedding model, and the one string that has to appear in
+#: the vector index manifest. Two consequences make this a plain relative
+#: POSIX-slash string rather than a resolved Path:
+#:
+#:   - app/localindex compares the manifest against this value verbatim, so a
+#:     Windows-built manifest must not disagree with a Linux-built one over a
+#:     backslash.
+#:   - app/ingest embeds this into its report, and it is what a human reads when
+#:     asking "which model made this index".
+#:
+#: The default is the vendored directory, not the hub id, because serving a
+#: question needs this model in the process (app/retrieve calls embed_query on
+#: every question) and a Render instance has an empty filesystem, so a hub id
+#: means an ~87 MB download from a Cloudflare-fronted host on every cold start.
+#: Set EMBED_MODEL to the hub id only if you want the download, and relabel the
+#: index manifest to match or it will be rejected as a model mismatch.
+EMBED_MODEL: str = _env("EMBED_MODEL", DEFAULT_EMBED_MODEL)
+
+#: The hub id for the same weights, kept so ingest's drift guard and the vendor
+#: script agree on what it is called without duplicating the literal.
+HUB_EMBED_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
 
 #: Chunks per `model.encode` call. 64 was measured at an 829 MB peak working set
 #: while building the index - 1.6x a Render free instance's 512 MB, so the build
@@ -168,21 +192,24 @@ EMBED_BATCH: int = _env_int("EMBED_BATCH", 8)
 #: is caught by the manifest (see EMBED_DTYPE in localindex), not left to bite.
 EMBED_FP16: bool = _env_bool("EMBED_FP16", False)
 
-#: Attempts and base backoff for the one network call the app cannot avoid.
+#: Attempts and base backoff for the model load, which is now a *fallback* path:
+#: with the default vendored EMBED_MODEL there is no network call to retry, and
+#: these two values are only spent when EMBED_MODEL names a hub id.
 #:
-#: A cold instance has no model cache, so the first embed is an ~87 MB download
-#: from huggingface.co. That host sits behind Cloudflare and answers anonymous
-#: callers past its quota with HTTP 429 and a "Just a moment..." HTML page
-#: instead of the weights - see app/embedder.py, which spends these two values
-#: turning that transient answer into a successful load. 4 attempts with a 5 s
-#: base is 5+10+20 s of waiting, which outlasts the limit window in practice.
+#: On that path a cold instance has no model cache, so the first embed is an
+#: ~87 MB download from huggingface.co. That host sits behind Cloudflare and
+#: answers callers past its quota with HTTP 429 and a "Just a moment..." HTML
+#: page instead of the weights - see app/embedder.py, which spends these two
+#: values turning that transient answer into a successful load. 4 attempts with a
+#: 5 s base is 5+10+20 s of waiting, which outlasts the limit window in practice.
 MODEL_LOAD_ATTEMPTS: int = _env_int("MODEL_LOAD_ATTEMPTS", 4)
 MODEL_LOAD_BACKOFF: float = _env_float("MODEL_LOAD_BACKOFF", 5.0)
 
 #: Read straight from the environment by huggingface_hub, not by this module.
 #: Declared here so summary() can report whether one is configured. The value is
 #: never logged, printed or interpolated into an error message - the token's only
-#: job is to raise the hub rate limit that turns a cold start into a 429.
+#: job is to raise the hub rate limit, and with the default vendored
+#: EMBED_MODEL nothing contacts the hub, so it is not needed for a deploy.
 HF_TOKEN: str = _env("HF_TOKEN", "")
 
 GROQ_API_KEY: str = _env("GROQ_API_KEY", "")
@@ -258,6 +285,46 @@ FEE_BEARING_SOURCE_TYPES: tuple[str, ...] = ("factsheet", "kim")
 GUIDE_SOURCE_TYPES: tuple[str, ...] = ("guide",)
 
 REQUIRED_SOURCE_TYPES: tuple[str, ...] = FEE_BEARING_SOURCE_TYPES + GUIDE_SOURCE_TYPES
+
+
+def embed_model_source() -> str:
+    """The value to hand `SentenceTransformer`, resolved from `EMBED_MODEL`.
+
+    `EMBED_MODEL` stays a portable identity string (see above); this turns it into
+    something loadable:
+
+      - a repo-relative path is resolved against `REPO_ROOT`, so the result does
+        not depend on the working directory - the Procfile starts Streamlit from
+        the repo root, but a developer may run it from anywhere;
+      - anything else is returned unchanged, which is how a hub id still works.
+
+    A configured-but-missing vendored directory raises rather than quietly
+    downloading instead. That distinction is the whole point: silently falling
+    back to the hub turns an obvious "this checkout is incomplete" into a slow
+    download that fails as a 429, which reads like a network problem and sends
+    you looking in the wrong place.
+    """
+    candidate = Path(EMBED_MODEL)
+
+    if candidate.is_absolute():
+        if not candidate.is_dir():
+            raise FileNotFoundError(
+                f"EMBED_MODEL is set to {candidate}, which is not a directory"
+            )
+        return str(candidate)
+
+    if candidate.as_posix() == DEFAULT_EMBED_MODEL:
+        local = REPO_ROOT / candidate
+        if not local.is_dir():
+            raise FileNotFoundError(
+                f"the vendored embedding model is missing at {local}. Run "
+                "python -m scripts.vendor_model to fetch it, or set EMBED_MODEL "
+                f"to {HUB_EMBED_MODEL!r} if you would rather download it at "
+                "runtime."
+            )
+        return str(local)
+
+    return EMBED_MODEL
 
 
 def summary() -> str:

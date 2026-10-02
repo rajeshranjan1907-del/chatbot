@@ -85,11 +85,11 @@ and no key belongs in any file in the repository.
 | Variable | Required | Purpose |
 | --- | --- | --- |
 | `GROQ_API_KEY` | **Yes** | Generation. Without it the app still starts and still retrieves, and falls back to the top retrieved sentence with a banner saying so. |
-| `HF_TOKEN` | Strongly recommended | Embedding model download. Free Hugging Face *read* token from `https://huggingface.co/settings/tokens`. Never logged. See "Hugging Face can refuse" below. |
+| `HF_TOKEN` | No | Only needed if you set `EMBED_MODEL` to a hub id. Not needed for the default vendored weights, which download nothing. Free Hugging Face *read* token from `https://huggingface.co/settings/tokens`. Never logged. See "Hugging Face can refuse" below. |
 | `EMBED_BATCH` | No | Index build batch size. Defaults to 8. Only matters if you rebuild on the instance. |
 | `EMBED_FP16` | No | Off. Leave it off: torch here is CPU-only, so half precision is ~40x slower (2.2 min to 90 min) to save 36 MB. Only useful on a CUDA target. |
 | `INDEX_DIR` | No | Where the index lives. Defaults to `data/processed/vector_index`. Point it at a writable volume if the checkout is read-only. |
-| `MODEL_LOAD_ATTEMPTS` / `MODEL_LOAD_BACKOFF` | No | Retry count and base backoff for the model download. Defaults already outlast the rate-limit window. |
+| `MODEL_LOAD_ATTEMPTS` / `MODEL_LOAD_BACKOFF` | No | Retry count and base backoff for the model load. Only spent when `EMBED_MODEL` is a hub id. |
 
 `GROQ_API_KEY` is the only one that is mandatory. Nothing in the repository
 contains it, so a fresh instance cannot generate answers until it is set.
@@ -117,30 +117,44 @@ contains it, so a fresh instance cannot generate answers until it is set.
   in parallel. If you override the start command in the dashboard, include them.
 
 - **Ephemeral filesystem.** Anything written at runtime is lost on redeploy and
-  spin-down. With the index committed this costs nothing - there is nothing to
-  rebuild. A persistent disk is not needed for correctness and is a paid feature.
-- **Spin-down after 15 minutes of inactivity.** The first request after a
-  spin-down pays the ~87 MB embedding model download again. The index itself is
-  always there.
-- **Hugging Face can refuse.** The embedding model is downloaded rather than
-  vendored. `huggingface.co` is Cloudflare-fronted and rate-limits anonymous
-  callers: past its quota the response is an HTTP **429** carrying a
-  "Just a moment..." HTML challenge page instead of the weights. The service stays
-  LIVE, because nothing in the app failed - a dependency did - so you see a chat
-  UI that loads and then reports a connection error while warming up, with a page
-  of HTML where the message should be. Every cold start races the same limit from
-  a shared free-tier IP, so restarting does not fix it.
+  spin-down. With the index *and* the model weights committed this costs nothing -
+  there is nothing to fetch and nothing to rebuild. A persistent disk is not needed
+  for correctness and is a paid feature.
+- **Hugging Face can refuse.** This used to be the reported failure, and it is
+  worth understanding because the two commits that fix it are easy to confuse.
 
-  In order of effect:
+  Serving a question needs the embedding model in the process - `app/retrieve`
+  calls `embed_query()` on every question - and an ephemeral filesystem means a
+  cold instance has no copy. So the weights were downloaded from `huggingface.co`,
+  which is Cloudflare-fronted and answers callers past its quota with HTTP **429**
+  carrying a "Just a moment..." HTML challenge page instead of the weights. The
+  service stays LIVE, because nothing in the app failed - a dependency did - so
+  you saw a chat UI that loaded and then reported a connection error while warming
+  up, with a page of HTML where the message should be. Every cold start raced the
+  same limit from a shared free-tier IP, so restarting did not fix it, and neither
+  did `HF_TOKEN`: the token raises the limit on huggingface.co's API, but the file
+  transfer itself goes to `*.xethub.hf.co`, which is fronted separately.
 
-  1. **Set `HF_TOKEN`.** The model is public, but an authenticated download gets a
-     much higher rate limit. This is the fix.
-  2. **Retries already happen.** Four attempts with a 5/10/20 s backoff
-     (`MODEL_LOAD_ATTEMPTS`, `MODEL_LOAD_BACKOFF`), logged in the Index log. Raise
-     the backoff rather than the count if the host is slow.
-  3. If all attempts fail, the UI names the cause instead of rendering the
-     challenge page, so the log says `Could not load the embedding model ...
-     huggingface.co ...` rather than HTML.
+  Committing the vector index did **not** fix this, which is the trap. It removed
+  the *build-time* download - the 720 chunk embeddings - and left the
+  *query-time* one, because a question has to be embedded before it can be scored
+  against stored vectors. The 503 MB "load index, answer a question" figure in the
+  table above is itself the proof: "load index only, no model" is 28 MB, so the
+  other 475 MB was always a resident model, downloaded on a machine that already
+  had it cached.
+
+  It is fixed by committing the weights to `models/` and pointing `EMBED_MODEL` at
+  that directory, which makes the 429 unreachable. `data/processed/vector_index/
+  manifest.json` records the path rather than the hub id, because `localindex`
+  compares that field verbatim and a mismatch would trigger a rebuild - the
+  565 MB build that cannot run here. The vectors are unchanged: re-embedding a
+  spread of chunks from `models/` reproduces `vectors.npy` to 5.96e-08, which is
+  float32 epsilon. `python -m scripts.vendor_model --verify` re-runs that check.
+
+  The retry path is kept for anyone who deliberately sets `EMBED_MODEL` to a hub
+  id, and the UI still reduces a challenge page to one sentence rather than
+  rendering it. If all attempts fail, the log says `Could not load the embedding
+  model ...` rather than HTML.
 
 ## Verifying a deploy
 

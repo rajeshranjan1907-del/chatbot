@@ -13,6 +13,15 @@
 # localindex rebuilds on a corpus_version or embed_model mismatch rather than
 # serving stale facts.
 #
+# The embedding weights are committed too, under models/. That is the other half
+# of the same problem: loading the index needs no model, but *answering* a
+# question does, because app/retrieve embeds the query to score it against the
+# stored vectors. With the weights on huggingface.co, an ephemeral filesystem made
+# every cold start an ~87 MB download from a Cloudflare-fronted host, which
+# answered with HTTP 429 and an HTML challenge page - a LIVE service whose chat box
+# reported a connection error. Committed, there is no network call on this path at
+# all.
+#
 # If the index is ever missing from the image, the app still builds it on first
 # load and shows the reason in the "Index log" expander. That path exists for
 # local use; on a free instance it is expected to hit the same memory ceiling, so

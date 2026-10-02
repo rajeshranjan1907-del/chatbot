@@ -182,6 +182,26 @@ def test_index_built_with_another_model_is_rebuilt(tmp_path, fake_corpus):
     assert unusable_reason(root) is None
 
 
+def test_the_committed_index_agrees_with_the_configured_model():
+    """The check that stops a config edit from becoming an out-of-memory rebuild.
+
+    `unusable_reason` above proves the *mechanism* - a mismatched index is
+    rejected - which is exactly what makes this dangerous. `EMBED_MODEL` is written
+    into the manifest by `LocalIndex.build` and compared verbatim on load, so
+    pointing it at the vendored `models/` directory without relabelling the
+    committed manifest makes the deploy rebuild 720 chunks: 565 MB peak against a
+    512 MB instance, killed before it can answer anything. That is the OOM 502 the
+    committed index was added to prevent.
+
+    Cheap, and it fails on a normal checkout with nothing running.
+    """
+    root = config.INDEX_DIR
+    assert LocalIndex.exists(root), f"no committed index at {root}"
+    assert unusable_reason(root) is None, (
+        f"the committed index is not usable: {unusable_reason(root)}"
+    )
+
+
 def test_index_from_another_corpus_version_is_rebuilt(tmp_path, fake_corpus):
     """Chunk ids embed the corpus version, so a stale index is answering
     questions from a corpus that is no longer deployed."""

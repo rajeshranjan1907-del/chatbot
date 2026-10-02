@@ -4,13 +4,17 @@ The model is MOCKED everywhere, like test_generate.py mocks the LLM: a test that
 really downloaded 87 MB would be testing huggingface.co's mood, not this code.
 
 What is under test is the decision table around a load that cannot complete
-immediately, which is the state a fresh Render instance is in every time it
-spins up. The index is a gitignored artifact, so there are no vectors, so the
-first embed is a cold ~87 MB download from a host that answers anonymous
-callers past its quota with an HTTP 429 "Just a moment..." page. The service
-stays LIVE throughout, and the user sees a page of HTML where a sentence should
-be. So: retry what is worth retrying, refuse to retry what is not, and never let
-the markup through.
+immediately. That state is no longer the default - the weights are vendored under
+models/ - but it is still reachable, by anyone who sets EMBED_MODEL to a hub id,
+so the table stays. The failure being modelled is an HTTP 429 "Just a moment..."
+page from a Cloudflare-fronted huggingface.co, served for a request that never
+reaches the model server. The service stays LIVE throughout, and the user sees a
+page of HTML where a sentence should be. So: retry what is worth retrying, refuse
+to retry what is not, and never let the markup through.
+
+The last section covers the other half - that resolving EMBED_MODEL does not
+quietly point back at the hub, which is the regression that reintroduced the 429
+after it had been fixed.
 """
 
 from __future__ import annotations
@@ -309,6 +313,90 @@ def test_get_model_retries_a_429_from_the_hub(monkeypatch):
         model = embedder.get_model()
         assert isinstance(model, Flaky)
         assert len(attempts) == 2
-        assert attempts[0] == config.EMBED_MODEL
+        # The resolved source, not config.EMBED_MODEL verbatim: that is an
+        # identity string written into the index manifest, and get_model hands
+        # SentenceTransformer the loadable form (see config.embed_model_source).
+        assert attempts[0] == config.embed_model_source()
     finally:
         embedder.get_model.cache_clear()
+
+
+# ------------------------------------------------- 4. where the weights come from
+# The tests above mock the constructor, so none of them would notice a
+# configuration that points back at the hub. These do, because that regression is
+# invisible until a deploy hits it.
+
+
+def test_the_default_resolves_to_a_local_directory_that_exists():
+    """The invariant behind the 429 fix, and the cheap half of it.
+
+    The default must not name huggingface.co. This asserts resolution and existence
+    without loading anything; that the weights actually produce the committed
+    vectors is `scripts.vendor_model --verify`, and that the path really serves a
+    query is the CLI test above.
+    """
+    source = config.embed_model_source()
+    assert Path(source).is_dir(), f"the default EMBED_MODEL resolves to {source}, not a directory"
+    assert Path(source) == REPO / config.DEFAULT_EMBED_MODEL
+
+
+def test_a_missing_vendored_directory_raises_rather_than_downloading(monkeypatch, tmp_path):
+    """An incomplete checkout must not quietly turn back into a network call.
+
+    Falling back to the hub would restore exactly the failure this vendoring
+    removed, and it would present as a 429 - a network error - rather than as the
+    missing directory it actually is, which sends the reader looking at
+    Cloudflare instead of at their clone.
+    """
+    monkeypatch.setattr(config, "EMBED_MODEL", config.DEFAULT_EMBED_MODEL)
+    monkeypatch.setattr(config, "REPO_ROOT", tmp_path)
+
+    with pytest.raises(FileNotFoundError) as err:
+        config.embed_model_source()
+    assert "vendor_model" in str(err.value), "the error does not say how to fix it"
+
+
+def test_a_hub_id_is_passed_through_unchanged(monkeypatch):
+    """The download path must still work for anyone who deliberately opts into it."""
+    monkeypatch.setattr(config, "EMBED_MODEL", config.HUB_EMBED_MODEL)
+    assert config.embed_model_source() == config.HUB_EMBED_MODEL
+
+
+def test_an_absolute_path_is_used_as_given(monkeypatch, tmp_path):
+    """An absolute EMBED_MODEL needs no resolution - but it still must exist."""
+    present = tmp_path / "weights"
+    present.mkdir()
+    monkeypatch.setattr(config, "EMBED_MODEL", str(present))
+    assert config.embed_model_source() == str(present)
+
+    monkeypatch.setattr(config, "EMBED_MODEL", str(tmp_path / "absent"))
+    with pytest.raises(FileNotFoundError):
+        config.embed_model_source()
+
+
+def test_a_missing_model_directory_is_not_retried(monkeypatch, tmp_path):
+    """Four attempts with a 5/10/20 s backoff cannot put a directory back.
+
+    Without bypassing `_load` here the warm-up would sit through the full retry
+    budget before reporting the one thing that would have helped. Asserting the
+    constructor is never reached is the point: this must fail instantly.
+    """
+    import sentence_transformers
+
+    attempts: list[str] = []
+    monkeypatch.setattr(
+        sentence_transformers, "SentenceTransformer", lambda *a, **k: attempts.append(a)
+    )
+    monkeypatch.setattr(config, "EMBED_MODEL", config.DEFAULT_EMBED_MODEL)
+    monkeypatch.setattr(config, "REPO_ROOT", tmp_path)
+    monkeypatch.setattr(config, "MODEL_LOAD_ATTEMPTS", 4)
+    monkeypatch.setattr(config, "MODEL_LOAD_BACKOFF", 30.0)
+
+    embedder.get_model.cache_clear()
+    try:
+        with pytest.raises(EmbedderError, match="vendor_model"):
+            embedder.get_model()
+    finally:
+        embedder.get_model.cache_clear()
+
+    assert attempts == [], "a missing directory was handed to SentenceTransformer"

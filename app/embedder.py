@@ -7,18 +7,20 @@ produces an index that cannot be searched. `get_model` is lru_cache'd so the
 
 Never hardcode a model id here; the value comes from config.EMBED_MODEL.
 
-Loading is also the app's one unavoidable network call, and on a fresh deploy it
-is where a healthy service dies. The vector index is a gitignored artifact, so a
-new instance has no vectors, and rebuilding them means downloading the model. A
-cold `get_model()` was measured at 63 s for 87 MB, and huggingface.co is
-Cloudflare-fronted: past its anonymous quota it replies with HTTP 429 and a
-"Just a moment..." interstitial rather than the weights. The service stays LIVE
-throughout, because the failure is in a dependency and not in the app, so the
-symptom is a chat UI that loads and then reports a connection error while warming
-up, with a page of HTML as the message.
+Loading used to be the app's one unavoidable network call, and on a fresh deploy it
+is where a healthy service died. Serving a question needs this model in the process
+(app/retrieve calls embed_query on every question), a Render instance's filesystem
+starts empty, and huggingface.co is Cloudflare-fronted: past its quota it replies
+with HTTP 429 and a "Just a moment..." interstitial rather than the weights. The
+service stayed LIVE throughout, because the failure was in a dependency and not in
+the app, so the symptom was a chat UI that loads and then reports a connection
+error while warming up, with a page of HTML as the message.
 
-So the load retries with backoff, and whatever finally escapes is one actionable
-sentence. The markup is the bug's real face, so it is never passed on.
+So the weights are now committed under `models/` (see .gitignore) and EMBED_MODEL
+points at that directory, which makes the default load path purely local and the
+429 unreachable. Everything below it is kept for the case where EMBED_MODEL is
+deliberately set to a hub id: the retry with backoff, and the one actionable
+sentence. The markup is that bug's real face, so it is never passed on.
 """
 
 from __future__ import annotations
@@ -157,12 +159,14 @@ def _load_failure(exc: BaseException | None) -> str:
         f"Could not load the embedding model {config.EMBED_MODEL!r} after "
         f"{config.MODEL_LOAD_ATTEMPTS} attempts. "
         f"Last error: {_clean(exc) if exc else 'unknown'}\n"
-        "A cold instance downloads this model from huggingface.co, which is "
-        "Cloudflare-fronted and rate-limits anonymous callers with an HTTP 429 "
-        "\"Just a moment...\" page, so that is the likely cause.\n"
-        f"Fixes: set HF_TOKEN to a Hugging Face read token ({token}); raise "
-        f"MODEL_LOAD_BACKOFF to wait longer between attempts; or keep the "
-        "instance warm so the model cache survives."
+        "With the default vendored weights this is an incomplete checkout - run "
+        "python -m scripts.vendor_model.\n"
+        "If EMBED_MODEL is set to a hub id instead, the model is downloaded from "
+        "huggingface.co, which is Cloudflare-fronted and rate-limits callers with "
+        "an HTTP 429 \"Just a moment...\" page, so that is the likely cause.\n"
+        "Fixes: point EMBED_MODEL at a local directory (recommended); or set "
+        f"HF_TOKEN to a Hugging Face read token ({token}); or raise "
+        f"MODEL_LOAD_BACKOFF to wait longer between attempts."
     )
 
 
@@ -205,7 +209,19 @@ def get_model():
             "sentence-transformers is not installed. "
             "Run: pip install sentence-transformers"
         ) from exc
-    model = _load(lambda: SentenceTransformer(config.EMBED_MODEL))
+
+    # Resolved here rather than passed as config.EMBED_MODEL: that value is the
+    # model's identity and is recorded verbatim in the index manifest, so it is a
+    # relative path on a POSIX-slash spelling that happens to be loadable. The
+    # working directory of a Streamlit process is not the repo root, so the
+    # absolute path has to be derived.
+    try:
+        source = config.embed_model_source()
+    except FileNotFoundError as exc:
+        # Not retryable: no amount of waiting puts a missing directory back.
+        raise EmbedderError(str(exc)) from exc
+
+    model = _load(lambda: SentenceTransformer(source))
     if config.EMBED_FP16:
         _to_fp16(model)
     return model
